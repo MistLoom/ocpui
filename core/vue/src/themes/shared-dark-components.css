@@ -1,0 +1,368 @@
+/**
+ * 跨主题共享的暗色模式组件样式
+ * tech / editorial 共用，避免两套主题各自维护重复规则
+ */
+
+:is(.theme-tech, .theme-editorial):is(.dark) .btn-primary,
+.dark:is(.theme-tech, .theme-editorial) .btn-primary,
+:is(.theme-tech, .theme-editorial):is(.dark) .button--primary,
+.dark:is(.theme-tech, .theme-editorial) .button--primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .btn-primary:hover,
+.dark:is(.theme-tech, .theme-editorial) .btn-primary:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .button--primary:hover,
+.dark:is(.theme-tech, .theme-editorial) .button--primary:hover {
+  background: hsl(var(--primary-dark));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .btn-secondary,
+.dark:is(.theme-tech, .theme-editorial) .btn-secondary,
+:is(.theme-tech, .theme-editorial):is(.dark) .button--secondary,
+.dark:is(.theme-tech, .theme-editorial) .button--secondary {
+  background: hsl(var(--surface-container));
+  color: hsl(var(--text-primary));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .btn-secondary:hover,
+.dark:is(.theme-tech, .theme-editorial) .btn-secondary:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .button--secondary:hover,
+.dark:is(.theme-tech, .theme-editorial) .button--secondary:hover {
+  background: hsl(var(--surface-container-hover));
+  border-color: hsl(var(--border-hover));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .card,
+.dark:is(.theme-tech, .theme-editorial) .card {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .card:hover,
+.dark:is(.theme-tech, .theme-editorial) .card:hover {
+  border-color: hsl(var(--border-hover));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .card-title,
+.dark:is(.theme-tech, .theme-editorial) .card-title {
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .card-subtitle,
+.dark:is(.theme-tech, .theme-editorial) .card-subtitle {
+  color: hsl(var(--text-secondary-token));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input,
+.dark:is(.theme-tech, .theme-editorial) .input,
+:is(.theme-tech, .theme-editorial):is(.dark) input[type="text"],
+.dark:is(.theme-tech, .theme-editorial) input[type="text"],
+:is(.theme-tech, .theme-editorial):is(.dark) input[type="email"],
+.dark:is(.theme-tech, .theme-editorial) input[type="email"],
+:is(.theme-tech, .theme-editorial):is(.dark) input[type="password"],
+.dark:is(.theme-tech, .theme-editorial) input[type="password"],
+:is(.theme-tech, .theme-editorial):is(.dark) input[type="number"],
+.dark:is(.theme-tech, .theme-editorial) input[type="number"],
+:is(.theme-tech, .theme-editorial):is(.dark) input[type="search"],
+.dark:is(.theme-tech, .theme-editorial) input[type="search"],
+:is(.theme-tech, .theme-editorial):is(.dark) textarea,
+.dark:is(.theme-tech, .theme-editorial) textarea,
+:is(.theme-tech, .theme-editorial):is(.dark) select,
+.dark:is(.theme-tech, .theme-editorial) select {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input::placeholder,
+.dark:is(.theme-tech, .theme-editorial) .input::placeholder,
+:is(.theme-tech, .theme-editorial):is(.dark) input::placeholder,
+.dark:is(.theme-tech, .theme-editorial) input::placeholder,
+:is(.theme-tech, .theme-editorial):is(.dark) textarea::placeholder,
+.dark:is(.theme-tech, .theme-editorial) textarea::placeholder {
+  color: hsl(var(--text-tertiary-token));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input:hover:not(:disabled):not(:focus),
+.dark:is(.theme-tech, .theme-editorial) .input:hover:not(:disabled):not(:focus),
+:is(.theme-tech, .theme-editorial):is(.dark) input:hover:not(:disabled):not(:focus),
+.dark:is(.theme-tech, .theme-editorial) input:hover:not(:disabled):not(:focus) {
+  border-color: hsl(var(--border-hover));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input:focus,
+.dark:is(.theme-tech, .theme-editorial) .input:focus,
+:is(.theme-tech, .theme-editorial):is(.dark) input:focus,
+.dark:is(.theme-tech, .theme-editorial) input:focus {
+  border-color: hsl(var(--border-focus));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+}
+
+/* Input 组件：字段行承担外框；内层 input 不参与主题裸控件叠层 */
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line .input,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line .input,
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-container .input,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-container .input,
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line input,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line input {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line .input:hover,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line .input:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line .input:focus,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line .input:focus,
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line input:hover,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line input:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line input:focus,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line input:focus {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line,
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-container,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-container {
+  background: hsl(var(--surface));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line:hover:not(.input-line--disabled):not(.input-line--readonly),
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line:hover:not(.input-line--disabled):not(.input-line--readonly),
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-container:hover:not(.input-container--disabled):not(.input-container--readonly),
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-container:hover:not(.input-container--disabled):not(.input-container--readonly) {
+  border-color: hsl(var(--border-hover));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-line--focused,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-line--focused,
+:is(.theme-tech, .theme-editorial):is(.dark) .input-wrapper .input-container--focused,
+.dark:is(.theme-tech, .theme-editorial) .input-wrapper .input-container--focused {
+  border-color: hsl(var(--border-focus));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input--error,
+.dark:is(.theme-tech, .theme-editorial) .input--error {
+  border-color: hsl(var(--error));
+  background: hsl(var(--error) / 0.08);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input--warning,
+.dark:is(.theme-tech, .theme-editorial) .input--warning {
+  border-color: hsl(var(--warning));
+  background: hsl(var(--warning) / 0.08);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .input--success,
+.dark:is(.theme-tech, .theme-editorial) .input--success {
+  border-color: hsl(var(--success));
+  background: hsl(var(--success) / 0.08);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .badge,
+.dark:is(.theme-tech, .theme-editorial) .badge {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .badge-primary,
+.dark:is(.theme-tech, .theme-editorial) .badge-primary {
+  background: hsl(var(--primary) / 0.15);
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary) / 0.4);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .nav-node,
+.dark:is(.theme-tech, .theme-editorial) .nav-node {
+  color: hsl(var(--text-secondary-token));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .nav-node:hover,
+.dark:is(.theme-tech, .theme-editorial) .nav-node:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .nav-node.active,
+.dark:is(.theme-tech, .theme-editorial) .nav-node.active {
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.1);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .search-input,
+.dark:is(.theme-tech, .theme-editorial) .search-input {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .search-results,
+.dark:is(.theme-tech, .theme-editorial) .search-results,
+:is(.theme-tech, .theme-editorial):is(.dark) .modal,
+.dark:is(.theme-tech, .theme-editorial) .modal,
+:is(.theme-tech, .theme-editorial):is(.dark) .drawer,
+.dark:is(.theme-tech, .theme-editorial) .drawer,
+:is(.theme-tech, .theme-editorial):is(.dark) .dropdown-menu,
+.dark:is(.theme-tech, .theme-editorial) .dropdown-menu,
+:is(.theme-tech, .theme-editorial):is(.dark) .select-dropdown,
+.dark:is(.theme-tech, .theme-editorial) .select-dropdown {
+  background: hsl(var(--surface-overlay));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .dropdown-item:hover,
+.dark:is(.theme-tech, .theme-editorial) .dropdown-item:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .select-option:hover,
+.dark:is(.theme-tech, .theme-editorial) .select-option:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .search-result-item:hover,
+.dark:is(.theme-tech, .theme-editorial) .search-result-item:hover,
+:is(.theme-tech, .theme-editorial):is(.dark) .search-result-active,
+.dark:is(.theme-tech, .theme-editorial) .search-result-active {
+  background: hsl(var(--primary) / 0.1);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .table,
+.dark:is(.theme-tech, .theme-editorial) .table {
+  background: hsl(var(--surface-container));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .table th,
+.dark:is(.theme-tech, .theme-editorial) .table th {
+  background: hsl(var(--surface-container-high));
+  color: hsl(var(--text-primary));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .table td,
+.dark:is(.theme-tech, .theme-editorial) .table td {
+  border-color: hsl(var(--border));
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .table tr:hover td,
+.dark:is(.theme-tech, .theme-editorial) .table tr:hover td {
+  background: hsl(var(--surface-container-hover));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .pagination-btn,
+.dark:is(.theme-tech, .theme-editorial) .pagination-btn {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .pagination-active,
+.dark:is(.theme-tech, .theme-editorial) .pagination-active {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .tabs-tab,
+.dark:is(.theme-tech, .theme-editorial) .tabs-tab {
+  color: hsl(var(--text-secondary-token));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .tabs-tab-active,
+.dark:is(.theme-tech, .theme-editorial) .tabs-tab-active {
+  color: hsl(var(--primary));
+  border-bottom-color: hsl(var(--primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .message,
+.dark:is(.theme-tech, .theme-editorial) .message {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .message-success,
+.dark:is(.theme-tech, .theme-editorial) .message-success {
+  background: hsl(var(--success) / 0.15);
+  border-color: hsl(var(--success));
+  color: hsl(var(--success));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .message-error,
+.dark:is(.theme-tech, .theme-editorial) .message-error {
+  background: hsl(var(--error) / 0.15);
+  border-color: hsl(var(--error));
+  color: hsl(var(--error));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .message-warning,
+.dark:is(.theme-tech, .theme-editorial) .message-warning {
+  background: hsl(var(--warning) / 0.15);
+  border-color: hsl(var(--warning));
+  color: hsl(var(--warning));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .message-info,
+.dark:is(.theme-tech, .theme-editorial) .message-info {
+  background: hsl(var(--info) / 0.15);
+  border-color: hsl(var(--info));
+  color: hsl(var(--info));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .switch .switch-inner::before,
+.dark:is(.theme-tech, .theme-editorial) .switch .switch-inner::before {
+  background: hsl(var(--border) / 0.3);
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .switch.switch--checked .switch-inner::before,
+.dark:is(.theme-tech, .theme-editorial) .switch.switch--checked .switch-inner::before {
+  background: hsl(var(--primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .checkbox .checkbox-inner,
+.dark:is(.theme-tech, .theme-editorial) .checkbox .checkbox-inner,
+:is(.theme-tech, .theme-editorial):is(.dark) .radio .radio-inner,
+.dark:is(.theme-tech, .theme-editorial) .radio .radio-inner {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .checkbox-checked .checkbox-inner,
+.dark:is(.theme-tech, .theme-editorial) .checkbox-checked .checkbox-inner,
+:is(.theme-tech, .theme-editorial):is(.dark) .radio-checked .radio-inner,
+.dark:is(.theme-tech, .theme-editorial) .radio-checked .radio-inner {
+  background: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .collapse-panel,
+.dark:is(.theme-tech, .theme-editorial) .collapse-panel {
+  background: hsl(var(--surface-container));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .skeleton,
+.dark:is(.theme-tech, .theme-editorial) .skeleton {
+  background: hsl(var(--surface-container-high));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .tooltip,
+.dark:is(.theme-tech, .theme-editorial) .tooltip,
+:is(.theme-tech, .theme-editorial):is(.dark) .popconfirm,
+.dark:is(.theme-tech, .theme-editorial) .popconfirm {
+  background: hsl(var(--surface-overlay));
+  border-color: hsl(var(--border));
+  color: hsl(var(--text-primary));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) .avatar,
+.dark:is(.theme-tech, .theme-editorial) .avatar {
+  background: hsl(var(--surface-container-high));
+  border-color: hsl(var(--border));
+}
+
+:is(.theme-tech, .theme-editorial):is(.dark) :focus-visible,
+.dark:is(.theme-tech, .theme-editorial) :focus-visible {
+  --tw-ring-color: hsl(var(--primary));
+  outline-offset: 2px;
+}

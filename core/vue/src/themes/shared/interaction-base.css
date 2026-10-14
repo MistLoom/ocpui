@@ -1,0 +1,106 @@
+/**
+ * 跨主题交互基线（theme-agnostic）
+ * micro 过渡、按压反馈、滚动条、链接、neumorphic 收敛
+ */
+
+.scan-line::before {
+  display: none;
+}
+
+.neumorphic-raised,
+.neumorphic-flat {
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  box-shadow: none;
+  background: hsl(var(--surface));
+  transition: var(--transition-micro);
+}
+
+.neumorphic-raised:hover,
+.neumorphic-flat:hover {
+  background: hsl(var(--surface-hover));
+  border-color: hsl(var(--border-hover));
+  box-shadow: none;
+}
+
+.neumorphic-inset {
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  box-shadow: inset 0 1px 2px hsl(var(--shadow));
+  background: hsl(var(--surface-inset));
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--text-muted));
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: var(--transition-micro);
+}
+
+a:hover {
+  color: hsl(var(--primary-dark));
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--ring) / 0.45);
+  outline-offset: 2px;
+}
+
+button,
+[role='button'],
+input,
+select,
+textarea,
+.btn,
+.button {
+  transition: var(--transition-micro);
+}
+
+.btn:active:not(:disabled),
+.button:active:not(:disabled),
+[role='button']:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn:active:not(:disabled),
+  .button:active:not(:disabled),
+  [role='button']:active:not(:disabled) {
+    transform: none;
+  }
+}

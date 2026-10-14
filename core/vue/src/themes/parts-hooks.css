@@ -1,0 +1,20 @@
+/**
+ * Parts 钩子：组件根/关键子节点暴露 data-part，供主题与 T4 定向覆盖。
+ * 不改变默认外观；消费方在 .theme-* 或 ui-overrides 中选择器定制。
+ *
+ * 约定 part 名：
+ *   menu-root | menu-item | menu-item-label | menu-indicator
+ *   list-item | list-item-title | list-item-description | list-item-prefix | list-item-suffix
+ *   tabs-nav | tabs-tab | tabs-tab-label | tabs-ink
+ *   dropdown-item
+ */
+
+@layer utilities {
+  /* 指示条跟随默认过渡（Tabs ink / 站点导航共用） */
+  [data-part='tabs-ink'],
+  [data-part='nav-ink'],
+  [data-part='menu-indicator'] {
+    will-change: transform, width;
+    transform-origin: left center;
+  }
+}

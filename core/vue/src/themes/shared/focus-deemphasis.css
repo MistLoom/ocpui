@@ -1,0 +1,52 @@
+/**
+ * overlay 打开时背景调度降焦（container-chain 样式调度 + perception §4 权重 W4）
+ * 触发：html[data-ui-overlay-active]（感知控制器 overlay 栈经 overlayScrollLock 引用计数）
+ * 目标：focus-host / content-host / chrome-host；overlay-host 保持全对比（W3）
+ * 视觉参数全部取自 --focus-weight-deemph-*（contract/variables.css）
+ */
+
+:root {
+  /* 历史别名，收敛到焦点权重 token（perception §4.2） */
+  --deemphasis-opacity: var(--focus-weight-deemph-opacity);
+  --deemphasis-contrast: var(--focus-weight-deemph-contrast);
+  --deemphasis-blur: var(--focus-weight-deemph-blur);
+  --deemphasis-transition:
+    opacity var(--duration-normal) var(--ease-standard),
+    filter var(--duration-normal) var(--ease-standard);
+}
+
+html[data-ui-overlay-active] [data-ui-dispatch-role='focus-host'],
+html[data-ui-overlay-active] [data-ui-dispatch-role='content-host'],
+html[data-ui-overlay-active] [data-ui-dispatch-role='chrome-host'] {
+  opacity: var(--focus-weight-deemph-opacity);
+  filter: contrast(var(--focus-weight-deemph-contrast));
+  transition: var(--deemphasis-transition);
+  pointer-events: none;
+}
+
+/* overlay-host 根为全屏容器，仅豁免降焦；W3 elevated 面/阴影由浮层面板承担（type-feedback.css 引用 elevated token） */
+html[data-ui-overlay-active] [data-ui-dispatch-role='overlay-host'] {
+  opacity: 1;
+  filter: none;
+  pointer-events: auto;
+}
+
+/* 可选 blur：overlay 组件声明 data-ui-overlay-blur 时启用（W4 深度降焦） */
+html[data-ui-overlay-active][data-ui-overlay-blur] [data-ui-dispatch-role='focus-host'],
+html[data-ui-overlay-active][data-ui-overlay-blur] [data-ui-dispatch-role='content-host'],
+html[data-ui-overlay-active][data-ui-overlay-blur] [data-ui-dispatch-role='chrome-host'] {
+  --focus-weight-deemph-blur: 2px;
+  filter:
+    contrast(var(--focus-weight-deemph-contrast))
+    blur(var(--focus-weight-deemph-blur));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* perception §7：降级关 blur，保留 opacity 单手段，权重终态不变 */
+  html[data-ui-overlay-active] [data-ui-dispatch-role='focus-host'],
+  html[data-ui-overlay-active] [data-ui-dispatch-role='content-host'],
+  html[data-ui-overlay-active] [data-ui-dispatch-role='chrome-host'] {
+    transition: none;
+    filter: contrast(1);
+  }
+}

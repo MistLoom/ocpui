@@ -1,0 +1,8 @@
+@import '../contract/variables.css';
+
+/* editorial L2：字体族 */
+:root.theme-editorial,
+html.theme-editorial {
+  --font-sans: 'Inter', 'SF Pro Text', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}

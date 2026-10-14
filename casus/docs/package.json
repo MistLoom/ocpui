@@ -1,0 +1,27 @@
+{
+  "name": "@ocpui/docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node ../../tool/docgen/bin/ocp-doc.js dev",
+    "build": "node ../../tool/docgen/bin/ocp-doc.js build",
+    "preview": "node ../../tool/docgen/bin/ocp-doc.js preview",
+    "linkcheck": "node ../../tool/docgen/bin/ocp-doc.js linkcheck",
+    "index": "node ../../tool/docgen/bin/ocp-doc.js index",
+    "gen:components": "node scripts/generate-component-docs.mjs"
+  },
+  "dependencies": {
+    "@ocpui/docgen": "workspace:*",
+    "@ocpui/markdown-core": "workspace:*",
+    "@ocpui/vue": "workspace:*",
+    "@ocpui/vue-admin": "workspace:*",
+    "@ocpui/vue-docs": "workspace:*",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.7"
+  }
+}

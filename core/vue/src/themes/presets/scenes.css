@@ -1,0 +1,47 @@
+/**
+ * L4 Scene preset — 页面壳语义差量
+ */
+@layer semantic {
+  [data-ui-scene='workbench'] {
+    --ocp-content-gap: 16px;
+    --ocp-toolbar-density: 0.875rem;
+  }
+
+  [data-ui-scene='settings'] {
+    --ocp-content-gap: 20px;
+    --surface-container: var(--surface-inset);
+    --text-secondary-token: var(--text-secondary);
+  }
+
+  [data-ui-scene='editor'] {
+    --ocp-content-gap: 12px;
+    --surface-canvas: var(--surface-inset);
+    --ocp-toolbar-density: 0.8125rem;
+  }
+
+  [data-ui-scene='audit'] {
+    --ocp-content-gap: 12px;
+    --text-secondary-token: var(--text-muted);
+    --surface-container-low: var(--background);
+  }
+
+  [data-ui-scene='copilot'] {
+    --ocp-content-gap: 14px;
+    --surface-canvas: var(--background);
+    --surface-container: var(--surface-inset);
+    --ocp-toolbar-density: 0.875rem;
+  }
+
+  /* 公开消费站：阅读优先、间距略宽 */
+  [data-ui-scene='consumer'] {
+    --ocp-content-gap: 24px;
+    --surface-canvas: var(--background);
+    --surface-container: var(--surface);
+    --ocp-toolbar-density: 0.9375rem;
+  }
+
+  [data-ui-surface='list'][data-ui-scene='audit'] .admin-page__body,
+  [data-ui-surface='list'][data-ui-scene='audit'] .admin-work-list {
+    font-variant-numeric: tabular-nums;
+  }
+}

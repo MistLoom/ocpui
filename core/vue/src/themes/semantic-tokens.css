@@ -1,0 +1,31 @@
+/**
+ * 语义化 Design Tokens（semantic 层，运行时）
+ * 分层与约定说明见 docs/conventions/theme/
+ */
+
+/* 任意已应用主题（含消费方 registerThemeStyle） */
+:root[data-theme-style],
+html[data-theme-style],
+.ocpui-root[data-ui-mode] {
+  /* 语义表面 */
+  --surface-canvas: var(--background);
+  --surface-container: var(--surface);
+  --surface-container-hover: var(--surface-hover);
+  --surface-container-low: var(--surface-inset);
+  --surface-container-high: var(--background-elevated);
+  --surface-overlay: var(--surface);
+
+  /* 语义文本 */
+  --text-primary: var(--text);
+  --text-secondary-token: var(--text-secondary);
+  --text-tertiary-token: var(--text-muted);
+
+  /* 兼容别名：仅供旧样式表引用，组件代码禁止使用（check:theme 阻断） */
+  --bg-base: var(--surface-canvas);
+  --bg-elevated: var(--surface-container-high);
+  --bg-muted: var(--surface-container-low);
+  --bg-alt: var(--surface-container-high);
+  --bg-secondary: var(--surface-container-high);
+  --surface-elevated: var(--surface-container-high);
+  --surface-dark: var(--surface-container-low);
+}

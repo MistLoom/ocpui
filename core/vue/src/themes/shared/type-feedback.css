@@ -1,0 +1,122 @@
+/**
+ * 反馈类组件共享样式
+ * 覆盖 Toast / Modal / PopupPanel / Tooltip
+ * overlay 与 shadow 按 spec；强调态不用 border-primary 冒充
+ */
+
+.toast-item {
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-md);
+}
+
+.toast-close {
+  border-radius: var(--radius-sm);
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.modal-content,
+.popup-panel {
+  border-radius: var(--radius-xl);
+  border: 1px solid hsl(var(--border));
+  /* W3 elevated（perception §4）：最高 surface + 阴影 */
+  background: var(--focus-weight-elevated-surface);
+  box-shadow: var(--focus-weight-elevated-shadow);
+}
+
+.modal-close {
+  border-radius: var(--radius-sm);
+  min-width: 40px;
+  min-height: 40px;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.modal-close:active {
+  transform: rotate(90deg) scale(0.96);
+}
+
+.tooltip-container {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 767.98px) {
+  .tooltip-container {
+    max-width: min(280px, calc(100vw - var(--page-inline-md) * 2));
+  }
+}
+
+/* overlay surface?? presentationMode ?? */
+[data-ui-surface='overlay'] .modal-content,
+[data-ui-surface='overlay'] .popup-panel {
+  --surface-canvas: var(--background-elevated);
+}
+
+@media (max-width: 767.98px) {
+  .toast-item {
+    min-width: min(100%, 320px);
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-content,
+  .dialog-container {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-width: 100%;
+  }
+
+  .drawer-panel {
+    max-width: 100% !important;
+  }
+
+  .drawer--right .drawer-panel,
+  .drawer--left .drawer-panel {
+    width: 100% !important;
+  }
+}
+
+.dialog-container {
+  border-radius: var(--radius-xl);
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--focus-weight-elevated-shadow);
+  /* W3 elevated（perception §4） */
+  background: var(--focus-weight-elevated-surface);
+}
+
+.dialog-close {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: var(--radius-sm);
+}
+
+.dialog-close:active {
+  transform: scale(0.96);
+}
+
+.drawer-panel {
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--focus-weight-elevated-shadow);
+  /* W3 elevated（perception §4） */
+  background: var(--focus-weight-elevated-surface);
+}
+
+.drawer-close {
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.notification-item,
+.notification {
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-md);
+}
+
+.notification-close {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: var(--radius-sm);
+}

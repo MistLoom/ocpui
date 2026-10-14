@@ -1,0 +1,195 @@
+# Registry Frontmatter v2 Schema
+# 权威说明：@ocpui/docs/spec/foundation/registry-spec.md
+# CI：S1 起校验 id 唯一；S2 起渐进必填
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+title: OCP Registry Component Frontmatter
+type: object
+required:
+  - type
+  - name
+  - tier
+  - package
+  - status
+additionalProperties: true
+
+properties:
+  type:
+    const: Component
+
+  id:
+    type: string
+    pattern: "^C:[A-Z][A-Z0-9-]*$"
+    description: "稳定语义 ID，见 F:SEMANTIC-IDS"
+
+  name:
+    type: string
+    minLength: 1
+
+  tier:
+    enum: [T0, T1, T2, T3]
+
+  package:
+    enum: ["@ocpui/vue", "@ocpui/vue-admin"]
+
+  status:
+    enum: [stable, deprecated, draft]
+
+  duty:
+    type: string
+    description: "动词短语职责，T2+ 推荐"
+
+  design_intent:
+    type: string
+    description: "认知需求，非形式描述"
+
+  surfaces:
+    type: array
+    items:
+      enum: [list, detail, form, overlay, chart]
+
+  scenes:
+    type: array
+    items:
+      enum: [workbench, settings, editor, audit]
+
+  requires:
+    type: array
+    items:
+      type: string
+
+  composes:
+    type: array
+    items:
+      type: string
+
+  slots:
+    type: array
+    items:
+      type: string
+
+  dispatchRole:
+    enum: [focus-host, chrome-host, content-host, overlay-host]
+
+  focusPolicy:
+    enum: [restore-trigger, lock]
+
+  handlesStates:
+    type: array
+    items:
+      enum:
+        - initial
+        - loading
+        - ready
+        - empty
+        - partial_error
+        - error
+        - forbidden
+        - submitting
+        - success
+        - success_followup
+
+  delegatesStatesTo:
+    type: string
+    description: "委托 Shell 组件 name"
+
+  stateComponents:
+    type: object
+    additionalProperties:
+      type: string
+
+  feedbackChannel:
+    enum: [action, system, both]
+
+  interactionStates:
+    type: array
+    items:
+      # selected：持久选中态（权重 W2），见 spec/foundation/perception.md §4
+      enum: [default, hover, focus, active, selected, disabled, loading]
+
+  motion:
+    type: object
+    required: [trigger, purpose, tier]
+    properties:
+      # 受控词表见 spec/foundation/perception.md §5
+      trigger:
+        enum:
+          - pointer_hover
+          - pointer_press
+          - user_select
+          - user_submit
+          - overlay_open
+          - expand_panel
+          - list_update
+          - focus_transfer
+          - system_event
+      purpose:
+        enum:
+          - explain_focus
+          - explain_state
+          - explain_spatial_origin
+          - explain_progress
+      tier:
+        enum: [micro, light, medium, heavy, scene, none]
+      interruptible:
+        type: boolean
+      stopWhen:
+        type: string
+      mustNot:
+        type: array
+        items:
+          enum: [steal_focus, reorder_selection, imply_success]
+
+  antiPatterns:
+    type: array
+    items:
+      type: string
+
+  decisions:
+    type: array
+    items:
+      type: object
+      required: [intent, sceneRef, manifestation]
+      properties:
+        intent:
+          type: string
+        sceneRef:
+          type: string
+        manifestation:
+          type: string
+
+  related:
+    type: array
+    items:
+      type: string
+      pattern: "^(C:|K:|S:)[A-Z][A-Z0-9-]*$"
+
+  replaces:
+    type: array
+    items:
+      type: string
+
+  localeKeys:
+    type: array
+    items:
+      type: string
+
+  since:
+    type: string
+
+allOf:
+  - if:
+      properties:
+        tier:
+          const: T3
+    then:
+      required: [dispatchRole]
+
+  - if:
+      properties:
+        tier:
+          enum: [T2, T3]
+    then:
+      anyOf:
+        - required: [handlesStates]
+        - required: [delegatesStatesTo]

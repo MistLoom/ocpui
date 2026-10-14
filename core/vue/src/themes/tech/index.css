@@ -1,0 +1,136 @@
+/* Tech 主题 - Minimal-Tech / Neo-Sci-Fi 风格 */
+/* 轻微拟态设计，避免嵌套堆叠 */
+:root.theme-tech,
+html.theme-tech {
+  /* 图案资源（SVG） */
+  --grid-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M0 0H80V80H0Z' fill='none' stroke='%23283745' stroke-opacity='0.18' stroke-width='1'/%3E%3C/svg%3E");
+  --line-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='32' viewBox='0 0 4 32'%3E%3Crect width='1' height='32' fill='%2379D0D6' fill-opacity='0.28'/%3E%3C/svg%3E");
+  --rail-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M10 20H110M10 80H110' stroke='%234d5f73' stroke-width='1' stroke-opacity='0.2'/%3E%3Ccircle cx='30' cy='20' r='2' fill='%234d5f73' fill-opacity='0.3'/%3E%3Ccircle cx='90' cy='80' r='2' fill='%234d5f73' fill-opacity='0.3'/%3E%3C/svg%3E");
+}
+
+/* 科技主题 - 默认字体颜色和背景 */
+.theme-tech body {
+  background: hsl(var(--background));
+  color: hsl(var(--text));
+  position: relative;
+  overflow-x: hidden;
+}
+
+.theme-tech h1,
+.theme-tech h2,
+.theme-tech h3,
+.theme-tech h4,
+.theme-tech h5,
+.theme-tech h6,
+.theme-tech p {
+  color: hsl(var(--text));
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   性能优化：主题切换期间禁用过渡
+   ============================================ */
+
+/* 主题切换期间 - 禁用过渡，实现即时切换 */
+html.theme-switching .theme-tech *,
+html.theme-switching .theme-tech *::before,
+html.theme-switching .theme-tech *::after {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-tech *,
+  .theme-tech *::before,
+  .theme-tech *::after {
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* 注意：动画定义已移至 animations.css，避免重复定义 */
+
+/* ============================================
+   Tech 主题专属暗色覆盖（通用规则见 shared-dark-components.css）
+   ============================================ */
+
+.theme-tech.dark .btn-primary,
+.dark.theme-tech .btn-primary {
+  box-shadow: 0 4px 16px hsl(var(--primary) / 0.35);
+}
+
+.theme-tech.dark .btn-primary:hover,
+.dark.theme-tech .btn-primary:hover {
+  box-shadow: 0 6px 24px hsl(var(--primary) / 0.45);
+}
+
+.theme-tech.dark .btn-secondary:hover,
+.dark.theme-tech .btn-secondary:hover {
+  color: hsl(var(--primary));
+}
+
+.theme-tech.dark .card,
+.dark.theme-tech .card {
+  box-shadow: 0 4px 20px hsl(0 0% 0% / 0.25);
+}
+
+.theme-tech.dark .card:hover,
+.dark.theme-tech .card:hover {
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.35);
+}
+
+.theme-tech.dark .search-results,
+.dark.theme-tech .search-results {
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.4);
+}
+
+.theme-tech.dark .dropdown-menu,
+.dark.theme-tech .dropdown-menu,
+.theme-tech.dark .select-dropdown,
+.dark.theme-tech .select-dropdown {
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.4);
+}
+
+.theme-tech.dark .popconfirm,
+.dark.theme-tech .popconfirm {
+  box-shadow: 0 8px 32px hsl(0 0% 0% / 0.4);
+}
+
+.theme-tech.dark .tooltip,
+.dark.theme-tech .tooltip {
+  box-shadow: 0 4px 16px hsl(0 0% 0% / 0.3);
+}
+
+/* 深色模式 - 轮播图 */
+.theme-tech.dark .carousel,
+.dark.theme-tech .carousel {
+  background: hsl(var(--surface-container-low));
+}
+
+.theme-tech.dark .carousel-arrow,
+.dark.theme-tech .carousel-arrow {
+  background: hsl(var(--surface-container));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 2px 8px hsl(0 0% 0% / 0.3);
+}
+
+.theme-tech.dark .carousel-dot--active,
+.dark.theme-tech .carousel-dot--active {
+  background: hsl(var(--primary));
+}
+
+/* 深色模式 - 滚动条（Tech 加宽样式） */
+.theme-tech.dark ::-webkit-scrollbar-thumb,
+.dark.theme-tech ::-webkit-scrollbar-thumb {
+  border: 3px solid hsl(var(--surface-canvas));
+}
+
+.theme-tech.dark ::-webkit-scrollbar,
+.dark.theme-tech ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.theme-tech.dark ::-webkit-scrollbar-track,
+.dark.theme-tech ::-webkit-scrollbar-track {
+  background: hsl(var(--surface-canvas));
+}

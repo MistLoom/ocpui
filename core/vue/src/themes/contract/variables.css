@@ -1,0 +1,330 @@
+/**
+ * L1 设计契约 — editorial/tech 共用 token
+ * 间距、圆角、动效、触达、页面内边距、editorial 默认色板、响应式差量
+ */
+
+:root,
+:root.theme-editorial,
+html.theme-editorial {
+  --grid-unit: 8px;
+
+  --space-0: 0;
+  --space-1: calc(var(--grid-unit) * 0.5);
+  --space-2: calc(var(--grid-unit) * 1);
+  --space-3: calc(var(--grid-unit) * 1.5);
+  --space-4: calc(var(--grid-unit) * 2);
+  --space-5: calc(var(--grid-unit) * 2.5);
+  --space-6: calc(var(--grid-unit) * 3);
+  --space-8: calc(var(--grid-unit) * 4);
+  --space-10: calc(var(--grid-unit) * 5);
+  --space-12: calc(var(--grid-unit) * 6);
+  --space-16: calc(var(--grid-unit) * 8);
+  --space-20: calc(var(--grid-unit) * 10);
+  --space-24: calc(var(--grid-unit) * 12);
+
+  --space-4-xs: 4px;
+  --space-4-sm: 8px;
+  --space-4-md: 16px;
+  --space-4-lg: 24px;
+  --space-4-xl: 32px;
+  --space-4-2xl: 48px;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* 控件 10px / 容器 14px：柔和圆角 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  --radius-md-sm: 6px;
+  --radius-md-md: 10px;
+  --radius-md-lg: 14px;
+  --radius-md-xl: 18px;
+  --radius-md-full: 9999px;
+
+  --touch-min-size: 44px;
+
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+  --bottom-nav-h: 56px;
+
+  /* scan/detail 等密度差量见 themes/shared/presentation-density.css */
+  --pill-height-sm: 32px;
+  --pill-height-md: 36px;
+  --pill-height-lg: 40px;
+  --pill-pad-x-sm: 10px;
+  --pill-pad-x-md: 12px;
+  --pill-pad-x-lg: 14px;
+  --pill-font-sm: 12px;
+  --pill-font-md: 13px;
+  --pill-font-lg: 14px;
+  --pill-gap: 6px;
+  --pill-radius: var(--radius-full);
+
+  --page-inline-xs: 12px;
+  --page-inline-sm: 16px;
+  --page-inline-md: 24px;
+
+  /* 动效时长分级（motion-system §3）：micro 50–150 / light 150–300 / medium 300–500 / heavy 500–1000 */
+  --duration-instant: 0.1s;
+  --duration-fast: 0.12s;    /* micro */
+  --duration-normal: 0.2s;   /* light */
+  --duration-medium: 0.4s;   /* medium（spec 300–500ms） */
+  --duration-slow: 0.6s;     /* heavy（spec 500–1000ms） */
+  --duration-entrance: 0.5s;
+  --duration-page: 0.6s;
+
+  --duration-spin: 1s;
+  --duration-pulse: 2s;
+
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+  /* motion-system §3：进入视区 / 离开视区方向缓动 */
+  --ease-enter: var(--ease-out-expo);
+  --ease-exit: var(--ease-in-expo);
+  --ease-linear: linear;
+  --ease-step-end: step-end;
+  --ease-step-start: step-start;
+
+  /* 焦点权重 token（perception §4）：W0 rest / W1 afforded / W2 primary / W3 elevated / W4 deemphasized */
+  --focus-weight-rest-opacity: 1;
+  --focus-weight-afforded-bg: hsl(var(--primary) / 0.04);
+  --focus-weight-afforded-border: hsl(var(--primary) / 0.35);
+  --focus-weight-primary-bg: hsl(var(--primary) / 0.08);
+  --focus-weight-primary-border: hsl(var(--primary) / 0.6);
+  --focus-weight-elevated-surface: hsl(var(--background-elevated));
+  --focus-weight-elevated-shadow: var(--shadow-lg);
+  --focus-weight-deemph-opacity: 0.58;
+  --focus-weight-deemph-contrast: 0.92;
+  --focus-weight-deemph-blur: 0px;
+  /* W1 数据变化单次提示停留（perception §4.3：~600ms 内回落） */
+  --focus-weight-flash-duration: 0.6s;
+
+  --transition-micro:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+  --transition-fast: var(--duration-fast) var(--ease-standard);
+  --transition-normal: var(--duration-normal) var(--ease-standard);
+  --transition-slow: var(--duration-slow) var(--ease-standard);
+
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-base: var(--font-size-md);
+  --space-4-base: var(--space-4-md);
+
+  /* editorial 默认色板 · 亮色 */
+  --primary: 195 48% 46%;
+  --primary-dark: 195 48% 40%;
+  --primary-light: 195 35% 94%;
+  --accent: 22 68% 54%;
+  --ring: var(--primary);
+
+  --background: 210 12% 98%;
+  --background-elevated: 210 14% 99%;
+  --surface: 0 0% 100%;
+  --surface-hover: 210 16% 96%;
+  --surface-inset: 210 10% 95.5%;
+
+  --text: 210 18% 14%;
+  --text-secondary: 210 10% 42%;
+  --text-muted: 210 8% 56%;
+  --text-disabled: 210 6% 72%;
+
+  --border: 210 12% 90%;
+  --border-hover: 210 14% 84%;
+  --border-focus: 195 48% 46%;
+
+  /* 浮层遮罩色（HSL 通道，供 hsl(var(--overlay) / α)） */
+  --overlay: 210 18% 10%;
+
+  --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.03);
+  --shadow: 0 0% 0% / 0.04;
+  --shadow-md: 0 2px 6px hsl(0 0% 0% / 0.05);
+  --shadow-lg: 0 6px 20px hsl(0 0% 0% / 0.06);
+  --shadow-xl: 0 10px 28px hsl(0 0% 0% / 0.08);
+  --glow: transparent;
+
+  --success: 152 52% 42%;
+  --warning: 38 78% 50%;
+  --error: 0 62% 52%;
+  --info: 200 65% 48%;
+
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --primary-foreground: 0 0% 100%;
+  --secondary: var(--background-elevated);
+  --secondary-foreground: var(--text);
+  --accent-foreground: 0 0% 100%;
+  --muted: var(--background-elevated);
+  --muted-foreground: var(--text-secondary);
+
+  --bg-elevated: var(--background-elevated);
+  --bg-muted: var(--surface-inset);
+  --bg-base: var(--background);
+  --bg-alt: var(--background-elevated);
+  --bg-secondary: var(--background-elevated);
+
+  --surface-elevated: var(--background-elevated);
+  --surface-dark: var(--background-elevated);
+
+  --grid-pattern: none;
+  --line-pattern: none;
+  --rail-pattern: none;
+
+  --ocp-ai-accent-bar: var(--accent);
+  --ocp-ai-accent-bar-width: 2px;
+
+  --color-bg: hsl(var(--background));
+  --color-bg-alt: hsl(var(--background-elevated));
+  --color-surface: hsl(var(--surface));
+  --color-text: hsl(var(--text));
+  --color-text-primary: hsl(var(--text));
+  --color-text-secondary: hsl(var(--text-secondary));
+  --color-text-tertiary: hsl(var(--text-muted));
+  --color-border: hsl(var(--border));
+  --color-border-strong: hsl(var(--border) / 0.8);
+  --color-border-hover: hsl(var(--border-hover));
+  --color-accent: hsl(var(--accent));
+  --color-accent-light: hsl(var(--accent) / 0.08);
+  --color-primary: hsl(var(--primary));
+  --color-primary-light: hsl(var(--primary) / 0.08);
+  --color-primary-rgb: 61, 130, 150;
+  --color-fill: hsl(var(--background));
+  --color-fill-tertiary: hsl(var(--surface-inset));
+  --color-error: hsl(var(--error));
+  --color-error-light: hsl(var(--error) / 0.08);
+  --color-success: hsl(var(--success));
+  --color-success-light: hsl(var(--success) / 0.08);
+  --color-warning: hsl(var(--warning));
+  --color-warning-light: hsl(var(--warning) / 0.08);
+  --color-info: hsl(var(--info));
+  --color-info-light: hsl(var(--info) / 0.08);
+}
+
+/* editorial 默认色板 · 暗色 */
+:root.theme-editorial.dark,
+:root.dark.theme-editorial,
+html.theme-editorial.dark,
+html.dark.theme-editorial,
+:root.dark,
+html.dark {
+  --primary: 195 55% 65%;
+  --primary-dark: 195 55% 58%;
+  --primary-light: 195 30% 18%;
+  --accent: 22 72% 62%;
+  --ring: var(--primary);
+
+  --background: 210 14% 9%;
+  --background-elevated: 210 14% 11%;
+  --surface: 210 12% 14%;
+  --surface-hover: 210 12% 17%;
+  --surface-inset: 210 14% 7%;
+
+  --text: 210 10% 93%;
+  --text-secondary: 210 8% 68%;
+  --text-muted: 210 6% 52%;
+  --text-disabled: 210 5% 38%;
+
+  --border: 210 10% 22%;
+  --border-hover: 210 14% 32%;
+  --border-focus: 195 55% 65%;
+
+  --overlay: 210 20% 4%;
+
+  --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.18);
+  --shadow: 0 0% 0% / 0.25;
+  --shadow-md: 0 2px 6px hsl(0 0% 0% / 0.28);
+  --shadow-lg: 0 6px 20px hsl(0 0% 0% / 0.35);
+  --shadow-xl: 0 10px 28px hsl(0 0% 0% / 0.42);
+  --glow: transparent;
+
+  --success: 152 48% 52%;
+  --warning: 38 72% 55%;
+  --error: 0 58% 58%;
+  --info: 200 60% 55%;
+
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --primary-foreground: 210 14% 9%;
+  --secondary: var(--background-elevated);
+  --secondary-foreground: var(--text);
+  --accent-foreground: 210 14% 9%;
+  --muted: var(--background-elevated);
+  --muted-foreground: var(--text-secondary);
+
+  --bg-elevated: var(--background-elevated);
+  --bg-muted: var(--surface-inset);
+  --bg-base: var(--background);
+  --bg-alt: var(--background-elevated);
+  --bg-secondary: var(--background-elevated);
+
+  --surface-elevated: var(--background-elevated);
+  --surface-dark: var(--background-elevated);
+
+  --color-bg: hsl(var(--background));
+  --color-bg-alt: hsl(var(--background-elevated));
+  --color-surface: hsl(var(--surface));
+  --color-text: hsl(var(--text));
+  --color-text-primary: hsl(var(--text));
+  --color-text-secondary: hsl(var(--text-secondary));
+  --color-text-tertiary: hsl(var(--text-muted));
+  --color-border: hsl(var(--border));
+  --color-border-strong: hsl(var(--border) / 0.8);
+  --color-border-hover: hsl(var(--border-hover));
+  --color-accent: hsl(var(--accent));
+  --color-accent-light: hsl(var(--accent) / 0.12);
+  --color-primary: hsl(var(--primary));
+  --color-primary-light: hsl(var(--primary) / 0.12);
+  --color-primary-rgb: 120, 175, 195;
+  --color-fill: hsl(var(--background) / 0.8);
+  --color-fill-tertiary: hsl(var(--surface-inset));
+  --color-error: hsl(var(--error));
+  --color-error-light: hsl(var(--error) / 0.12);
+  --color-success: hsl(var(--success));
+  --color-success-light: hsl(var(--success) / 0.12);
+  --color-warning: hsl(var(--warning));
+  --color-warning-light: hsl(var(--warning) / 0.12);
+  --color-info: hsl(var(--info));
+  --color-info-light: hsl(var(--info) / 0.12);
+}
+
+/* 平板：略增页面内边距 */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  :root,
+  :root.theme-editorial,
+  html.theme-editorial {
+    --page-inline-md: 20px;
+  }
+}
+
+/* 移动：紧凑内边距与间距 */
+@media (max-width: 767.98px) {
+  :root,
+  :root.theme-editorial,
+  html.theme-editorial {
+    --page-inline-xs: 12px;
+    --page-inline-sm: 14px;
+    --page-inline-md: 16px;
+    --space-4-md: 12px;
+    --space-4-lg: 20px;
+    --font-size-base: var(--font-size-sm);
+  }
+}

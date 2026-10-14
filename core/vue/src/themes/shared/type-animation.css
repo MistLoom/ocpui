@@ -1,0 +1,27 @@
+/**
+ * animation 类型：过渡时长与降级
+ */
+
+.fade-transition-enter-active,
+.fade-transition-leave-active,
+.slide-transition-enter-active,
+.slide-transition-leave-active,
+.collapse-transition-enter-active,
+.collapse-transition-leave-active {
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--ease-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-transition-enter-active,
+  .fade-transition-leave-active,
+  .slide-transition-enter-active,
+  .slide-transition-leave-active,
+  .collapse-transition-enter-active,
+  .collapse-transition-leave-active,
+  .number-animation,
+  .marquee-track {
+    animation: none !important;
+    transition: none !important;
+  }
+}

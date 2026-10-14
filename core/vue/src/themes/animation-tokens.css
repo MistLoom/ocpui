@@ -1,0 +1,70 @@
+/**
+ * 动效时长 / 缓动令牌（motion-system §3）
+ *
+ * 权威时长定义在 contract/variables.css；本文件仅提供 JS 消费的 CSS 变量映射
+ * 与动效分级（tier）别名。
+ *
+ * 持续装饰动效令牌已按 motion-system §9 / visual-language §10 移除，
+ * 仅保留 explain_progress 所需的 spin/pulse/blink 功能性动画。
+ */
+
+:root {
+  /* tier 别名（motion-system §3 时长分级，与 contract 一致） */
+  --duration-micro: var(--duration-fast);   /* 50–150ms：hover/press */
+  --duration-light: var(--duration-normal); /* 150–300ms：展开/选中 */
+  /* --duration-medium 已在 contract 定义（300–500ms） */
+  --duration-heavy: var(--duration-slow);   /* 500–1000ms：大范围变化 */
+
+  /* 方向缓动别名（motion-system §3） */
+  --ease-enter: var(--ease-out-expo);
+  --ease-exit: var(--ease-in-expo);
+
+  /* 过渡预设：GPU 友好属性，禁止 all 之外的滥用 */
+  --transition-micro:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+
+  --transition-transform:
+    transform var(--duration-medium) var(--ease-standard),
+    opacity var(--duration-medium) var(--ease-standard);
+
+  --transition-expand:
+    max-height var(--duration-medium) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard);
+
+  --transition-modal:
+    opacity var(--duration-slow) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-enter);
+
+  --transition-drawer:
+    transform var(--duration-slow) var(--ease-standard),
+    opacity var(--duration-medium) var(--ease-standard);
+
+  --transition-dropdown:
+    opacity var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+
+  /* 指示条 / 同类控件跟随（水系近场） */
+  --transition-ink:
+    transform var(--duration-normal) var(--ease-out-soft, var(--ease-standard)),
+    width var(--duration-normal) var(--ease-out-soft, var(--ease-standard)),
+    opacity var(--duration-fast) var(--ease-standard);
+
+  /* 软底渗入（列表/菜单 hover） */
+  --transition-wash:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard);
+
+  /* 向后兼容别名 */
+  --transition-fast: var(--duration-fast);
+  --transition-normal: var(--duration-normal);
+  --transition-slow: var(--duration-slow);
+  --ease-out: var(--ease-standard);
+}
+
+/* reduced-motion 降级由 interaction-base.css / animations.css 全局处理 */

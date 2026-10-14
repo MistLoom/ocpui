@@ -1,0 +1,5 @@
+/**
+ * Input-related types
+ */
+
+export {}

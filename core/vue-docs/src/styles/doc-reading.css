@@ -1,0 +1,422 @@
+/**
+ * 文档阅读壳层 + 阅读专属增强（配合 theme-editorial + presentationMode: read）
+ * 正文字色/字阶等 prose 见 doc-prose.css（与所见即所得共用）
+ */
+@import './doc-prose.css';
+
+:root {
+  --doc-measure: 72ch;
+  --doc-font-size: 1rem;
+  --doc-leading: 1.75;
+  --doc-heading-leading: 1.3;
+  --doc-heading-scale: 1;
+  --doc-code-bg: hsl(var(--surface-muted, var(--background)));
+  --doc-aside-width: 16rem;
+  --doc-layout-max: 1280px;
+  --doc-page-inline: var(--page-inline-md, 24px);
+}
+
+/* docgen 根链：防止横向溢出 */
+html {
+  overflow-x: clip;
+}
+
+body,
+#app,
+.docgen-root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.docgen-app {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--doc-layout-max);
+  margin-inline: auto;
+  min-width: 0;
+  padding-inline: var(--doc-page-inline);
+}
+
+@media (max-width: 639.98px) {
+  :root {
+    --doc-page-inline: var(--page-inline-xs, 12px);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  :root {
+    --doc-page-inline: var(--page-inline-sm, 16px);
+  }
+}
+
+/* 阅读区布局：container 挂在 shell 上，grid 为子元素，避免 TOC 掉到正文下方 */
+.doc-reader-shell {
+  container-type: inline-size;
+  container-name: doc-reader;
+}
+
+.doc-reader-shell__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.doc-reader-shell__body {
+  min-width: 0;
+  font-size: var(--doc-font-size, 1rem);
+}
+
+.doc-reader-shell__body .markdown-body__content {
+  line-height: var(--doc-leading, 1.75);
+}
+
+.doc-reader-shell__toc {
+  display: none;
+}
+
+@container doc-reader (min-width: 42rem) {
+  .doc-reader-shell__layout {
+    grid-template-columns: minmax(0, 1fr) var(--doc-aside-width, 16rem);
+  }
+
+  .doc-reader-shell__toc {
+    display: block;
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100vh - 6rem);
+    overflow: auto;
+    min-width: 0;
+  }
+}
+
+/* 无 container query 支持时的回退 */
+@supports not (container-type: inline-size) {
+  @media (min-width: 1024px) {
+    .doc-reader-shell__layout {
+      grid-template-columns: minmax(0, 1fr) var(--doc-aside-width, 16rem);
+    }
+
+    .doc-reader-shell__toc {
+      display: block;
+      position: sticky;
+      top: 5rem;
+      align-self: start;
+      max-height: calc(100vh - 6rem);
+      overflow: auto;
+      min-width: 0;
+    }
+  }
+}
+
+/* 文档顶栏 chrome（对齐 PageHeader：单行主区 + extra 操作区） */
+.doc-chrome {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3, 12px);
+  padding-block: var(--space-3, 12px);
+  border-bottom: 1px solid hsl(var(--border));
+  margin-bottom: var(--space-4, 16px);
+}
+
+.doc-chrome-main {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.doc-chrome-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3, 12px);
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.doc-chrome-actions .global-search {
+  flex: 0 0 auto;
+}
+
+.doc-chrome-actions .global-search-trigger,
+.doc-chrome-actions .search-trigger-content {
+  min-width: min(14rem, 100%);
+}
+
+@media (max-width: 767.98px) {
+  .doc-chrome-actions .global-search-trigger,
+  .doc-chrome-actions .search-trigger-content {
+    min-width: 0;
+  }
+}
+
+/* 侧栏导航：文档语境下的树节点 */
+.doc-nav-tree .tree-node-content {
+  border-radius: var(--radius-sm, 0.25rem);
+}
+
+.doc-nav-tree .tree-node-content--selected {
+  background: hsl(var(--primary) / 0.08);
+  color: hsl(var(--primary));
+  font-weight: 500;
+}
+
+.doc-nav-tree .tree-node-content:hover:not(.tree-node-content--selected) {
+  background: hsl(var(--surface-hover, var(--background)));
+}
+
+/* 阅读态：TOC 跳转留白；锚点为 append 右侧 # */
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content :is(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: 5rem;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content a.doc-heading-anchor {
+  color: hsl(var(--text-muted));
+  text-decoration: none;
+  margin-inline-start: 0.25em;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content :is(h1, h2, h3, h4, h5, h6):hover .doc-heading-anchor,
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content :is(h1, h2, h3, h4, h5, h6):focus-within .doc-heading-anchor {
+  opacity: 1;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content :is(ul, ol).contains-task-list {
+  list-style: none;
+  padding-inline-start: 0.25em;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .task-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .task-list-item input[type='checkbox'] {
+  margin-block: 0.35em 0;
+  accent-color: hsl(var(--primary));
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content :is(del, s) {
+  color: hsl(var(--text-muted));
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .footnotes {
+  margin-block-start: 2rem;
+  padding-block-start: 1rem;
+  border-top: 1px solid hsl(var(--border));
+  font-size: 0.875em;
+  color: hsl(var(--text-muted));
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .footnotes ol {
+  padding-inline-start: 1.25em;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .footnote-ref,
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content a[data-footnote-ref] {
+  text-decoration: none;
+  font-size: 0.75em;
+  vertical-align: super;
+  color: hsl(var(--primary));
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content pre.doc-code-block {
+  position: relative;
+  margin-block: 1rem;
+  padding: 0.875rem 1rem;
+  overflow-x: auto;
+  border-radius: var(--radius-md, 0.5rem);
+  border: 1px solid hsl(var(--border));
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content pre:not(.shiki),
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content pre.doc-code-block:not(.shiki) {
+  background: var(--doc-code-bg);
+}
+
+/* shiki 双主题 token：defaultColor:false，亮/暗由 CSS 变量切换 */
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .shiki,
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+html.dark .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .shiki,
+html.dark .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .shiki span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .shiki .line {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-code-block__copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm, 0.25rem);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  color: hsl(var(--text-muted));
+  cursor: pointer;
+  transition:
+    color var(--duration-fast, 0.12s) var(--ease-standard, ease),
+    background-color var(--duration-fast, 0.12s) var(--ease-standard, ease),
+    border-color var(--duration-fast, 0.12s) var(--ease-standard, ease),
+    box-shadow var(--duration-fast, 0.12s) var(--ease-standard, ease);
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-code-block__copy:hover {
+  color: hsl(var(--text));
+  background: hsl(var(--surface-hover, var(--background)));
+  border-color: hsl(var(--border-hover));
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-code-block__copy:focus-visible {
+  outline: 2px solid hsl(var(--ring) / 0.7);
+  outline-offset: 2px;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-code-block__copy:active {
+  transform: scale(0.96);
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-glossary-term {
+  color: hsl(var(--primary));
+  text-decoration: underline dotted;
+  text-underline-offset: 0.15em;
+  cursor: help;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-cross-link {
+  text-decoration-style: dashed;
+}
+
+/* Admonition（编译 HTML 与 DocAdmonition 组件共用 class） */
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition,
+.doc-admonition {
+  border-radius: var(--radius-md, 0.5rem);
+  border: 1px solid hsl(var(--border));
+  padding: 0.875rem 1rem;
+  margin-block: 1rem;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition__title,
+.doc-admonition__title {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition--tip,
+.doc-admonition--tip {
+  border-color: hsl(var(--success) / 0.35);
+  background: hsl(var(--success) / 0.08);
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition--warning,
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition--caution,
+.doc-admonition--warning,
+.doc-admonition--caution {
+  border-color: hsl(var(--warning) / 0.35);
+  background: hsl(var(--warning) / 0.08);
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition--danger,
+.doc-admonition--danger {
+  border-color: hsl(var(--danger) / 0.35);
+  background: hsl(var(--danger) / 0.08);
+}
+
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition--info,
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-admonition--note,
+.doc-admonition--info,
+.doc-admonition--note {
+  border-color: hsl(var(--primary) / 0.25);
+  background: hsl(var(--primary) / 0.06);
+}
+
+/* Demo 预览块 */
+.markdown-body[data-ui-presentation-mode='read'] .markdown-body__content .doc-demo,
+.doc-demo {
+  margin-block: 1.5rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md, 0.5rem);
+  overflow: hidden;
+  background: hsl(var(--background));
+}
+
+.doc-demo__preview {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--surface-muted, var(--background)));
+}
+
+.doc-demo-root {
+  width: 100%;
+}
+
+.doc-demo__error {
+  margin: 0;
+  color: hsl(var(--destructive, 0 72% 51%));
+  font-size: 0.875rem;
+}
+
+.doc-demo__source {
+  margin: 0;
+}
+
+.doc-demo__source-toggle {
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: hsl(var(--text-muted));
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.doc-demo__source-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.doc-demo__source[open] .doc-demo__source-toggle {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.doc-demo__source .doc-code-block {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
+@media print {
+  .doc-toc,
+  .doc-code-block__copy,
+  .doc-demo__preview {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doc-toc__link {
+    transition: none;
+  }
+}

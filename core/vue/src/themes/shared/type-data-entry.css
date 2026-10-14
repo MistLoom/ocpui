@@ -1,0 +1,165 @@
+/**
+ * 数据录入类组件共享样式
+ * 覆盖 Input / Select / DatePicker / Upload
+ * focus ring 用 primary token；控件最小高度 40px
+ */
+
+.select-selector {
+  border-radius: var(--radius-lg);
+  border-color: hsl(var(--border));
+  box-shadow: var(--shadow-sm);
+  min-height: 40px;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.select:hover:not(.select--disabled) .select-selector {
+  border-color: hsl(var(--border-hover));
+  box-shadow: var(--shadow-md);
+}
+
+.select--focused .select-selector {
+  border-color: hsl(var(--border-focus));
+  box-shadow:
+    var(--shadow-sm),
+    0 0 0 3px hsl(var(--primary) / 0.12);
+}
+
+.select-option {
+  border-radius: var(--radius-md);
+  min-height: 40px;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.select-option:active:not(.select-option--disabled) {
+  transform: scale(0.98);
+}
+
+.select-clear {
+  border-radius: var(--radius-sm);
+  min-width: 28px;
+  min-height: 28px;
+  position: relative;
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.select-clear::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+}
+
+/* form surface?? data-ui-surface ?? */
+[data-ui-surface='form'] .input-wrapper .input-line,
+[data-ui-surface='form'] .input-wrapper .input-container,
+[data-ui-surface='form'] .select-selector {
+  background: hsl(var(--surface));
+}
+
+.datepicker-selector {
+  border-radius: var(--radius-lg);
+  border-color: hsl(var(--border));
+  box-shadow: var(--shadow-sm);
+  min-height: 40px;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.datepicker:hover:not(.datepicker--disabled) .datepicker-selector {
+  border-color: hsl(var(--border-hover));
+}
+
+.datepicker--focused .datepicker-selector {
+  border-color: hsl(var(--border-focus));
+  box-shadow:
+    var(--shadow-sm),
+    0 0 0 3px hsl(var(--primary) / 0.12);
+}
+
+.datepicker-dropdown {
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-lg);
+}
+
+.datepicker-day {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: var(--radius-md);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.datepicker-day:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.datepicker-nav-btn,
+.datepicker-footer-btn {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: var(--radius-md);
+}
+
+.upload-button {
+  border-radius: var(--radius-lg);
+  min-height: 40px;
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.upload-button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.upload-picture-card {
+  border-radius: var(--radius-lg);
+  border-color: hsl(var(--border));
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.upload-picture-card:active:not(.upload-picture-card--disabled) {
+  transform: scale(0.96);
+}
+
+.upload-list-item-btn {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 767.98px) {
+  .select-selector,
+  .datepicker-selector {
+    min-height: var(--touch-min-size);
+  }
+
+  .datepicker-day {
+    min-width: var(--touch-min-size);
+    min-height: var(--touch-min-size);
+  }
+
+  .upload-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

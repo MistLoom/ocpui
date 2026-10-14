@@ -1,0 +1,63 @@
+{
+  "name": "@ocpui/vue-docs",
+  "version": "0.1.0",
+  "description": "OCP MD Wiki 阅读/编辑 Vue 组件（T1–T3）",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MistLoom/ocpui.git",
+    "directory": "core/vue-docs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./components": "./src/components/index.ts",
+    "./components/*": "./src/components/*",
+    "./composables/*": "./src/composables/*.ts",
+    "./styles/doc-reading": "./src/styles/doc-reading.css",
+    "./styles/doc-prose": "./src/styles/doc-prose.css",
+    "./registry": "./registry/index.md"
+  },
+  "scripts": {
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "registry:build": "node scripts/build-registry.mjs",
+    "check:registry": "node scripts/check-registry-sync.mjs",
+    "check": "pnpm typecheck && pnpm check:registry",
+    "check:full": "pnpm check && pnpm test:run"
+  },
+  "peerDependencies": {
+    "@ocpui/markdown-core": "^0.1.0",
+    "@ocpui/vue": "^0.1.0",
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.8.0",
+    "@codemirror/lang-markdown": "^6.3.2",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.36.4",
+    "@milkdown/crepe": "^7.22.1",
+    "@milkdown/kit": "^7.22.1",
+    "@milkdown/vue": "^7.22.1",
+    "@ocpui/markdown-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@ocpui/vue": "workspace:*",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^16.8.1",
+    "typescript": "~5.6.3",
+    "vitest": "^3.0.0",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0"
+  },
+  "files": [
+    "registry",
+    "src"
+  ]
+}

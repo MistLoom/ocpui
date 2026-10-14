@@ -1,0 +1,104 @@
+/**
+ * 导航类组件共享样式
+ * 覆盖 Tabs / Dropdown / PageHeader
+ * 底部边框分隔 + 选中态 ink bar 用 primary
+ */
+
+.tabs-nav {
+  border-bottom-color: hsl(var(--border));
+}
+
+.tabs-tab {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  min-height: 40px;
+  transition:
+    color var(--duration-normal) var(--ease-standard),
+    background-color var(--duration-normal) var(--ease-standard);
+}
+
+.tabs-tab::before {
+  border-radius: var(--radius-md);
+}
+
+.tabs-tab-active {
+  color: hsl(var(--primary));
+}
+
+.tabs-ink-bar {
+  background: hsl(var(--primary));
+  border-radius: var(--radius-full);
+}
+
+.tabs-card .tabs-tab {
+  border-radius: var(--radius-md);
+  border-color: hsl(var(--border));
+  box-shadow: var(--shadow-sm);
+}
+
+.tabs-card .tabs-tab-active {
+  border-color: hsl(var(--border-hover));
+  background: hsl(var(--surface));
+  box-shadow: var(--shadow-md);
+}
+
+.tabs-plain .tabs-nav {
+  border-bottom-color: hsl(var(--border));
+}
+
+.tabs-plain .tabs-tab-active {
+  color: hsl(var(--primary));
+  border-bottom-color: hsl(var(--primary));
+}
+
+.dropdown-item {
+  border-radius: var(--radius-md);
+  min-height: 40px;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.dropdown-item:active:not(.dropdown-item--disabled) {
+  transform: scale(0.98) translateX(2px);
+}
+
+.page-header-title {
+  text-wrap: balance;
+}
+
+.page-header-back {
+  border-radius: var(--radius-md);
+  min-height: 40px;
+  min-width: 40px;
+  transition:
+    color var(--duration-normal) var(--ease-standard),
+    background-color var(--duration-normal) var(--ease-standard);
+}
+
+.page-header-back:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 767.98px) {
+  .tabs-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs-tab {
+    flex: 0 0 auto;
+    padding-inline: var(--space-4);
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}

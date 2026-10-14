@@ -1,0 +1,59 @@
+{
+  "name": "@ocpui/vue-admin",
+  "version": "0.1.0",
+  "description": "OCP UI — 后台 Shell / Block（T2–T3）",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MistLoom/ocpui.git",
+    "directory": "core/vue-admin"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./layout/*": "./src/components/layout/*.vue",
+    "./data-display/*": "./src/components/data-display/*.vue",
+    "./business/*": "./src/components/business/*/index.ts",
+    "./validation": "./src/validation/index.ts",
+    "./vite": "./src/vite/index.ts",
+    "./registry": "./registry/index.md",
+    "./types/*": "./src/types/*.ts",
+    "./composables/*": "./src/composables/*.ts",
+    "./patterns": "./src/patterns/index.ts"
+  },
+  "scripts": {
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "check:boundary": "node scripts/check-boundary.mjs",
+    "check:spacing": "node scripts/check-spacing-contract.mjs",
+    "check": "pnpm check:boundary && pnpm check:spacing && pnpm typecheck && pnpm test:run",
+    "pack:dry": "npm pack --dry-run",
+    "acceptance": "node scripts/acceptance.mjs",
+    "prepublishOnly": "pnpm acceptance"
+  },
+  "peerDependencies": {
+    "@ocpui/vue": "^0.1.0",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@ocpui/vue": "workspace:*",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^16.8.1",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.7",
+    "vitest": "^3.0.0",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0",
+    "zod": "^3.24.4"
+  },
+  "files": [
+    "LICENSE",
+    "registry",
+    "src"
+  ]
+}

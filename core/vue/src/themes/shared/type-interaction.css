@@ -1,0 +1,29 @@
+/**
+ * interaction 类型：批量选择、拖放、命令面板类交互
+ */
+
+.ocp-list-page-stack .batch-selector {
+  width: 100%;
+}
+
+.drop-zone {
+  border-radius: var(--radius-lg);
+  transition: var(--transition-micro);
+}
+
+.drop-zone--over {
+  border-color: hsl(var(--primary));
+  background: hsl(var(--primary-light));
+}
+
+.global-search-panel,
+.command-palette-root {
+  /* 面板 intrinsic；对外间距由 Teleport 层承担 */
+}
+
+@media (max-width: 767.98px) {
+  .global-search-content,
+  .command-palette-panel {
+    max-height: calc(100dvh - var(--safe-area-top) - var(--safe-area-bottom) - var(--space-8));
+  }
+}

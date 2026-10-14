@@ -1,0 +1,276 @@
+/**
+ * 全局动画关键帧定义 (Global Animation Keyframes)
+ * 
+ * 集中管理所有 @keyframes，确保全项目动画一致性
+ * 配合 animation-tokens.css 使用
+ * 
+ * 命名规范：camelCase，语义化命名
+ */
+
+/* ============================================
+   1. 入场/退场动画 (Entrance/Exit)
+   ============================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   2. 加载旋转动画 (Loading Spin)
+   统一所有 spin 动画为标准 1s linear infinite
+   ============================================ */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinFast {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   3. 状态指示动画 (Status Indicators)
+   ============================================ */
+
+/* 标准脉冲 - 用于状态指示 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* 闪烁效果 - 光标（功能性，非装饰） */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 注：流光(shimmer)、呼吸(breathe)、发光(glow)、漂浮(float)、轨道(orbit)、
+   跑马灯位移等持续装饰动效违反 motion-system §9 / visual-language §10，已移除。
+   骨架屏光泽由 Skeleton 组件自有 skeleton-shimmer 承担（加载进度表达）。 */
+
+/* ============================================
+   5. Vue Transition 类名预设
+   为常用的 <Transition> 提供标准化类名
+   ============================================ */
+
+/* Fade 过渡 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Slide Up 过渡 */
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: transform var(--duration-medium) var(--ease-standard),
+              opacity var(--duration-medium) var(--ease-standard);
+}
+.slide-up-enter-from {
+  transform: translateY(20px);
+  opacity: 0;
+}
+.slide-up-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+/* Slide Down 过渡 */
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: transform var(--duration-medium) var(--ease-standard),
+              opacity var(--duration-medium) var(--ease-standard);
+}
+.slide-down-enter-from {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+.slide-down-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* Scale 过渡 */
+.scale-enter-active,
+.scale-leave-active {
+  transition: transform var(--duration-normal) var(--ease-standard),
+              opacity var(--duration-normal) var(--ease-standard);
+}
+.scale-enter-from,
+.scale-leave-to {
+  transform: scale(0.96);
+  opacity: 0;
+}
+
+/* Collapse 折叠过渡 */
+.collapse-enter-active,
+.collapse-leave-active {
+  transition: max-height var(--duration-medium) var(--ease-standard),
+              opacity var(--duration-fast) var(--ease-standard);
+  overflow: hidden;
+}
+.collapse-enter-from,
+.collapse-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* ============================================
+   6. 动画工具类 (Animation Utilities)
+   推荐使用这些工具类而非直接写 animation
+   ============================================ */
+
+/* 入场动画 */
+.animate-fade-in {
+  animation: fadeIn var(--duration-entrance) var(--ease-out-expo) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-entrance) var(--ease-out-expo) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown var(--duration-entrance) var(--ease-out-expo) forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft var(--duration-slow) var(--ease-standard) forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight var(--duration-slow) var(--ease-standard) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-medium) var(--ease-standard) forwards;
+}
+
+/* 加载动画 */
+.animate-spin {
+  animation: spin var(--duration-spin) var(--ease-linear) infinite;
+}
+
+.animate-spin-fast {
+  animation: spinFast calc(var(--duration-spin) * 0.8) var(--ease-linear) infinite;
+}
+
+/* 状态指示：pulse 仅用于明确的进行中状态（explain_progress），禁止作装饰/提醒脉冲 */
+.animate-pulse {
+  animation: pulse var(--duration-pulse) var(--ease-in-out) infinite;
+}
+
+.animate-blink {
+  animation: blink var(--duration-blink) var(--ease-step-end) infinite;
+}
+
+/* ============================================
+   7. 延迟工具类 (Delay Utilities)
+   ============================================ */
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ============================================
+   8. 性能优化与无障碍 (Performance & A11y)
+   ============================================ */
+
+/* GPU加速提示 - 仅在动画期间使用 */
+.animating {
+  will-change: transform, opacity;
+}
+
+/* 动画结束后移除提示 */
+.animation-complete {
+  will-change: auto;
+}
+
+/* 减少动画偏好支持
+   只收窄装饰性动画，保留功能性过渡（侧栏宽度、按钮状态等），
+   避免 transition-duration 全局归零导致状态变化不可感知 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* 禁用循环动画（进度类 spin/pulse 按 motion-system §7 保留最低必要，此处交全局 0.01ms 处理） */
+  .animate-blink {
+    animation: none !important;
+  }
+}

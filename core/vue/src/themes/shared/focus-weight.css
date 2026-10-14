@@ -1,0 +1,108 @@
+/**
+ * 焦点权重样式（perception §4 / visual-language §7-8）
+ *
+ * W0 rest      —— 默认，无类名
+ * W1 afforded  —— .ocp-weight-afforded（hover、drop 目标、新数据提示）
+ * W2 primary   —— .ocp-weight-selected（持久选中，配 aria-selected / aria-current）
+ * W3 elevated  —— overlay-host（dispatch-role 已承接 surface/shadow，见各 overlay 组件）
+ * W4 deemph... —— focus-deemphasis.css（overlay 打开背景降焦）
+ *
+ * 规则：
+ * - 同一 focus-host 内同一时刻仅一个 W2（批量选中为同组集合态）
+ * - hover 不得超过 W1；W2 是持久态，禁止脉冲动画
+ * - 组件选中样式统一引用本文件，禁止私有选中色/透明度
+ */
+
+/* ---------- W1 afforded：可交互提示 ---------- */
+
+.ocp-weight-afforded,
+.ocp-selectable:hover:not(.ocp-weight-selected):not([aria-disabled='true']) {
+  background-color: var(--focus-weight-afforded-bg);
+  box-shadow: inset 0 0 0 1px var(--focus-weight-afforded-border);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+/* drop 放置目标（type-interaction.css 的 drop-zone--over 收敛引用同一 token） */
+.drop-zone--over {
+  background-color: var(--focus-weight-afforded-bg);
+  box-shadow: inset 0 0 0 2px var(--focus-weight-afforded-border);
+}
+
+/* ---------- W2 primary：持久选中 ---------- */
+
+.ocp-weight-selected,
+.ocp-selectable[aria-selected='true'],
+.ocp-selectable[aria-current='true'] {
+  background-color: var(--focus-weight-primary-bg);
+  box-shadow: inset 0 0 0 1px var(--focus-weight-primary-border);
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+/* 选中项 hover 不再叠加 afforded 背景，避免双色叠加 */
+.ocp-weight-selected:hover,
+.ocp-selectable[aria-selected='true']:hover,
+.ocp-selectable[aria-current='true']:hover {
+  background-color: var(--focus-weight-primary-bg);
+}
+
+/* ---------- W1 单次提示：数据变化（list_update，mustNot reorder_selection） ---------- */
+/* 触发：systemChannel 原位 patch 后由 useChangeFlash 挂载 .ocp-weight-flash，~600ms 自动回落 */
+
+@keyframes ocp-weight-flash {
+  0% {
+    background-color: var(--focus-weight-afforded-bg);
+    box-shadow: inset 0 0 0 1px var(--focus-weight-afforded-border);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px transparent;
+  }
+}
+
+.ocp-weight-flash {
+  animation: ocp-weight-flash var(--focus-weight-flash-duration) var(--ease-standard) 1;
+}
+
+/* 选中项收到 patch：提示在选中底色之上做一次边框加深，不改变 W2 归属 */
+.ocp-weight-selected.ocp-weight-flash,
+.ocp-selectable[aria-selected='true'].ocp-weight-flash {
+  animation: none;
+  box-shadow: inset 0 0 0 1px var(--focus-weight-primary-border);
+  transition: box-shadow var(--focus-weight-flash-duration) var(--ease-standard);
+}
+
+/* ---------- W3 elevated：overlay-host 面板（最高 surface + 阴影） ---------- */
+/* 浮层组件默认由自身面板样式引用 elevated token；此类提供统一显式落点 */
+.ocp-weight-elevated {
+  background: var(--focus-weight-elevated-surface);
+  box-shadow: var(--focus-weight-elevated-shadow);
+}
+
+/* ---------- W4 deemphasized：非 overlay 场景降焦（visual-language §8） ---------- */
+/* overlay 打开时的背景降焦另由 focus-deemphasis.css 经 [data-ui-overlay-active] 全局联动；
+   非 overlay 场景（侧栏展开、已读段落）使用同一组 token，禁止组件私有透明度 */
+.ocp-weight-deemphasized {
+  opacity: var(--focus-weight-deemph-opacity);
+  filter: contrast(var(--focus-weight-deemph-contrast));
+  transition: var(--deemphasis-transition);
+}
+
+/* ---------- 降级：动效关闭后权重终态保留（perception §7） ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .ocp-weight-afforded,
+  .ocp-weight-selected,
+  .ocp-selectable:hover:not(.ocp-weight-selected):not([aria-disabled='true']),
+  .ocp-selectable[aria-selected='true'],
+  .ocp-selectable[aria-current='true'] {
+    transition: none;
+  }
+
+  .ocp-weight-flash {
+    animation: none;
+  }
+}

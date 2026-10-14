@@ -1,0 +1,148 @@
+/**
+ * 组合场景样式（filter 行、表单提交、列表页）
+ * 容器承担 gap/margin，组件保持 intrinsic 尺寸
+ */
+
+/* 筛选行 + 搜索：移动折行 */
+@media (max-width: 767.98px) {
+  .ocp-filter-row--block {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .ocp-filter-row__controls {
+    width: 100%;
+  }
+}
+
+/* 表单 + 底栏提交：移动 safe-area */
+.ocp-form-action-bar {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  padding: var(--space-4-md);
+  padding-bottom: calc(var(--space-4-md) + var(--safe-area-bottom));
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--surface));
+}
+
+@media (max-width: 767.98px) {
+  .ocp-form-action-bar {
+    flex-direction: column-reverse;
+  }
+
+  .ocp-form-action-bar .btn,
+  .ocp-form-action-bar .button {
+    width: 100%;
+    min-height: var(--touch-min-size);
+  }
+}
+
+/* 列表页：选择工具栏移动底固定；对外 margin 由容器 .ocp-list-page-stack 承担 */
+.ocp-list-page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ocp-list-selection-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4-md);
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 767.98px) {
+  .ocp-list-selection-bar {
+    position: fixed;
+    left: var(--page-inline-xs);
+    right: var(--page-inline-xs);
+    bottom: calc(var(--safe-area-bottom) + var(--space-3));
+    z-index: 100;
+  }
+}
+
+/* Shell：admin 页面 body 响应式内边距 */
+.admin-page__body {
+  padding-inline: var(--page-inline-md);
+}
+
+@media (max-width: 639.98px) {
+  .admin-page__body {
+    padding-inline: var(--page-inline-xs);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .admin-page__body {
+    padding-inline: var(--page-inline-sm);
+  }
+}
+
+/* 详情双栏：Descriptions + 侧栏；移动单栏 stack */
+.ocp-detail-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  gap: var(--density-gap, var(--space-4-lg));
+  align-items: start;
+}
+
+/* 列表轨在左、主内容在右（Info Workbench 等） */
+.ocp-detail-panel--rail-left {
+  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 480px;
+}
+
+.ocp-detail-panel__main {
+  min-width: 0;
+}
+
+.ocp-detail-panel__aside {
+  min-width: 0;
+}
+
+@media (max-width: 1023.98px) {
+  .ocp-detail-panel {
+    grid-template-columns: 1fr;
+    gap: var(--space-4-md);
+  }
+
+  .ocp-detail-panel--rail-left {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 指标仪表板：MetricCard 栅格；移动 2→1 列 */
+.ocp-chart-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--density-gap, var(--space-4-md));
+}
+
+@media (max-width: 639.98px) {
+  .ocp-chart-dashboard {
+    grid-template-columns: 1fr;
+    gap: var(--space-4-sm);
+  }
+}
+
+/* 分步向导：Steps + Form + 底栏 */
+.ocp-progressive-wizard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.ocp-progressive-wizard__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

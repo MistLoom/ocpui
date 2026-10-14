@@ -1,0 +1,77 @@
+/**
+ * presentationMode 密度 token 差量
+ * 挂载于 UiRoot / UiScenarioScope 的 data-ui-presentation-mode
+ * 见 visual-language.md §2、container-chain.md §4
+ *
+ * type-layout / combination-patterns 等共享样式通过 --space-4-* 自动继承缩放。
+ */
+
+[data-ui-presentation-mode='summary'] {
+  --density-space-scale: 1;
+  --density-space-unit: 1;
+}
+
+[data-ui-presentation-mode='scan'] {
+  --density-space-scale: 0.875;
+  --density-space-unit: 0.875;
+
+  --space-4-xs: calc(4px * var(--density-space-scale));
+  --space-4-sm: calc(8px * var(--density-space-scale));
+  --space-4-md: calc(16px * var(--density-space-scale));
+  --space-4-lg: calc(24px * var(--density-space-scale));
+  --space-4-xl: calc(32px * var(--density-space-scale));
+  --space-4-2xl: calc(48px * var(--density-space-scale));
+  --space-4-base: var(--space-4-md);
+  --density-gap: var(--space-4-md);
+
+  --pill-height-sm: 28px;
+  --pill-height-md: 32px;
+  --pill-height-lg: 35px;
+  --pill-pad-x-sm: 9px;
+  --pill-pad-x-md: 10px;
+  --pill-pad-x-lg: 12px;
+  --pill-gap: 5px;
+
+  --list-row-padding-y: calc(10px * var(--density-space-scale));
+  --table-row-compact: calc(10px * var(--density-space-scale)) calc(12px * var(--density-space-scale));
+}
+
+[data-ui-presentation-mode='progressive'] {
+  --density-space-scale: 1.0625;
+  --density-space-unit: 1.0625;
+
+  --space-4-xs: calc(4px * var(--density-space-scale));
+  --space-4-sm: calc(8px * var(--density-space-scale));
+  --space-4-md: calc(16px * var(--density-space-scale));
+  --space-4-lg: calc(24px * var(--density-space-scale));
+  --space-4-xl: calc(32px * var(--density-space-scale));
+  --space-4-2xl: calc(48px * var(--density-space-scale));
+  --space-4-base: var(--space-4-md);
+  --density-gap: var(--space-4-md);
+
+  --list-row-padding-y: calc(10px * var(--density-space-scale));
+  --table-row-compact: calc(14px * var(--density-space-scale)) calc(16px * var(--density-space-scale));
+}
+
+[data-ui-presentation-mode='detail'] {
+  --density-space-scale: 1.125;
+  --density-space-unit: 1.125;
+
+  --space-4-xs: calc(4px * var(--density-space-scale));
+  --space-4-sm: calc(8px * var(--density-space-scale));
+  --space-4-md: calc(16px * var(--density-space-scale));
+  --space-4-lg: calc(24px * var(--density-space-scale));
+  --space-4-xl: calc(32px * var(--density-space-scale));
+  --space-4-2xl: calc(48px * var(--density-space-scale));
+  --space-4-base: var(--space-4-md);
+  --density-gap: var(--space-4-md);
+
+  --list-row-padding-y: calc(10px * var(--density-space-scale));
+  --table-row-compact: calc(16px * var(--density-space-scale)) calc(18px * var(--density-space-scale));
+}
+
+/** 文档阅读场景：仅密度 token，阅读偏好 (--doc-*) 由 doc-reading.css / MarkdownBody 管理 */
+[data-ui-presentation-mode='read'] {
+  --density-space-scale: 1;
+  --density-space-unit: 1;
+}

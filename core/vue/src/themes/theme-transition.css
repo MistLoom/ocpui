@@ -1,0 +1,111 @@
+/**
+ * 主题切换过渡动画样式 - View Transitions API 版
+ * 使用浏览器原生 View Transitions API 实现高性能、无闪烁的主题切换
+ */
+
+/* ============================================
+   View Transitions API 基础样式
+   ============================================ */
+
+/* 视图过渡根元素 */
+::view-transition {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* 旧视图层 - 当前主题 */
+::view-transition-old(root) {
+  position: fixed;
+  inset: 0;
+  animation: none;
+}
+
+/* 新视图层 - 目标主题 */
+::view-transition-new(root) {
+  position: fixed;
+  inset: 0;
+  animation: none;
+}
+
+/* ============================================
+   圆形扩散动画
+   ============================================ */
+
+/* 默认情况下新视图从点击处扩散 */
+::view-transition-new(root) {
+  animation: vt-circle-expand 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* 旧视图保持不动（让新视图覆盖） */
+::view-transition-old(root) {
+  animation: none;
+}
+
+@keyframes vt-circle-expand {
+  from {
+    clip-path: circle(0% at var(--transition-x, 50%) var(--transition-y, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--transition-x, 50%) var(--transition-y, 50%));
+  }
+}
+
+/* ============================================
+   性能优化
+   ============================================ */
+
+/* 视图过渡期间优化渲染 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  /* will-change: clip-path 用于圆形扩散动画（vt-circle-expand），clip-path 动画不可避免 */
+  will-change: clip-path;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ============================================
+   基础过渡设置
+   ============================================ */
+
+/* 默认无全局过渡，保持瞬时响应 */
+html {
+  transition: none;
+}
+
+/* ============================================
+   浏览器兼容性提示
+   ============================================ */
+
+/* 不支持 View Transitions API 的浏览器回退 */
+@supports not (view-transition-name: none) {
+  /* 使用传统的遮罩层方案作为回退 */
+  .theme-transition-mask {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--z-max);
+    overflow: hidden;
+  }
+
+  .theme-transition-mask__content {
+    position: absolute;
+    inset: 0;
+    clip-path: circle(0% at var(--transition-x, 50%) var(--transition-y, 50%));
+    /* will-change: clip-path 用于圆形扩散动画（circle-expand），clip-path 动画不可避免 */
+    will-change: clip-path;
+  }
+
+  .theme-transition-mask--active .theme-transition-mask__content {
+    animation: circle-expand 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+
+  @keyframes circle-expand {
+    from {
+      clip-path: circle(0% at var(--transition-x, 50%) var(--transition-y, 50%));
+    }
+    to {
+      clip-path: circle(150% at var(--transition-x, 50%) var(--transition-y, 50%));
+    }
+  }
+}

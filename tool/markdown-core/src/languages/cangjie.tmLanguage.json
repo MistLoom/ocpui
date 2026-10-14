@@ -1,0 +1,109 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "cangjie",
+  "scopeName": "source.cangjie",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#annotations"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.cangjie",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.cangjie",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.cangjie",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cangjie",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.cangjie",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cangjie",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.cangjie",
+          "match": "\\b(func|let|var|const|class|struct|enum|interface|extend|import|package|public|private|protected|internal|if|else|while|for|in|match|break|continue|return|throw|try|catch|finally|where|spawn|unsafe|foreign|macro|prop|init|override|redef|sealed|mut|static|open|abstract|main|quote|synchronized|as|is|this|super|true|false|from|with|do|operator|type|None|Some|Ok|Err|Option|Result|Array|VArray|String|Rune|Unit|Nothing|Any|Object|CPointer|CString|Atomic|Mutex|Future|Thread|Error|Exception|Annotation|CFunc|inout|Range|Iterable|Iterator|Equatable|HashMap|HashSet|ArrayList|println|print|assert|compileTime|runtime|TypeInfo|OverflowThrowing|OverflowWrapping|OverflowSaturating)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "entity.name.type.cangjie",
+          "match": "\\b[A-Z][\\w]*(?:<[^>]+>)?"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.cangjie",
+          "match": "\\b(?:0[xX][\\da-fA-F]+(?:_[\\da-fA-F]+)*|0[bB][01]+(?:_[01]+)*|0[oO][0-7]+(?:_[0-7]+)*|\\d+(?:_\\d+)*(?:\\.\\d+(?:_\\d+)*)?(?:[eE][+-]?\\d+)?)[iufl]*\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.cangjie",
+          "match": "(\\|\\>|~>|\\?\\.|\\?\\?|=>|->|::|\\.\\.|\\.\\.\\.|==|!=|<=|>=|&&|\\|\\||<<|>>|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>=)"
+        }
+      ]
+    },
+    "annotations": {
+      "patterns": [
+        {
+          "name": "storage.type.annotation.cangjie",
+          "match": "@[\\w]+(?:\\([^)]*\\))?"
+        }
+      ]
+    }
+  }
+}

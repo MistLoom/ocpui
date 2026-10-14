@@ -1,0 +1,62 @@
+/**
+ * DocVisualEditor：Crepe/Milkdown 壳层与 token 映射
+ * 正文排版见 doc-prose.css（与阅读态共用）
+ */
+@import './doc-prose.css';
+
+.doc-visual-editor .milkdown {
+  /* 底色透明：融入阅读页背景，不产生独立卡片 */
+  --crepe-color-background: transparent;
+  --crepe-color-on-background: hsl(var(--text));
+  --crepe-color-surface: hsl(var(--background));
+  --crepe-color-surface-low: hsl(var(--surface-muted, var(--background)));
+  --crepe-color-on-surface: hsl(var(--text));
+  --crepe-color-on-surface-variant: hsl(var(--text-muted));
+  --crepe-color-outline: hsl(var(--border));
+  --crepe-color-primary: hsl(var(--primary));
+  --crepe-color-secondary: hsl(var(--surface-hover, var(--background)));
+  --crepe-color-on-secondary: hsl(var(--text));
+  --crepe-color-inverse: hsl(var(--text));
+  --crepe-color-on-inverse: hsl(var(--background));
+  --crepe-color-inline-code: hsl(var(--text));
+  --crepe-color-error: hsl(var(--destructive, 0 72% 51%));
+  --crepe-color-hover: hsl(var(--surface-hover, var(--background)));
+  --crepe-color-selected: hsl(var(--primary) / 0.12);
+  --crepe-color-inline-area: hsl(var(--primary) / 0.06);
+
+  --crepe-font-default: var(--font-sans, inherit);
+  --crepe-font-title: var(--font-sans, inherit);
+  --crepe-font-code: var(--font-mono, ui-monospace, monospace);
+  --crepe-base-font-size: var(--doc-font-size, 1rem);
+}
+
+.doc-visual-editor {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  min-height: 12rem;
+}
+
+.doc-visual-editor .milkdown {
+  width: 100%;
+  background: transparent;
+  color: hsl(var(--text));
+}
+
+.doc-visual-editor .milkdown-toolbar,
+.doc-visual-editor [data-crepe-toolbar] {
+  margin-bottom: 0.75rem;
+  padding: 0.25rem;
+  border: 1px solid hsl(var(--border) / 0.6);
+  border-radius: var(--radius-sm, 0.25rem);
+  background: hsl(var(--surface-hover, var(--background)) / 0.5);
+}
+
+.doc-visual-editor .ProseMirror {
+  min-height: 12rem;
+  padding: 0;
+}
+
+.doc-visual-editor .ProseMirror:focus {
+  outline: none;
+}

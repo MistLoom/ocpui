@@ -1,0 +1,88 @@
+/**
+ * AsyncContentShell / SkeletonScene / RegionLoadingBar
+ * interactiveReveal 与 documentElement.ocp-async-reveal-ready 配合，避免 SSR 缓存先闪现。
+ */
+
+@layer shared-components {
+  html:not(.ocp-async-reveal-ready) .ocp-async-reveal--interactive .ocp-async-reveal__main {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .ocp-async-reveal__main--masked {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .ocp-async-reveal--ready .ocp-async-reveal__main {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .region-loading-bar {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    overflow: hidden;
+    border-radius: var(--radius-full, 999px);
+    background: hsl(var(--border) / 0.35);
+  }
+
+  .region-loading-bar__inner {
+    height: 100%;
+    border-radius: inherit;
+    background: hsl(var(--primary));
+    transition: width 200ms var(--ease-standard, ease);
+  }
+
+  .region-loading-bar__inner--indeterminate {
+    width: 36%;
+    animation: ocp-region-loading-slide 1.1s var(--ease-standard, ease-in-out) infinite;
+  }
+
+  @keyframes ocp-region-loading-slide {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(280%);
+    }
+  }
+
+  .skeleton-scene__block {
+    display: block;
+    border-radius: var(--radius-control, 6px);
+    background: hsl(var(--surface-container-high, var(--border)) / 0.55);
+    opacity: 0;
+    animation: ocp-skeleton-infiltrate var(--duration-panel, 0.28s) var(--ease-out-soft, ease-out) forwards;
+  }
+
+  .skeleton-scene__block--round {
+    border-radius: var(--radius-full, 999px);
+  }
+
+  @keyframes ocp-skeleton-infiltrate {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .region-loading-bar__inner--indeterminate {
+      animation: none;
+      width: 100%;
+      opacity: 0.45;
+    }
+
+    .skeleton-scene__block {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

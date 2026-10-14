@@ -1,0 +1,315 @@
+{
+  "tierOverrides": {
+    "Form": "T1",
+    "FormItem": "T1",
+    "Modal": "T1",
+    "Drawer": "T1",
+    "Dialog": "T1",
+    "Collapse": "T1",
+    "Tabs": "T1",
+    "TabPane": "T1",
+    "Steps": "T1",
+    "Step": "T1",
+    "Breadcrumb": "T1",
+    "Menu": "T1",
+    "Dropdown": "T1",
+    "Empty": "T2",
+    "ErrorStateBlock": "T2",
+    "ConfirmDialog": "T2",
+    "FilterBar": "T2",
+    "PageHeader": "T2"
+  },
+  "categoryDefaults": {
+    "data-entry": {
+      "surfaces": ["list", "form", "overlay"],
+      "scenes": ["workbench", "settings", "editor"],
+      "antiPatterns": ["页内自建校验展示绕开 FormItem"]
+    },
+    "data-display": {
+      "surfaces": ["list", "detail", "chart"],
+      "scenes": ["workbench", "audit", "settings"],
+      "antiPatterns": ["Card 包裹 DataTable", "装饰性外层 Card 套图表"]
+    },
+    "feedback": {
+      "surfaces": ["overlay"],
+      "scenes": ["workbench", "editor", "settings"],
+      "antiPatterns": ["createApp 挂 Message", "messageService 旁路"]
+    },
+    "navigation": {
+      "surfaces": ["list", "overlay"],
+      "scenes": ["workbench", "settings"],
+      "antiPatterns": ["绕开 PageHeader/Menu/Breadcrumb/Pagination 手写等价导航结构"]
+    },
+    "layout": {
+      "surfaces": ["list", "detail", "form"],
+      "scenes": ["workbench", "settings", "editor"],
+      "antiPatterns": ["页根 padding 与 AppShell 重复"]
+    },
+    "utility": {
+      "surfaces": ["list", "form", "overlay"],
+      "scenes": ["workbench", "settings", "editor", "audit"],
+      "antiPatterns": []
+    },
+    "animation": {
+      "surfaces": ["list", "form", "overlay", "detail", "chart"],
+      "scenes": ["workbench", "settings", "editor", "audit"],
+      "antiPatterns": []
+    },
+    "interaction": {
+      "surfaces": ["list", "form"],
+      "scenes": ["workbench", "editor"],
+      "antiPatterns": []
+    },
+    "shells": {
+      "surfaces": ["list"],
+      "scenes": ["workbench"],
+      "antiPatterns": ["页根 padding", "Card 包 DataTable"]
+    }
+  },
+  "components": {
+    "AdminPage": {
+      "surfaces": ["list", "detail", "form", "chart"],
+      "scenes": ["workbench", "settings", "audit", "editor"],
+      "composes": ["PageHeader", "SizeScope", "UiScenarioScope"],
+      "slots": ["header", "tabs", "toolbar", "default", "extra"],
+      "antiPatterns": ["页根 padding", "自建 __header 样式块", "绕过 SizeScope 的 toolbar 控件"],
+      "localeKeys": ["navigation.pageHeader.*"],
+      "duty": "承载后台页面布局分区与主内容焦点",
+      "dispatchRole": "focus-host",
+      "decisions": [
+        {"intent": "让工具栏与主内容焦点分离", "sceneRef": "列表 CRUD 并行筛选与浏览", "manifestation": "#toolbar 使用 SizeScope sm，Body 为 focus-host"},
+        {"intent": "让 surface/scene 在 Shell 内可局部覆盖", "sceneRef": "同页多区域 preset 不同", "manifestation": "内嵌 UiScenarioScope 传播 data-ui-surface"},
+        {"intent": "禁止页根多余 padding 破坏 Shell rhythm", "sceneRef": "迁移旧页面样式", "manifestation": "antiPattern 页根 padding"}
+      ]
+    },
+    "AdminWorkList": {
+      "surfaces": ["list"],
+      "scenes": ["workbench", "audit"],
+      "composes": ["Empty", "ErrorStateBlock", "Loading"],
+      "slots": ["default"],
+      "antiPatterns": ["列表体自建 loading/empty 分支", "Card 包裹列表行"],
+      "localeKeys": ["feedback.empty.*", "feedback.errorState.*"],
+      "duty": "编排列表体的加载、失败、空、无权限与有数据分支",
+      "dispatchRole": "content-host",
+      "handlesStates": ["initial", "loading", "ready", "empty", "partial_error", "error", "forbidden"],
+      "feedbackChannel": "both",
+      "stateEntry": "regionState",
+      "decisions": [
+        {"intent": "空与无结果分支可区分", "sceneRef": "筛选后无匹配", "manifestation": "hasFilter 驱动 Empty 文案分支"},
+        {"intent": "10 态语义进接入", "sceneRef": "Shell 统一编排", "manifestation": "regionState prop 覆盖布尔分支"},
+        {"intent": "无权限不伪装为空", "sceneRef": "责任范围不足", "manifestation": "forbidden 独立分支与 #forbidden-action"}
+      ]
+    },
+    "DataTable": {
+      "surfaces": ["list"],
+      "scenes": ["workbench", "audit"],
+      "composes": ["Table", "Pagination", "Empty", "Loading", "Search"],
+      "slots": ["toolbar", "footer"],
+      "antiPatterns": ["Card wrapping DataTable", "padding on page root", "页内重复筛选条"],
+      "replaces": ["Table"],
+      "localeKeys": ["dataDisplay.dataTable.*", "dataDisplay.table.*"],
+      "duty": "编排表格行展示、选择与批量操作区域",
+      "dispatchRole": "content-host",
+      "decisions": [
+        {"intent": "让列表页不裸用 Table", "sceneRef": "标准 CRUD 列表", "manifestation": "registry 替代 Table；antiPattern Card 包裹"},
+        {"intent": "让批量选择与行操作同区可辨", "sceneRef": "工作台任务队列", "manifestation": "toolbar/footer slot + BatchSelector 组合"},
+        {"intent": "让状态分支委托 Shell 而非表格内部", "sceneRef": "加载/空/错", "manifestation": "delegatesStatesTo AdminWorkList 或外层 Shell"}
+      ]
+    },
+    "LayoutSider": {
+      "surfaces": ["list"],
+      "scenes": ["workbench"],
+      "composes": ["Menu", "Collapse"],
+      "slots": ["default", "footer"],
+      "antiPatterns": ["页面级直接使用 LayoutSider", "与 AppShell 平行双导航"],
+      "localeKeys": ["navigation.menu.*"],
+      "duty": "承载侧栏导航结构与折叠布局",
+      "dispatchRole": "chrome-host"
+    },
+    "SizeScope": {
+      "tier": "T1",
+      "surfaces": ["list", "form", "overlay"],
+      "scenes": ["workbench", "settings", "editor"],
+      "composes": [],
+      "antiPatterns": ["toolbar 内控件绕过 SizeScope"],
+      "localeKeys": [],
+      "duty": "向子树传播统一尺寸上下文"
+    },
+    "ChatMessage": {
+      "tier": "T2",
+      "surfaces": ["detail"],
+      "scenes": ["editor"],
+      "composes": ["Avatar", "Markdown"],
+      "antiPatterns": ["自建聊天气泡样式"],
+      "localeKeys": ["business.chat.*"],
+      "duty": "呈现单条对话消息内容与发送元数据"
+    },
+    "ChatSender": {
+      "tier": "T2",
+      "surfaces": ["form"],
+      "scenes": ["editor"],
+      "composes": ["Textarea", "Button"],
+      "antiPatterns": [],
+      "localeKeys": ["business.chat.*"],
+      "duty": "承载对话输入、发送与附件操作"
+    },
+    "ChatThinking": {
+      "tier": "T2",
+      "surfaces": ["detail"],
+      "scenes": ["editor"],
+      "composes": ["Loading"],
+      "antiPatterns": [],
+      "localeKeys": ["business.chat.*"],
+      "duty": "呈现模型思考过程与进度摘要"
+    },
+    "Button": {
+      "surfaces": ["list", "form", "overlay"],
+      "scenes": ["workbench", "settings", "editor", "audit"],
+      "composes": [],
+      "antiPatterns": ["原生 button 替代 T0 Button"],
+      "localeKeys": ["utility.button.*"],
+      "duty": "承载单一可点击确认或导航动作"
+    },
+    "Input": {
+      "surfaces": ["list", "form", "overlay"],
+      "scenes": ["workbench", "settings", "editor"],
+      "composes": [],
+      "antiPatterns": ["未走 FormItem 的表单校验"],
+      "localeKeys": ["dataEntry.input.*"]
+    },
+    "Select": {
+      "surfaces": ["list", "form"],
+      "scenes": ["workbench", "settings"],
+      "composes": ["PopupPanel"],
+      "antiPatterns": ["无界选项用手写 dropdown"],
+      "localeKeys": ["dataEntry.select.*"]
+    },
+    "Search": {
+      "surfaces": ["list"],
+      "scenes": ["workbench", "audit"],
+      "composes": ["Input", "PopupPanel"],
+      "antiPatterns": ["普通 Input 冒充搜索框"],
+      "localeKeys": ["dataEntry.search.*"]
+    },
+    "Form": {
+      "tier": "T1",
+      "surfaces": ["form"],
+      "scenes": ["editor", "settings"],
+      "composes": ["FormItem"],
+      "slots": ["default"],
+      "antiPatterns": ["页内自建校验展示逻辑"],
+      "localeKeys": ["dataEntry.form.*"]
+    },
+    "FormItem": {
+      "tier": "T1",
+      "surfaces": ["form"],
+      "scenes": ["editor", "settings"],
+      "composes": [],
+      "slots": ["default", "label", "extra"],
+      "antiPatterns": ["控件未包在 FormItem 内"],
+      "localeKeys": ["dataEntry.formItem.*"]
+    },
+    "Modal": {
+      "tier": "T1",
+      "surfaces": ["overlay"],
+      "scenes": ["workbench", "editor", "settings"],
+      "composes": ["PopupPanel"],
+      "slots": ["default", "header", "footer"],
+      "antiPatterns": ["createApp 挂弹层"],
+      "localeKeys": ["feedback.modal.*"],
+      "duty": "承载阻断性浮层内容与焦点锁定",
+      "dispatchRole": "overlay-host",
+      "focusPolicy": "restore-trigger"
+    },
+    "Drawer": {
+      "tier": "T1",
+      "surfaces": ["overlay"],
+      "scenes": ["editor", "workbench"],
+      "composes": [],
+      "slots": ["default", "header", "footer"],
+      "antiPatterns": ["Modal+Drawer 双壳并行"],
+      "localeKeys": ["feedback.drawer.*"],
+      "dispatchRole": "overlay-host",
+      "focusPolicy": "restore-trigger"
+    },
+    "Dialog": {
+      "dispatchRole": "overlay-host",
+      "focusPolicy": "restore-trigger"
+    },
+    "PopupPanel": {
+      "dispatchRole": "overlay-host",
+      "focusPolicy": "restore-trigger"
+    },
+    "Overlay": {
+      "dispatchRole": "overlay-host",
+      "focusPolicy": "restore-trigger"
+    },
+    "ConfirmDialog": {
+      "tier": "T2",
+      "duty": "承载用户确认动作、影响说明与提交反馈",
+      "dispatchRole": "overlay-host",
+      "focusPolicy": "restore-trigger"
+    },
+    "ErrorStateBlock": {
+      "tier": "T2",
+      "duty": "呈现可恢复失败态与后续路径"
+    },
+    "PageHeader": {
+      "tier": "T2",
+      "duty": "承载页面标题、面包屑与头部操作区"
+    },
+    "Table": {
+      "surfaces": ["list"],
+      "scenes": ["workbench", "audit"],
+      "composes": [],
+      "antiPatterns": ["列表页直接用 Table 而非 DataTable/AdminWorkList"],
+      "replaces": [],
+      "localeKeys": ["dataDisplay.table.*"]
+    },
+    "Card": {
+      "surfaces": ["detail", "form", "chart"],
+      "scenes": ["workbench", "settings"],
+      "composes": [],
+      "slots": ["default", "header", "footer"],
+      "antiPatterns": ["Card 包 DataTable", "图表外层装饰 Card"],
+      "localeKeys": ["dataDisplay.card.*"]
+    },
+    "Empty": {
+      "tier": "T2",
+      "surfaces": ["list", "detail"],
+      "scenes": ["workbench", "audit"],
+      "composes": [],
+      "antiPatterns": ["列表空态自建 div"],
+      "localeKeys": ["feedback.empty.*"],
+      "duty": "说明空数据原因并引导调整或创建"
+    },
+    "Pagination": {
+      "surfaces": ["list"],
+      "scenes": ["workbench", "audit"],
+      "composes": [],
+      "antiPatterns": ["手写分页按钮"],
+      "localeKeys": ["navigation.pagination.*"]
+    },
+    "SegmentedControl": {
+      "surfaces": ["list"],
+      "scenes": ["workbench", "settings"],
+      "composes": [],
+      "antiPatterns": ["RadioGroup 冒充页内 Tab"],
+      "localeKeys": ["dataEntry.segmentedControl.*"]
+    },
+    "Timeline": {
+      "surfaces": ["detail"],
+      "scenes": ["audit"],
+      "composes": ["TimelineItem"],
+      "antiPatterns": ["审计页高饱和装饰 token"],
+      "localeKeys": ["dataDisplay.timeline.*"]
+    },
+    "Descriptions": {
+      "surfaces": ["detail"],
+      "scenes": ["workbench", "settings", "audit"],
+      "composes": ["DescriptionsItem"],
+      "antiPatterns": ["自建详情字段栅格"],
+      "localeKeys": ["dataDisplay.descriptions.*"]
+    }
+  }
+}

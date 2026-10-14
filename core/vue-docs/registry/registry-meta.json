@@ -1,0 +1,129 @@
+{
+  "MarkdownBody": {
+    "id": "C:MARKDOWN-BODY",
+    "tier": "T2",
+    "source": "src/components/MarkdownBody.vue",
+    "duty": "将 compile 结果渲染为可访问 DOM",
+    "handlesStates": ["loading", "error", "ready"],
+    "presentationMode": "read"
+  },
+  "DocToc": {
+    "id": "C:DOC-TOC",
+    "tier": "T2",
+    "source": "src/components/DocToc.vue",
+    "duty": "页内目录与 scroll spy",
+    "handlesStates": ["ready", "empty"],
+    "motion": [{ "trigger": "scroll", "purpose": "explain_focus", "tier": "micro" }]
+  },
+  "DocAdmonition": {
+    "id": "C:DOC-ADMONITION",
+    "tier": "T2",
+    "source": "src/components/DocAdmonition.vue",
+    "duty": "tip/warning/info 语义块",
+    "handlesStates": ["ready"]
+  },
+  "DocCodeBlock": {
+    "id": "C:DOC-CODE-BLOCK",
+    "tier": "T2",
+    "source": "src/components/DocCodeBlock.vue",
+    "duty": "代码高亮、复制、行号",
+    "handlesStates": ["ready"]
+  },
+  "DocReadingPrefs": {
+    "id": "C:DOC-READING-PREFS",
+    "tier": "T2",
+    "source": "src/components/DocReadingPrefs.vue",
+    "duty": "字号、行宽、行高微调",
+    "handlesStates": ["ready"]
+  },
+  "DocGlossaryTerm": {
+    "id": "C:DOC-GLOSSARY-TERM",
+    "tier": "T2",
+    "source": "src/components/DocGlossaryTerm.vue",
+    "duty": "术语标记 + 浮层释义",
+    "handlesStates": ["ready"],
+    "dispatchRole": "overlay-host",
+    "motion": [{ "trigger": "overlay_open", "purpose": "explain_spatial_origin", "tier": "light", "mustNot": ["steal_focus"] }]
+  },
+  "DocCrossPreview": {
+    "id": "C:DOC-CROSS-PREVIEW",
+    "tier": "T2",
+    "source": "src/components/DocCrossPreview.vue",
+    "duty": "跨文档链接悬停摘要卡",
+    "handlesStates": ["loading", "ready", "error"],
+    "dispatchRole": "overlay-host",
+    "motion": [{ "trigger": "overlay_open", "purpose": "explain_spatial_origin", "tier": "light", "mustNot": ["steal_focus"] }]
+  },
+  "DocSearchSurface": {
+    "id": "C:DOC-SEARCH-SURFACE",
+    "tier": "T2",
+    "source": "src/components/DocSearchSurface.vue",
+    "duty": "文档检索面（GlobalSearch 壳）",
+    "handlesStates": ["ready", "empty"],
+    "dispatchRole": "overlay-host",
+    "composes": ["GlobalSearch"],
+    "motion": [{ "trigger": "overlay_open", "purpose": "explain_focus", "tier": "light" }]
+  },
+  "DocNavTree": {
+    "id": "C:DOC-NAV-TREE",
+    "tier": "T2",
+    "source": "src/components/DocNavTree.vue",
+    "duty": "Wiki 侧栏导航树",
+    "handlesStates": ["ready", "empty"],
+    "dispatchRole": "chrome-host",
+    "composes": ["Tree"]
+  },
+  "DocReaderShell": {
+    "id": "C:DOC-READER-SHELL",
+    "tier": "T3",
+    "source": "src/components/DocReaderShell.vue",
+    "duty": "单页阅读：正文 + TOC + 偏好",
+    "handlesStates": ["loading", "error", "empty", "ready"],
+    "dispatchRole": "focus-host",
+    "presentationMode": "read",
+    "composes": ["C:MARKDOWN-BODY", "C:DOC-TOC", "C:DOC-READING-PREFS"]
+  },
+  "DocWikiShell": {
+    "id": "C:DOC-WIKI-SHELL",
+    "tier": "T3",
+    "source": "src/components/DocWikiShell.vue",
+    "duty": "多文档 Wiki：nav + 检索 + 面包屑",
+    "handlesStates": ["loading", "error", "empty", "ready"],
+    "dispatchRole": "focus-host",
+    "presentationMode": "read",
+    "composes": ["C:DOC-READER-SHELL", "C:DOC-TOC", "C:DOC-READING-PREFS", "Tree", "GlobalSearch"]
+  },
+  "DocEditorShell": {
+    "id": "C:DOC-EDITOR-SHELL",
+    "tier": "T3",
+    "source": "src/components/DocEditorShell.vue",
+    "duty": "所见即所得/源码/分屏三模式编辑，元数据经 Drawer 收束",
+    "handlesStates": ["ready", "error"],
+    "dispatchRole": "focus-host",
+    "composes": ["C:MARKDOWN-BODY", "C:DOC-MARKDOWN-EDITOR", "C:DOC-VISUAL-EDITOR", "C:DOC-FRONTMATTER-PANEL"]
+  },
+  "DocVisualEditor": {
+    "id": "C:DOC-VISUAL-EDITOR",
+    "tier": "T2",
+    "source": "src/components/DocVisualEditor.vue",
+    "duty": "Milkdown Crepe 所见即所得编辑，解析失败回退源码",
+    "handlesStates": ["ready", "error"],
+    "dispatchRole": "focus-host"
+  },
+  "DocMarkdownEditor": {
+    "id": "C:DOC-MARKDOWN-EDITOR",
+    "tier": "T2",
+    "source": "src/components/DocMarkdownEditor.vue",
+    "duty": "CodeMirror 6 GFM 源码编辑",
+    "handlesStates": ["ready"],
+    "dispatchRole": "focus-host"
+  },
+  "DocFrontmatterPanel": {
+    "id": "C:DOC-FRONTMATTER-PANEL",
+    "tier": "T2",
+    "source": "src/components/DocFrontmatterPanel.vue",
+    "duty": "frontmatter 结构化表单与 Raw 切换",
+    "handlesStates": ["ready"],
+    "dispatchRole": "chrome-host"
+  }
+}

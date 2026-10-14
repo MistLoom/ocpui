@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`check-doc-compile > TOC 结构 snapshot 1`] = `
+[
+  {
+    "depth": 1,
+    "id": "user-content-标题层级",
+    "text": "标题层级",
+  },
+  {
+    "depth": 2,
+    "id": "user-content-二级-a",
+    "text": "二级 A",
+  },
+  {
+    "depth": 3,
+    "id": "user-content-三级-a1",
+    "text": "三级 A1",
+  },
+  {
+    "depth": 2,
+    "id": "user-content-二级-b",
+    "text": "二级 B",
+  },
+]
+`;
+
+exports[`check-doc-compile > admonition 结构 snapshot 1`] = `
+"<aside class="doc-admonition doc-admonition--tip" data-admonition-type="tip" data-admonition-title="提示"><p>提示</p><div class="doc-admonition__body"><p>这是一条提示内容。</p></div></aside>
+<h2 id="user-content-相关">相关<a class="doc-heading-anchor" aria-hidden="true" tabindex="-1" href="#相关">#</a></h2>
+<p>参见文档。</p>"
+`;

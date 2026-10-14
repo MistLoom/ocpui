@@ -1,0 +1,107 @@
+@import '../contract/variables.css';
+
+/* tech L2 差量：偏蓝工具感，饱和度 ≤55%，略大圆角，无 glow */
+:is(:root.theme-tech, html.theme-tech) {
+  --font-sans: 'IBM Plex Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-md-sm: 8px;
+  --radius-md-md: 12px;
+  --radius-md-lg: 16px;
+  --radius-md-xl: 20px;
+
+  --page-inline-md: 20px;
+
+  /* tier 差量（motion-system §3）：micro ≤0.15 / light ≤0.3 / medium ≤0.5 / heavy ≤1.0 */
+  --duration-fast: 0.15s;
+  --duration-normal: 0.25s;
+  --duration-medium: 0.45s;
+  --duration-slow: 0.6s;
+  --duration-entrance: 0.5s;
+  --duration-page: 0.7s;
+
+  --primary: 220 52% 50%;
+  --primary-dark: 220 52% 42%;
+  --primary-light: 220 40% 94%;
+  --accent: 220 48% 54%;
+  --ring: var(--primary);
+
+  --background: 220 18% 99%;
+  --background-elevated: 220 20% 100%;
+  --surface: 0 0% 100%;
+  --surface-hover: 220 22% 97%;
+  --surface-inset: 220 14% 96%;
+
+  --text: 220 24% 10%;
+  --text-secondary: 220 12% 42%;
+  --text-muted: 220 8% 58%;
+  --text-disabled: 220 6% 74%;
+
+  --border: 220 12% 90%;
+  --border-hover: 220 18% 82%;
+  --border-focus: 220 52% 50%;
+
+  --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.05);
+  --shadow: 0 0% 0% / 0.08;
+  --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.08);
+  --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.12);
+  --shadow-xl: 0 16px 48px hsl(0 0% 0% / 0.15);
+  --glow: transparent;
+
+  --success: 160 52% 42%;
+  --warning: 45 72% 48%;
+  --error: 0 62% 52%;
+  --info: 200 55% 48%;
+
+  --surface-dark: var(--surface-inset);
+
+  --color-primary-rgb: 61, 118, 196;
+  --color-accent-light: hsl(var(--accent) / 0.08);
+  --color-primary-light: hsl(var(--primary) / 0.08);
+}
+
+:is(:root.theme-tech.dark, :root.dark.theme-tech, html.theme-tech.dark, html.dark.theme-tech) {
+  --primary: 220 55% 62%;
+  --primary-dark: 220 55% 54%;
+  --primary-light: 220 28% 18%;
+  --accent: 220 50% 65%;
+  --ring: var(--primary);
+
+  --background: 220 18% 8%;
+  --background-elevated: 220 16% 10%;
+  --surface: 220 14% 12%;
+  --surface-hover: 220 16% 16%;
+  --surface-inset: 220 14% 6%;
+
+  --text: 220 12% 95%;
+  --text-secondary: 220 8% 70%;
+  --text-muted: 220 6% 55%;
+  --text-disabled: 220 6% 38%;
+
+  --border: 220 12% 20%;
+  --border-hover: 220 20% 36%;
+  --border-focus: 220 55% 62%;
+
+  --shadow-sm: 0 1px 3px hsl(0 0% 0% / 0.3);
+  --shadow: 0 0% 0% / 0.4;
+  --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.4);
+  --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.5);
+  --shadow-xl: 0 16px 48px hsl(0 0% 0% / 0.6);
+  --glow: transparent;
+
+  --success: 160 48% 52%;
+  --warning: 45 68% 52%;
+  --error: 0 58% 58%;
+  --info: 200 52% 52%;
+
+  --surface-dark: var(--surface-inset);
+
+  --color-primary-rgb: 99, 145, 220;
+  --color-accent-light: hsl(var(--accent) / 0.12);
+  --color-primary-light: hsl(var(--primary) / 0.12);
+  --color-fill: hsl(var(--background) / 0.8);
+}

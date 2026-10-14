@@ -1,0 +1,49 @@
+{
+  "name": "ocpui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "OCP UI — Vue 3 设计系统与组件库 monorepo",
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MistLoom/ocpui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MistLoom/ocpui/issues"
+  },
+  "homepage": "https://github.com/MistLoom/ocpui#readme",
+  "scripts": {
+    "playground:dev": "pnpm --filter @ocpui/playground dev",
+    "playground:build": "pnpm --filter @ocpui/playground build",
+    "docs:dev": "pnpm --filter @ocpui/docs dev",
+    "docs:build": "pnpm --filter @ocpui/docs build",
+    "check": "pnpm check:packages",
+    "check:packages": "pnpm --filter @ocpui/markdown-core check && pnpm --filter @ocpui/vue-docs registry:build && pnpm --filter @ocpui/vue-docs check && pnpm --filter @ocpui/docgen check && pnpm --filter @ocpui/vue registry:build && pnpm --filter @ocpui/vue check && pnpm --filter @ocpui/vue-admin check",
+    "test": "pnpm --filter @ocpui/markdown-core test:run && pnpm --filter @ocpui/docgen test:run && pnpm --filter @ocpui/vue test:run && pnpm --filter @ocpui/vue-admin test:run",
+    "test:docs": "pnpm --filter @ocpui/vue-docs test:run",
+    "publish:dry": "pnpm --filter @ocpui/vue pack:dry && pnpm --filter @ocpui/vue-admin pack:dry"
+  },
+  "devDependencies": {
+    "@vue/runtime-dom": "3.5.40",
+    "typescript": "~5.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "vue": "3.5.40",
+      "@vue/runtime-core": "3.5.40",
+      "@vue/runtime-dom": "3.5.40",
+      "@vue/reactivity": "3.5.40",
+      "@vue/shared": "3.5.40",
+      "@vue/compiler-core": "3.5.40",
+      "@vue/compiler-dom": "3.5.40",
+      "@vue/compiler-sfc": "3.5.40",
+      "@vue/compiler-ssr": "3.5.40",
+      "@vue/server-renderer": "3.5.40"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+/**
+ * T0 ???????????
+ * ?? Button / Input / Chip?Tag
+ * ???? + shadow????? 40px????? 0.96
+ * ?? danger ?? semantic error?chip ??? Chip.vue
+ */
+
+.btn,
+.button {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  min-height: 40px;
+}
+
+.btn-secondary,
+.button--secondary {
+  background: hsl(var(--surface));
+  border-color: hsl(var(--border));
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover:not(:disabled),
+.button--secondary:hover:not(:disabled) {
+  background: hsl(var(--surface-hover));
+  border-color: hsl(var(--border-hover));
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary,
+.button--primary {
+  box-shadow: 0 1px 3px hsl(var(--primary) / 0.18);
+}
+
+.btn-primary:hover:not(:disabled),
+.button--primary:hover:not(:disabled) {
+  box-shadow: 0 2px 6px hsl(var(--primary) / 0.22);
+}
+
+/* ????????36px????????40px ????*/
+.tool-button {
+  border-radius: var(--radius-sm);
+}
+
+.tool-button::after {
+  inset: -2px;
+}
+
+/* Input?????????? .input-line ?? */
+.input-wrapper .input-line,
+.input-wrapper .input-container {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.input-wrapper .input-line:hover:not(.input-line--disabled):not(.input-line--readonly),
+.input-wrapper .input-container:hover:not(.input-container--disabled):not(.input-container--readonly) {
+  box-shadow: var(--shadow-md);
+}
+
+.input-wrapper .input-line--focused,
+.input-wrapper .input-container--focused {
+  border-color: hsl(var(--border-focus));
+  box-shadow:
+    var(--shadow-sm),
+    0 0 0 3px hsl(var(--primary) / 0.12);
+}
+
+.input-clear,
+.input-copy,
+.input-password-toggle {
+  border-radius: var(--radius-sm);
+  min-width: 28px;
+  min-height: 28px;
+  position: relative;
+}
+
+.input-clear::after,
+.input-copy::after,
+.input-password-toggle::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+}
+
+/* Chip / Tag?pill ????? + ??shadow */
+.chip,
+.tag {
+  border-radius: var(--pill-radius);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    border-color var(--duration-normal) var(--ease-standard),
+    color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.chip-clickable:active:not(.chip-disabled),
+.tag-clickable:active:not(.tag-disabled) {
+  transform: scale(0.96);
+}
+
+.chip-close {
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.chip-close::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+}
+
+@media (max-width: 767.98px) {
+  .btn,
+  .button,
+  .input-wrapper .input-line,
+  .input-wrapper .input-container {
+    min-height: var(--touch-min-size);
+  }
+}

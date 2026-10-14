@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "tree",
+  "scopeName": "source.tree",
+  "patterns": [
+    {
+      "name": "comment.line.number-sign.tree",
+      "match": "#.*$"
+    },
+    {
+      "name": "punctuation.definition.tree",
+      "match": "[├└│─╭╮╰╯┬┴┼═║╔╗╚╝╠╣╦╩╬]"
+    },
+    {
+      "name": "keyword.control.importance.tree",
+      "match": "\\b(MUST|MAY|SHOULD|SHALL|MUST NOT|SHOULD NOT|禁止|可选|应该|必须|不得)\\b"
+    },
+    {
+      "name": "entity.name.tag.slot.tree",
+      "match": "#\\w+"
+    },
+    {
+      "name": "keyword.operator.chain.tree",
+      "match": ">"
+    },
+    {
+      "name": "string.unquoted.path.tree",
+      "match": "[\\w./\\-*]+/"
+    }
+  ],
+  "repository": {}
+}

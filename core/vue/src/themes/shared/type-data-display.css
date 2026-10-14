@@ -1,0 +1,150 @@
+/**
+ * 数据展示类组件共享样式
+ * 覆盖 Card / MetricCard / StatusTag / ActiveFilterTags / ListItem / Table
+ * 密度 token 由 presentation-density.css 注入，本文件消费
+ */
+
+.card {
+  border-radius: var(--radius-lg);
+  transition:
+    background-color var(--duration-slow) var(--ease-standard),
+    border-color var(--duration-slow) var(--ease-standard),
+    box-shadow var(--duration-slow) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.card--bordered {
+  border-color: hsl(var(--border));
+  box-shadow: var(--shadow-sm);
+}
+
+.card--shadow-always {
+  box-shadow: var(--shadow-md);
+}
+
+.card--shadow-hover:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: hsl(var(--border-hover));
+}
+
+.card--hoverable:active {
+  transform: scale(0.96);
+}
+
+.card-header {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-action {
+  border-radius: 0;
+  transition:
+    color var(--duration-normal) var(--ease-standard),
+    background-color var(--duration-normal) var(--ease-standard);
+}
+
+/* @theme-inherent: 图片描边使用固定 tint，不跟主题色 */
+.card-cover :deep(img) {
+  outline: 1px solid rgba(0, 0, 0, 0.1); /* @theme-inherent: light image outline */
+}
+
+.dark .card-cover :deep(img),
+.dark.card-cover :deep(img) {
+  outline-color: rgba(255, 255, 255, 0.1); /* @theme-inherent: dark image outline */
+}
+
+/* 指标数值强制 tabular-nums，保证对齐 */
+.metric-value,
+.metric-sub-value,
+.animated-number,
+.live-counter {
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-card {
+  transition:
+    border-color var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.metric-action {
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  min-height: 40px;
+  transition:
+    color var(--duration-normal) var(--ease-standard),
+    background-color var(--duration-normal) var(--ease-standard),
+    gap var(--duration-normal) var(--ease-standard);
+}
+
+.metric-action:active {
+  transform: scale(0.96);
+}
+
+.status-tag {
+  border-radius: var(--pill-radius);
+}
+
+.status-dot {
+  box-shadow: 0 0 0 2px hsl(var(--surface));
+}
+
+/* ActiveFilterTags 的 filter-row 清除按钮 */
+.ocp-filter-row__clear {
+  min-height: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ocp-filter-row__clear:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 767.98px) {
+  .metric-value {
+    font-size: 1.75rem;
+  }
+
+  .card-body {
+    padding: var(--space-4);
+  }
+
+  .table-wrapper,
+  .datatable-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-inner tbody tr,
+  .datatable-inner tbody tr {
+    min-height: var(--touch-min-size);
+  }
+}
+
+/* DataTable?vue-admin?? Table ?? */
+.datatable-inner {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.datatable-inner tbody tr {
+  min-height: 40px;
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    border-color var(--duration-normal) var(--ease-standard);
+}
+
+.datatable-inner tbody tr:hover {
+  background: hsl(var(--surface-hover));
+}
+
+.datatable-toolbar {
+  margin-bottom: var(--space-3);
+}
+
+/* presentationMode 密度：列表/表格行 */
+.list-item {
+  padding-block: var(--list-row-padding-y, var(--space-3));
+}
+
+.datatable-inner tbody td,
+.table-inner tbody td {
+  padding: var(--table-row-compact, var(--space-3) var(--space-4));
+}

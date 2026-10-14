@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "name": "MarkdownBody",
+      "id": "C:MARKDOWN-BODY",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/MarkdownBody.vue",
+      "registry": "registry/components/markdown-body.md"
+    },
+    {
+      "name": "DocToc",
+      "id": "C:DOC-TOC",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocToc.vue",
+      "registry": "registry/components/doc-toc.md"
+    },
+    {
+      "name": "DocAdmonition",
+      "id": "C:DOC-ADMONITION",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocAdmonition.vue",
+      "registry": "registry/components/doc-admonition.md"
+    },
+    {
+      "name": "DocCodeBlock",
+      "id": "C:DOC-CODE-BLOCK",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocCodeBlock.vue",
+      "registry": "registry/components/doc-code-block.md"
+    },
+    {
+      "name": "DocReadingPrefs",
+      "id": "C:DOC-READING-PREFS",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocReadingPrefs.vue",
+      "registry": "registry/components/doc-reading-prefs.md"
+    },
+    {
+      "name": "DocGlossaryTerm",
+      "id": "C:DOC-GLOSSARY-TERM",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocGlossaryTerm.vue",
+      "registry": "registry/components/doc-glossary-term.md"
+    },
+    {
+      "name": "DocCrossPreview",
+      "id": "C:DOC-CROSS-PREVIEW",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocCrossPreview.vue",
+      "registry": "registry/components/doc-cross-preview.md"
+    },
+    {
+      "name": "DocSearchSurface",
+      "id": "C:DOC-SEARCH-SURFACE",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocSearchSurface.vue",
+      "registry": "registry/components/doc-search-surface.md"
+    },
+    {
+      "name": "DocNavTree",
+      "id": "C:DOC-NAV-TREE",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocNavTree.vue",
+      "registry": "registry/components/doc-nav-tree.md"
+    },
+    {
+      "name": "DocReaderShell",
+      "id": "C:DOC-READER-SHELL",
+      "tier": "T3",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocReaderShell.vue",
+      "registry": "registry/components/doc-reader-shell.md"
+    },
+    {
+      "name": "DocWikiShell",
+      "id": "C:DOC-WIKI-SHELL",
+      "tier": "T3",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocWikiShell.vue",
+      "registry": "registry/components/doc-wiki-shell.md"
+    },
+    {
+      "name": "DocEditorShell",
+      "id": "C:DOC-EDITOR-SHELL",
+      "tier": "T3",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocEditorShell.vue",
+      "registry": "registry/components/doc-editor-shell.md"
+    },
+    {
+      "name": "DocVisualEditor",
+      "id": "C:DOC-VISUAL-EDITOR",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocVisualEditor.vue",
+      "registry": "registry/components/doc-visual-editor.md"
+    },
+    {
+      "name": "DocMarkdownEditor",
+      "id": "C:DOC-MARKDOWN-EDITOR",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocMarkdownEditor.vue",
+      "registry": "registry/components/doc-markdown-editor.md"
+    },
+    {
+      "name": "DocFrontmatterPanel",
+      "id": "C:DOC-FRONTMATTER-PANEL",
+      "tier": "T2",
+      "package": "@ocpui/vue-docs",
+      "source": "src/components/DocFrontmatterPanel.vue",
+      "registry": "registry/components/doc-frontmatter-panel.md"
+    }
+  ]
+}

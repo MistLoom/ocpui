@@ -1,0 +1,33 @@
+/**
+ * tech L2 专属差量
+ * 装饰性规则已废弃，基元/类型样式见 themes/shared/
+ */
+
+.theme-tech .popup-panel {
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-md);
+}
+
+.theme-tech .shell-content {
+  background: hsl(var(--background));
+}
+
+/* 扫描线、KPI stagger、neumorphic 抬升已移除 — 与 shared 层对齐 */
+
+.theme-tech .scan-line::before,
+.theme-tech .scan-line.scan-line-active::before {
+  display: none !important;
+  animation: none !important;
+}
+
+.theme-tech .kpi-card {
+  animation: none;
+}
+
+.theme-tech .animate-fade-in,
+.theme-tech .animate-slide-left,
+.theme-tech .animate-slide-right,
+.theme-tech .animate-pulse {
+  animation: none;
+}

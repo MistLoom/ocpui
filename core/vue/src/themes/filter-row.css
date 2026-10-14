@@ -1,0 +1,121 @@
+/**
+ * 筛选行内部布局原语（FilterTagGroup / ActiveFilterTags 等共用）
+ * 仅负责组件内�?label �?controls 对齐，不含对�?margin / padding�?
+ * 容器间距�?@ocpui/docs/spec/foundation/visual-language.md §2.1
+ */
+@layer shared-components {
+  .ocp-filter-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pill-gap);
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .ocp-filter-row--block {
+    display: flex;
+    width: 100%;
+  }
+
+  .ocp-filter-row--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ocp-filter-row__label {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-weight: 500;
+    color: hsl(var(--text-secondary));
+    font-size: var(--pill-font-md);
+    line-height: var(--pill-height-md);
+  }
+
+  .ocp-filter-row__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--pill-gap);
+    min-width: 0;
+    flex: 1;
+  }
+
+  .ocp-filter-row__clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--pill-gap);
+    height: var(--pill-height-sm);
+    padding: 0 var(--pill-pad-x-sm);
+    font-size: var(--pill-font-sm);
+    font-weight: 500;
+    color: hsl(var(--text-muted));
+    background: transparent;
+    border: 1px dashed hsl(var(--border));
+    border-radius: var(--pill-radius);
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .ocp-filter-row__clear:hover {
+    color: hsl(var(--error));
+    border-color: hsl(var(--error) / 0.4);
+    background: hsl(var(--error) / 0.05);
+  }
+
+  .ocp-filter-row--sm .ocp-filter-row__label {
+    font-size: var(--pill-font-sm);
+    line-height: var(--pill-height-sm);
+  }
+
+  .ocp-filter-row--sm .ocp-filter-row__clear {
+    height: var(--pill-height-sm);
+    padding: 0 var(--pill-pad-x-sm);
+    font-size: var(--pill-font-sm);
+  }
+
+  .ocp-filter-row--md .ocp-filter-row__label {
+    font-size: var(--pill-font-md);
+    line-height: var(--pill-height-md);
+  }
+
+  .ocp-filter-row--md .ocp-filter-row__clear {
+    height: var(--pill-height-md);
+    padding: 0 var(--pill-pad-x-md);
+    font-size: var(--pill-font-md);
+  }
+
+  .ocp-filter-row--lg .ocp-filter-row__label {
+    font-size: var(--pill-font-lg);
+    line-height: var(--pill-height-lg);
+  }
+
+  .ocp-filter-row--lg .ocp-filter-row__clear {
+    height: var(--pill-height-lg);
+    padding: 0 var(--pill-pad-x-lg);
+    font-size: var(--pill-font-lg);
+  }
+
+  @media (max-width: 639.98px) {
+    .ocp-filter-row--labeled:not(.ocp-filter-row--vertical) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .ocp-filter-row--labeled .ocp-filter-row__controls {
+      width: 100%;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ocp-filter-row--labeled .ocp-filter-row__controls::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

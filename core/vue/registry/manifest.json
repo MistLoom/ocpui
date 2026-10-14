@@ -1,0 +1,1692 @@
+{
+  "components": [
+    {
+      "name": "AbnormalList",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/AbnormalList.vue",
+      "rel": "data-display/AbnormalList.vue",
+      "registry": "registry/display/abnormal-list.md"
+    },
+    {
+      "name": "ActiveFilterTags",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/ActiveFilterTags.vue",
+      "rel": "data-display/ActiveFilterTags.vue",
+      "registry": "registry/display/active-filter-tags.md"
+    },
+    {
+      "name": "AdminFilterToolbar",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/layout/AdminFilterToolbar.vue",
+      "rel": "layout/AdminFilterToolbar.vue",
+      "registry": "registry/shells/admin-filter-toolbar.md"
+    },
+    {
+      "name": "AdminPage",
+      "package": "@ocpui/vue-admin",
+      "tier": "T3",
+      "source": "src/components/layout/AdminPage.vue",
+      "rel": "layout/AdminPage.vue",
+      "registry": "registry/shells/admin-page.md"
+    },
+    {
+      "name": "AdminWorkList",
+      "package": "@ocpui/vue-admin",
+      "tier": "T3",
+      "source": "src/components/layout/AdminWorkList.vue",
+      "rel": "layout/AdminWorkList.vue",
+      "registry": "registry/shells/admin-work-list.md"
+    },
+    {
+      "name": "Affix",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/Affix.vue",
+      "rel": "navigation/Affix.vue",
+      "registry": "registry/navigation/affix.md"
+    },
+    {
+      "name": "Alert",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Alert.vue",
+      "rel": "feedback/Alert.vue",
+      "registry": "registry/feedback/alert.md"
+    },
+    {
+      "name": "AlertItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/AlertItem.vue",
+      "rel": "data-display/AlertItem.vue",
+      "registry": "registry/display/alert-item.md"
+    },
+    {
+      "name": "Anchor",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/Anchor.vue",
+      "rel": "navigation/Anchor.vue",
+      "registry": "registry/navigation/anchor.md"
+    },
+    {
+      "name": "AnimatedNumber",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/AnimatedNumber.vue",
+      "rel": "data-display/AnimatedNumber.vue",
+      "registry": "registry/display/animated-number.md"
+    },
+    {
+      "name": "AsyncContentShell",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/AsyncContentShell.vue",
+      "rel": "feedback/AsyncContentShell.vue",
+      "registry": "registry/feedback/async-content-shell.md"
+    },
+    {
+      "name": "AutoComplete",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/AutoComplete.vue",
+      "rel": "data-entry/AutoComplete.vue",
+      "registry": "registry/primitives/auto-complete.md"
+    },
+    {
+      "name": "Avatar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Avatar.vue",
+      "rel": "utility/Avatar.vue",
+      "registry": "registry/primitives/avatar.md"
+    },
+    {
+      "name": "AvatarGroup",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/AvatarGroup.vue",
+      "rel": "data-display/AvatarGroup.vue",
+      "registry": "registry/display/avatar-group.md"
+    },
+    {
+      "name": "BackTop",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/BackTop.vue",
+      "rel": "navigation/BackTop.vue",
+      "registry": "registry/navigation/back-top.md"
+    },
+    {
+      "name": "Badge",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Badge.vue",
+      "rel": "utility/Badge.vue",
+      "registry": "registry/primitives/badge.md"
+    },
+    {
+      "name": "BatchSelector",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/BatchSelector.vue",
+      "rel": "interaction/BatchSelector.vue",
+      "registry": "registry/interaction/batch-selector.md"
+    },
+    {
+      "name": "BottomNav",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/BottomNav.vue",
+      "rel": "navigation/BottomNav.vue",
+      "registry": "registry/navigation/bottom-nav.md"
+    },
+    {
+      "name": "Breadcrumb",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/navigation/Breadcrumb.vue",
+      "rel": "navigation/Breadcrumb.vue",
+      "registry": "registry/navigation/breadcrumb.md"
+    },
+    {
+      "name": "BulletFeatureList",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/BulletFeatureList.vue",
+      "rel": "data-display/BulletFeatureList.vue",
+      "registry": "registry/display/bullet-feature-list.md"
+    },
+    {
+      "name": "Button",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Button.vue",
+      "rel": "utility/Button.vue",
+      "registry": "registry/primitives/button.md"
+    },
+    {
+      "name": "ButtonGroup",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/ButtonGroup.vue",
+      "rel": "utility/ButtonGroup.vue",
+      "registry": "registry/primitives/button-group.md"
+    },
+    {
+      "name": "Calendar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Calendar.vue",
+      "rel": "data-entry/Calendar.vue",
+      "registry": "registry/primitives/calendar.md"
+    },
+    {
+      "name": "Card",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Card.vue",
+      "rel": "data-display/Card.vue",
+      "registry": "registry/display/card.md"
+    },
+    {
+      "name": "CardHeader",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/CardHeader.vue",
+      "rel": "data-display/CardHeader.vue",
+      "registry": "registry/display/card-header.md"
+    },
+    {
+      "name": "Carousel",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Carousel.vue",
+      "rel": "data-display/Carousel.vue",
+      "registry": "registry/display/carousel.md"
+    },
+    {
+      "name": "Cascader",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Cascader.vue",
+      "rel": "data-entry/Cascader.vue",
+      "registry": "registry/primitives/cascader.md"
+    },
+    {
+      "name": "Chart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Chart.vue",
+      "rel": "data-display/Chart.vue",
+      "registry": "registry/display/chart.md"
+    },
+    {
+      "name": "ChartLegend",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/ChartLegend.vue",
+      "rel": "data-display/ChartLegend.vue",
+      "registry": "registry/display/chart-legend.md"
+    },
+    {
+      "name": "ChatMessage",
+      "package": "@ocpui/vue-admin",
+      "tier": "T2",
+      "source": "src/components/business/chat/ChatMessage.vue",
+      "rel": "business/chat/ChatMessage.vue",
+      "registry": "registry/shells/chat-message.md"
+    },
+    {
+      "name": "ChatSender",
+      "package": "@ocpui/vue-admin",
+      "tier": "T2",
+      "source": "src/components/business/chat/ChatSender.vue",
+      "rel": "business/chat/ChatSender.vue",
+      "registry": "registry/shells/chat-sender.md"
+    },
+    {
+      "name": "ChatThinking",
+      "package": "@ocpui/vue-admin",
+      "tier": "T2",
+      "source": "src/components/business/chat/ChatThinking.vue",
+      "rel": "business/chat/ChatThinking.vue",
+      "registry": "registry/shells/chat-thinking.md"
+    },
+    {
+      "name": "Checkbox",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Checkbox.vue",
+      "rel": "data-entry/Checkbox.vue",
+      "registry": "registry/primitives/checkbox.md"
+    },
+    {
+      "name": "CheckboxGroup",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/CheckboxGroup.vue",
+      "rel": "data-entry/CheckboxGroup.vue",
+      "registry": "registry/primitives/checkbox-group.md"
+    },
+    {
+      "name": "Chip",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Chip.vue",
+      "rel": "utility/Chip.vue",
+      "registry": "registry/primitives/chip.md"
+    },
+    {
+      "name": "Code",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Code.vue",
+      "rel": "data-display/Code.vue",
+      "registry": "registry/display/code.md"
+    },
+    {
+      "name": "Collapse",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/navigation/Collapse.vue",
+      "rel": "navigation/Collapse.vue",
+      "registry": "registry/navigation/collapse.md"
+    },
+    {
+      "name": "CollapseContent",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/CollapseContent.vue",
+      "rel": "data-display/CollapseContent.vue",
+      "registry": "registry/display/collapse-content.md"
+    },
+    {
+      "name": "CollapsePanel",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/CollapsePanel.vue",
+      "rel": "navigation/CollapsePanel.vue",
+      "registry": "registry/navigation/collapse-panel.md"
+    },
+    {
+      "name": "CollapseTransition",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/animation/CollapseTransition.vue",
+      "rel": "animation/CollapseTransition.vue",
+      "registry": "registry/animation/collapse-transition.md"
+    },
+    {
+      "name": "ColorPicker",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/ColorPicker.vue",
+      "rel": "data-entry/ColorPicker.vue",
+      "registry": "registry/primitives/color-picker.md"
+    },
+    {
+      "name": "CommandPalette",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/CommandPalette.vue",
+      "rel": "navigation/CommandPalette.vue",
+      "registry": "registry/navigation/command-palette.md"
+    },
+    {
+      "name": "ComponentPreview",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/ComponentPreview.vue",
+      "rel": "data-display/ComponentPreview.vue",
+      "registry": "registry/display/component-preview.md"
+    },
+    {
+      "name": "ConfigActionBar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/ConfigActionBar.vue",
+      "rel": "utility/ConfigActionBar.vue",
+      "registry": "registry/primitives/config-action-bar.md"
+    },
+    {
+      "name": "ConfirmDialog",
+      "package": "@ocpui/vue",
+      "tier": "T2",
+      "source": "src/components/feedback/ConfirmDialog.vue",
+      "rel": "feedback/ConfirmDialog.vue",
+      "registry": "registry/feedback/confirm-dialog.md"
+    },
+    {
+      "name": "ContextMenu",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/ContextMenu.vue",
+      "rel": "feedback/ContextMenu.vue",
+      "registry": "registry/feedback/context-menu.md"
+    },
+    {
+      "name": "ContextMenu",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/ContextMenu.vue",
+      "rel": "interaction/ContextMenu.vue",
+      "registry": "registry/interaction/context-menu.md"
+    },
+    {
+      "name": "CoreLoadChart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/CoreLoadChart.vue",
+      "rel": "data-display/CoreLoadChart.vue",
+      "registry": "registry/display/core-load-chart.md"
+    },
+    {
+      "name": "Countdown",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Countdown.vue",
+      "rel": "data-display/Countdown.vue",
+      "registry": "registry/display/countdown.md"
+    },
+    {
+      "name": "CronPicker",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/CronPicker.vue",
+      "rel": "data-entry/CronPicker.vue",
+      "registry": "registry/primitives/cron-picker.md"
+    },
+    {
+      "name": "DataTable",
+      "package": "@ocpui/vue-admin",
+      "tier": "T3",
+      "source": "src/components/data-display/DataTable.vue",
+      "rel": "data-display/DataTable.vue",
+      "registry": "registry/shells/data-table.md"
+    },
+    {
+      "name": "DateFormatSelect",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/DateFormatSelect.vue",
+      "rel": "data-entry/DateFormatSelect.vue",
+      "registry": "registry/primitives/date-format-select.md"
+    },
+    {
+      "name": "DatePicker",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/DatePicker.vue",
+      "rel": "data-entry/DatePicker.vue",
+      "registry": "registry/primitives/date-picker.md"
+    },
+    {
+      "name": "DateRangePicker",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/DateRangePicker.vue",
+      "rel": "data-entry/DateRangePicker.vue",
+      "registry": "registry/primitives/date-range-picker.md"
+    },
+    {
+      "name": "Descriptions",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Descriptions.vue",
+      "rel": "data-display/Descriptions.vue",
+      "registry": "registry/display/descriptions.md"
+    },
+    {
+      "name": "DescriptionsItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/DescriptionsItem.vue",
+      "rel": "data-display/DescriptionsItem.vue",
+      "registry": "registry/display/descriptions-item.md"
+    },
+    {
+      "name": "DiffView",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/DiffView.vue",
+      "rel": "data-display/DiffView.vue",
+      "registry": "registry/display/diff-view.md"
+    },
+    {
+      "name": "DistributionPie",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/DistributionPie.vue",
+      "rel": "data-display/DistributionPie.vue",
+      "registry": "registry/display/distribution-pie.md"
+    },
+    {
+      "name": "Divider",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Divider.vue",
+      "rel": "utility/Divider.vue",
+      "registry": "registry/primitives/divider.md"
+    },
+    {
+      "name": "DragHandle",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/DragHandle.vue",
+      "rel": "interaction/DragHandle.vue",
+      "registry": "registry/interaction/drag-handle.md"
+    },
+    {
+      "name": "DragSortList",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/DragSortList.vue",
+      "rel": "data-entry/DragSortList.vue",
+      "registry": "registry/primitives/drag-sort-list.md"
+    },
+    {
+      "name": "Drawer",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/feedback/Drawer.vue",
+      "rel": "feedback/Drawer.vue",
+      "registry": "registry/feedback/drawer.md"
+    },
+    {
+      "name": "Dropdown",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/navigation/Dropdown.vue",
+      "rel": "navigation/Dropdown.vue",
+      "registry": "registry/navigation/dropdown.md"
+    },
+    {
+      "name": "DropdownItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/DropdownItem.vue",
+      "rel": "navigation/DropdownItem.vue",
+      "registry": "registry/navigation/dropdown-item.md"
+    },
+    {
+      "name": "DropZone",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/DropZone.vue",
+      "rel": "interaction/DropZone.vue",
+      "registry": "registry/interaction/drop-zone.md"
+    },
+    {
+      "name": "DynamicInput",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/DynamicInput.vue",
+      "rel": "data-entry/DynamicInput.vue",
+      "registry": "registry/primitives/dynamic-input.md"
+    },
+    {
+      "name": "DynamicTags",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/DynamicTags.vue",
+      "rel": "data-entry/DynamicTags.vue",
+      "registry": "registry/primitives/dynamic-tags.md"
+    },
+    {
+      "name": "Element",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Element.vue",
+      "rel": "utility/Element.vue",
+      "registry": "registry/primitives/element.md"
+    },
+    {
+      "name": "Ellipsis",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Ellipsis.vue",
+      "rel": "data-display/Ellipsis.vue",
+      "registry": "registry/display/ellipsis.md"
+    },
+    {
+      "name": "Empty",
+      "package": "@ocpui/vue",
+      "tier": "T2",
+      "source": "src/components/utility/Empty.vue",
+      "rel": "utility/Empty.vue",
+      "registry": "registry/primitives/empty.md"
+    },
+    {
+      "name": "Equation",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Equation.vue",
+      "rel": "data-display/Equation.vue",
+      "registry": "registry/display/equation.md"
+    },
+    {
+      "name": "ErrorBoundary",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/ErrorBoundary.vue",
+      "rel": "feedback/ErrorBoundary.vue",
+      "registry": "registry/feedback/error-boundary.md"
+    },
+    {
+      "name": "ErrorStateBlock",
+      "package": "@ocpui/vue",
+      "tier": "T2",
+      "source": "src/components/feedback/ErrorStateBlock.vue",
+      "rel": "feedback/ErrorStateBlock.vue",
+      "registry": "registry/feedback/error-state-block.md"
+    },
+    {
+      "name": "FadeTransition",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/animation/FadeTransition.vue",
+      "rel": "animation/FadeTransition.vue",
+      "registry": "registry/animation/fade-transition.md"
+    },
+    {
+      "name": "FilterTagGroup",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/FilterTagGroup.vue",
+      "rel": "data-entry/FilterTagGroup.vue",
+      "registry": "registry/primitives/filter-tag-group.md"
+    },
+    {
+      "name": "Flex",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/Flex.vue",
+      "rel": "layout/Flex.vue",
+      "registry": "registry/layout/flex.md"
+    },
+    {
+      "name": "FloatButton",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/FloatButton.vue",
+      "rel": "utility/FloatButton.vue",
+      "registry": "registry/primitives/float-button.md"
+    },
+    {
+      "name": "FloatingHint",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/FloatingHint.vue",
+      "rel": "feedback/FloatingHint.vue",
+      "registry": "registry/feedback/floating-hint.md"
+    },
+    {
+      "name": "Form",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/data-entry/Form.vue",
+      "rel": "data-entry/Form.vue",
+      "registry": "registry/primitives/form.md"
+    },
+    {
+      "name": "FormItem",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/data-entry/FormItem.vue",
+      "rel": "data-entry/FormItem.vue",
+      "registry": "registry/primitives/form-item.md"
+    },
+    {
+      "name": "GaugeChart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/GaugeChart.vue",
+      "rel": "data-display/GaugeChart.vue",
+      "registry": "registry/display/gauge-chart.md"
+    },
+    {
+      "name": "GlobalSearch",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/GlobalSearch.vue",
+      "rel": "interaction/GlobalSearch.vue",
+      "registry": "registry/interaction/global-search.md"
+    },
+    {
+      "name": "GlobalStyle",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/GlobalStyle.vue",
+      "rel": "utility/GlobalStyle.vue",
+      "registry": "registry/primitives/global-style.md"
+    },
+    {
+      "name": "GradientText",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/GradientText.vue",
+      "rel": "utility/GradientText.vue",
+      "registry": "registry/primitives/gradient-text.md"
+    },
+    {
+      "name": "Grid",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/Grid.vue",
+      "rel": "layout/Grid.vue",
+      "registry": "registry/layout/grid.md"
+    },
+    {
+      "name": "GridItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/GridItem.vue",
+      "rel": "layout/GridItem.vue",
+      "registry": "registry/layout/grid-item.md"
+    },
+    {
+      "name": "Heatmap",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Heatmap.vue",
+      "rel": "data-display/Heatmap.vue",
+      "registry": "registry/display/heatmap.md"
+    },
+    {
+      "name": "HeatmapChart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/HeatmapChart.vue",
+      "rel": "data-display/HeatmapChart.vue",
+      "registry": "registry/display/heatmap-chart.md"
+    },
+    {
+      "name": "HierarchyDragSort",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/HierarchyDragSort.vue",
+      "rel": "data-entry/HierarchyDragSort.vue",
+      "registry": "registry/primitives/hierarchy-drag-sort.md"
+    },
+    {
+      "name": "Highlight",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Highlight.vue",
+      "rel": "data-display/Highlight.vue",
+      "registry": "registry/display/highlight.md"
+    },
+    {
+      "name": "HttpMethodBadge",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/HttpMethodBadge.vue",
+      "rel": "utility/HttpMethodBadge.vue",
+      "registry": "registry/primitives/http-method-badge.md"
+    },
+    {
+      "name": "Icon",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Icon.vue",
+      "rel": "utility/Icon.vue",
+      "registry": "registry/primitives/icon.md"
+    },
+    {
+      "name": "IconButton",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/IconButton.vue",
+      "rel": "utility/IconButton.vue",
+      "registry": "registry/primitives/icon-button.md"
+    },
+    {
+      "name": "IconPicker",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/IconPicker.vue",
+      "rel": "data-entry/IconPicker.vue",
+      "registry": "registry/primitives/icon-picker.md"
+    },
+    {
+      "name": "Image",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Image.vue",
+      "rel": "data-display/Image.vue",
+      "registry": "registry/display/image.md"
+    },
+    {
+      "name": "ImageCropper",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/ImageCropper.vue",
+      "rel": "data-entry/ImageCropper.vue",
+      "registry": "registry/primitives/image-cropper.md"
+    },
+    {
+      "name": "InfiniteScroll",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/animation/InfiniteScroll.vue",
+      "rel": "animation/InfiniteScroll.vue",
+      "registry": "registry/animation/infinite-scroll.md"
+    },
+    {
+      "name": "Input",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Input.vue",
+      "rel": "data-entry/Input.vue",
+      "registry": "registry/primitives/input.md"
+    },
+    {
+      "name": "InputNumber",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/InputNumber.vue",
+      "rel": "data-entry/InputNumber.vue",
+      "registry": "registry/primitives/input-number.md"
+    },
+    {
+      "name": "InputOTP",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/InputOTP.vue",
+      "rel": "data-entry/InputOTP.vue",
+      "registry": "registry/primitives/input-otp.md"
+    },
+    {
+      "name": "IpInput",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/IpInput.vue",
+      "rel": "data-entry/IpInput.vue",
+      "registry": "registry/primitives/ip-input.md"
+    },
+    {
+      "name": "KeyboardShortcut",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/KeyboardShortcut.vue",
+      "rel": "interaction/KeyboardShortcut.vue",
+      "registry": "registry/interaction/keyboard-shortcut.md"
+    },
+    {
+      "name": "KeyValueEditor",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/KeyValueEditor.vue",
+      "rel": "data-entry/KeyValueEditor.vue",
+      "registry": "registry/primitives/key-value-editor.md"
+    },
+    {
+      "name": "Layout",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/Layout.vue",
+      "rel": "layout/Layout.vue",
+      "registry": "registry/layout/layout.md"
+    },
+    {
+      "name": "LayoutContent",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/LayoutContent.vue",
+      "rel": "layout/LayoutContent.vue",
+      "registry": "registry/layout/layout-content.md"
+    },
+    {
+      "name": "LayoutFooter",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/LayoutFooter.vue",
+      "rel": "layout/LayoutFooter.vue",
+      "registry": "registry/layout/layout-footer.md"
+    },
+    {
+      "name": "LayoutHeader",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/LayoutHeader.vue",
+      "rel": "layout/LayoutHeader.vue",
+      "registry": "registry/layout/layout-header.md"
+    },
+    {
+      "name": "LayoutSider",
+      "package": "@ocpui/vue-admin",
+      "tier": "T3",
+      "source": "src/components/layout/LayoutSider.vue",
+      "rel": "layout/LayoutSider.vue",
+      "registry": "registry/shells/layout-sider.md"
+    },
+    {
+      "name": "List",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/List.vue",
+      "rel": "data-display/List.vue",
+      "registry": "registry/display/list.md"
+    },
+    {
+      "name": "ListItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/ListItem.vue",
+      "rel": "data-display/ListItem.vue",
+      "registry": "registry/display/list-item.md"
+    },
+    {
+      "name": "ListTransition",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/ListTransition.vue",
+      "rel": "utility/ListTransition.vue",
+      "registry": "registry/primitives/list-transition.md"
+    },
+    {
+      "name": "LiveCounter",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/LiveCounter.vue",
+      "rel": "data-display/LiveCounter.vue",
+      "registry": "registry/display/live-counter.md"
+    },
+    {
+      "name": "Loading",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Loading.vue",
+      "rel": "feedback/Loading.vue",
+      "registry": "registry/feedback/loading.md"
+    },
+    {
+      "name": "LoadingBar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/LoadingBar.vue",
+      "rel": "feedback/LoadingBar.vue",
+      "registry": "registry/feedback/loading-bar.md"
+    },
+    {
+      "name": "LoadingOverlay",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/LoadingOverlay.vue",
+      "rel": "feedback/LoadingOverlay.vue",
+      "registry": "registry/feedback/loading-overlay.md"
+    },
+    {
+      "name": "LoadingSpinner",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/LoadingSpinner.vue",
+      "rel": "utility/LoadingSpinner.vue",
+      "registry": "registry/primitives/loading-spinner.md"
+    },
+    {
+      "name": "LoadState",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/LoadState.vue",
+      "rel": "feedback/LoadState.vue",
+      "registry": "registry/feedback/load-state.md"
+    },
+    {
+      "name": "Log",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Log.vue",
+      "rel": "data-display/Log.vue",
+      "registry": "registry/display/log.md"
+    },
+    {
+      "name": "Marquee",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/animation/Marquee.vue",
+      "rel": "animation/Marquee.vue",
+      "registry": "registry/animation/marquee.md"
+    },
+    {
+      "name": "MediaQuery",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/MediaQuery.vue",
+      "rel": "layout/MediaQuery.vue",
+      "registry": "registry/layout/media-query.md"
+    },
+    {
+      "name": "Mention",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Mention.vue",
+      "rel": "data-entry/Mention.vue",
+      "registry": "registry/primitives/mention.md"
+    },
+    {
+      "name": "Menu",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/navigation/Menu.vue",
+      "rel": "navigation/Menu.vue",
+      "registry": "registry/navigation/menu.md"
+    },
+    {
+      "name": "MenuBranch",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/MenuBranch.vue",
+      "rel": "navigation/MenuBranch.vue",
+      "registry": "registry/navigation/menu-branch.md"
+    },
+    {
+      "name": "Message",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Message.vue",
+      "rel": "feedback/Message.vue",
+      "registry": "registry/feedback/message.md"
+    },
+    {
+      "name": "MetricCard",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/MetricCard.vue",
+      "rel": "data-display/MetricCard.vue",
+      "registry": "registry/display/metric-card.md"
+    },
+    {
+      "name": "MiniLineChart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/MiniLineChart.vue",
+      "rel": "data-display/MiniLineChart.vue",
+      "registry": "registry/display/mini-line-chart.md"
+    },
+    {
+      "name": "Modal",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/feedback/Modal.vue",
+      "rel": "feedback/Modal.vue",
+      "registry": "registry/feedback/modal.md"
+    },
+    {
+      "name": "Navbar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/Navbar.vue",
+      "rel": "navigation/Navbar.vue",
+      "registry": "registry/navigation/navbar.md"
+    },
+    {
+      "name": "NetworkTrafficChart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/NetworkTrafficChart.vue",
+      "rel": "data-display/NetworkTrafficChart.vue",
+      "registry": "registry/display/network-traffic-chart.md"
+    },
+    {
+      "name": "Notification",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Notification.vue",
+      "rel": "feedback/Notification.vue",
+      "registry": "registry/feedback/notification.md"
+    },
+    {
+      "name": "NumberAnimation",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/animation/NumberAnimation.vue",
+      "rel": "animation/NumberAnimation.vue",
+      "registry": "registry/animation/number-animation.md"
+    },
+    {
+      "name": "NumberRangeInput",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/NumberRangeInput.vue",
+      "rel": "data-entry/NumberRangeInput.vue",
+      "registry": "registry/primitives/number-range-input.md"
+    },
+    {
+      "name": "PageHeader",
+      "package": "@ocpui/vue",
+      "tier": "T2",
+      "source": "src/components/navigation/PageHeader.vue",
+      "rel": "navigation/PageHeader.vue",
+      "registry": "registry/navigation/page-header.md"
+    },
+    {
+      "name": "Pagination",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/Pagination.vue",
+      "rel": "navigation/Pagination.vue",
+      "registry": "registry/navigation/pagination.md"
+    },
+    {
+      "name": "PasswordStrengthMeter",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/PasswordStrengthMeter.vue",
+      "rel": "data-display/PasswordStrengthMeter.vue",
+      "registry": "registry/display/password-strength-meter.md"
+    },
+    {
+      "name": "Popconfirm",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Popconfirm.vue",
+      "rel": "feedback/Popconfirm.vue",
+      "registry": "registry/feedback/popconfirm.md"
+    },
+    {
+      "name": "Popover",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Popover.vue",
+      "rel": "feedback/Popover.vue",
+      "registry": "registry/feedback/popover.md"
+    },
+    {
+      "name": "Popselect",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Popselect.vue",
+      "rel": "feedback/Popselect.vue",
+      "registry": "registry/feedback/popselect.md"
+    },
+    {
+      "name": "PopupPanel",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/PopupPanel.vue",
+      "rel": "feedback/PopupPanel.vue",
+      "registry": "registry/feedback/popup-panel.md"
+    },
+    {
+      "name": "ProcessProgress",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/ProcessProgress.vue",
+      "rel": "feedback/ProcessProgress.vue",
+      "registry": "registry/feedback/process-progress.md"
+    },
+    {
+      "name": "Progress",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Progress.vue",
+      "rel": "data-display/Progress.vue",
+      "registry": "registry/display/progress.md"
+    },
+    {
+      "name": "ProgressRing",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/ProgressRing.vue",
+      "rel": "data-display/ProgressRing.vue",
+      "registry": "registry/display/progress-ring.md"
+    },
+    {
+      "name": "QRCode",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/QRCode.vue",
+      "rel": "utility/QRCode.vue",
+      "registry": "registry/primitives/qrcode.md"
+    },
+    {
+      "name": "QuickSettings",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/QuickSettings.vue",
+      "rel": "utility/QuickSettings.vue",
+      "registry": "registry/primitives/quick-settings.md"
+    },
+    {
+      "name": "Radio",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Radio.vue",
+      "rel": "data-entry/Radio.vue",
+      "registry": "registry/primitives/radio.md"
+    },
+    {
+      "name": "RadioGroup",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/RadioGroup.vue",
+      "rel": "data-entry/RadioGroup.vue",
+      "registry": "registry/primitives/radio-group.md"
+    },
+    {
+      "name": "RankingList",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/RankingList.vue",
+      "rel": "data-display/RankingList.vue",
+      "registry": "registry/display/ranking-list.md"
+    },
+    {
+      "name": "Rate",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Rate.vue",
+      "rel": "data-entry/Rate.vue",
+      "registry": "registry/primitives/rate.md"
+    },
+    {
+      "name": "RealtimeCounter",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/RealtimeCounter.vue",
+      "rel": "data-display/RealtimeCounter.vue",
+      "registry": "registry/display/realtime-counter.md"
+    },
+    {
+      "name": "RefreshButton",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/RefreshButton.vue",
+      "rel": "utility/RefreshButton.vue",
+      "registry": "registry/primitives/refresh-button.md"
+    },
+    {
+      "name": "RegionLoadingBar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/RegionLoadingBar.vue",
+      "rel": "feedback/RegionLoadingBar.vue",
+      "registry": "registry/feedback/region-loading-bar.md"
+    },
+    {
+      "name": "ResponsiveLayout",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/ResponsiveLayout.vue",
+      "rel": "layout/ResponsiveLayout.vue",
+      "registry": "registry/layout/responsive-layout.md"
+    },
+    {
+      "name": "Result",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Result.vue",
+      "rel": "feedback/Result.vue",
+      "registry": "registry/feedback/result.md"
+    },
+    {
+      "name": "RiskBadge",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/RiskBadge.vue",
+      "rel": "data-display/RiskBadge.vue",
+      "registry": "registry/display/risk-badge.md"
+    },
+    {
+      "name": "Scrollbar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Scrollbar.vue",
+      "rel": "utility/Scrollbar.vue",
+      "registry": "registry/primitives/scrollbar.md"
+    },
+    {
+      "name": "Search",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Search.vue",
+      "rel": "data-entry/Search.vue",
+      "registry": "registry/primitives/search.md"
+    },
+    {
+      "name": "SearchHistory",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/SearchHistory.vue",
+      "rel": "interaction/SearchHistory.vue",
+      "registry": "registry/interaction/search-history.md"
+    },
+    {
+      "name": "SegmentedControl",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/SegmentedControl.vue",
+      "rel": "data-entry/SegmentedControl.vue",
+      "registry": "registry/primitives/segmented-control.md"
+    },
+    {
+      "name": "Select",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Select.vue",
+      "rel": "data-entry/Select.vue",
+      "registry": "registry/primitives/select.md"
+    },
+    {
+      "name": "SelectionToolbar",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/SelectionToolbar.vue",
+      "rel": "interaction/SelectionToolbar.vue",
+      "registry": "registry/interaction/selection-toolbar.md"
+    },
+    {
+      "name": "ShortcutLabel",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/interaction/ShortcutLabel.vue",
+      "rel": "interaction/ShortcutLabel.vue",
+      "registry": "registry/interaction/shortcut-label.md"
+    },
+    {
+      "name": "SimpleRichEditor",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/SimpleRichEditor.vue",
+      "rel": "data-entry/SimpleRichEditor.vue",
+      "registry": "registry/primitives/simple-rich-editor.md"
+    },
+    {
+      "name": "SimpleVirtualList",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/SimpleVirtualList.vue",
+      "rel": "utility/SimpleVirtualList.vue",
+      "registry": "registry/primitives/simple-virtual-list.md"
+    },
+    {
+      "name": "SizeScope",
+      "package": "@ocpui/vue-admin",
+      "tier": "T1",
+      "source": "src/components/layout/SizeScope.vue",
+      "rel": "layout/SizeScope.vue",
+      "registry": "registry/shells/size-scope.md"
+    },
+    {
+      "name": "Skeleton",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Skeleton.vue",
+      "rel": "utility/Skeleton.vue",
+      "registry": "registry/primitives/skeleton.md"
+    },
+    {
+      "name": "SkeletonScene",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/SkeletonScene.vue",
+      "rel": "utility/SkeletonScene.vue",
+      "registry": "registry/primitives/skeleton-scene.md"
+    },
+    {
+      "name": "Slider",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Slider.vue",
+      "rel": "data-entry/Slider.vue",
+      "registry": "registry/primitives/slider.md"
+    },
+    {
+      "name": "SlideTransition",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/animation/SlideTransition.vue",
+      "rel": "animation/SlideTransition.vue",
+      "registry": "registry/animation/slide-transition.md"
+    },
+    {
+      "name": "Space",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/Space.vue",
+      "rel": "navigation/Space.vue",
+      "registry": "registry/navigation/space.md"
+    },
+    {
+      "name": "Sparkline",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Sparkline.vue",
+      "rel": "data-display/Sparkline.vue",
+      "registry": "registry/display/sparkline.md"
+    },
+    {
+      "name": "Spin",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Spin.vue",
+      "rel": "feedback/Spin.vue",
+      "registry": "registry/feedback/spin.md"
+    },
+    {
+      "name": "Split",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/layout/Split.vue",
+      "rel": "layout/Split.vue",
+      "registry": "registry/layout/split.md"
+    },
+    {
+      "name": "Statistic",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Statistic.vue",
+      "rel": "data-display/Statistic.vue",
+      "registry": "registry/display/statistic.md"
+    },
+    {
+      "name": "StatusBlock",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/StatusBlock.vue",
+      "rel": "feedback/StatusBlock.vue",
+      "registry": "registry/feedback/status-block.md"
+    },
+    {
+      "name": "StatusIndicator",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/StatusIndicator.vue",
+      "rel": "utility/StatusIndicator.vue",
+      "registry": "registry/primitives/status-indicator.md"
+    },
+    {
+      "name": "StatusTag",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/StatusTag.vue",
+      "rel": "data-display/StatusTag.vue",
+      "registry": "registry/display/status-tag.md"
+    },
+    {
+      "name": "Steps",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/navigation/Steps.vue",
+      "rel": "navigation/Steps.vue",
+      "registry": "registry/navigation/steps.md"
+    },
+    {
+      "name": "Suggestion",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Suggestion.vue",
+      "rel": "data-entry/Suggestion.vue",
+      "registry": "registry/primitives/suggestion.md"
+    },
+    {
+      "name": "Switch",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Switch.vue",
+      "rel": "data-entry/Switch.vue",
+      "registry": "registry/primitives/switch.md"
+    },
+    {
+      "name": "Table",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Table.vue",
+      "rel": "data-display/Table.vue",
+      "registry": "registry/display/table.md"
+    },
+    {
+      "name": "TabPane",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/navigation/TabPane.vue",
+      "rel": "navigation/TabPane.vue",
+      "registry": "registry/navigation/tab-pane.md"
+    },
+    {
+      "name": "Tabs",
+      "package": "@ocpui/vue",
+      "tier": "T1",
+      "source": "src/components/navigation/Tabs.vue",
+      "rel": "navigation/Tabs.vue",
+      "registry": "registry/navigation/tabs.md"
+    },
+    {
+      "name": "Tag",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Tag.vue",
+      "rel": "data-display/Tag.vue",
+      "registry": "registry/display/tag.md"
+    },
+    {
+      "name": "Textarea",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Textarea.vue",
+      "rel": "data-entry/Textarea.vue",
+      "registry": "registry/primitives/textarea.md"
+    },
+    {
+      "name": "ThemePreviewCard",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/ThemePreviewCard.vue",
+      "rel": "utility/ThemePreviewCard.vue",
+      "registry": "registry/primitives/theme-preview-card.md"
+    },
+    {
+      "name": "ThemeSelector",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/ThemeSelector.vue",
+      "rel": "utility/ThemeSelector.vue",
+      "registry": "registry/primitives/theme-selector.md"
+    },
+    {
+      "name": "ThemeToggle",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/ThemeToggle.vue",
+      "rel": "utility/ThemeToggle.vue",
+      "registry": "registry/primitives/theme-toggle.md"
+    },
+    {
+      "name": "Thing",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Thing.vue",
+      "rel": "data-display/Thing.vue",
+      "registry": "registry/display/thing.md"
+    },
+    {
+      "name": "Time",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Time.vue",
+      "rel": "data-display/Time.vue",
+      "registry": "registry/display/time.md"
+    },
+    {
+      "name": "Timeline",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Timeline.vue",
+      "rel": "data-display/Timeline.vue",
+      "registry": "registry/display/timeline.md"
+    },
+    {
+      "name": "TimelineItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/TimelineItem.vue",
+      "rel": "data-display/TimelineItem.vue",
+      "registry": "registry/display/timeline-item.md"
+    },
+    {
+      "name": "TimePicker",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/TimePicker.vue",
+      "rel": "data-entry/TimePicker.vue",
+      "registry": "registry/primitives/time-picker.md"
+    },
+    {
+      "name": "TimezoneSelect",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/TimezoneSelect.vue",
+      "rel": "data-entry/TimezoneSelect.vue",
+      "registry": "registry/primitives/timezone-select.md"
+    },
+    {
+      "name": "TipTapEditor",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/TipTapEditor.vue",
+      "rel": "data-entry/TipTapEditor.vue",
+      "registry": "registry/primitives/tip-tap-editor.md"
+    },
+    {
+      "name": "Toast",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Toast.vue",
+      "rel": "utility/Toast.vue",
+      "registry": "registry/primitives/toast.md"
+    },
+    {
+      "name": "ToastContainer",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/ToastContainer.vue",
+      "rel": "utility/ToastContainer.vue",
+      "registry": "registry/primitives/toast-container.md"
+    },
+    {
+      "name": "Tooltip",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/feedback/Tooltip.vue",
+      "rel": "feedback/Tooltip.vue",
+      "registry": "registry/feedback/tooltip.md"
+    },
+    {
+      "name": "TopologyGraph",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/TopologyGraph.vue",
+      "rel": "data-display/TopologyGraph.vue",
+      "registry": "registry/display/topology-graph.md"
+    },
+    {
+      "name": "Transfer",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Transfer.vue",
+      "rel": "data-entry/Transfer.vue",
+      "registry": "registry/primitives/transfer.md"
+    },
+    {
+      "name": "Tree",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/Tree.vue",
+      "rel": "data-display/Tree.vue",
+      "registry": "registry/display/tree.md"
+    },
+    {
+      "name": "TreeItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/TreeItem.vue",
+      "rel": "data-entry/TreeItem.vue",
+      "registry": "registry/primitives/tree-item.md"
+    },
+    {
+      "name": "TreeNodeItem",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/TreeNodeItem.vue",
+      "rel": "data-display/TreeNodeItem.vue",
+      "registry": "registry/display/tree-node-item.md"
+    },
+    {
+      "name": "TreeNodeItemChildren",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/TreeNodeItemChildren.vue",
+      "rel": "data-display/TreeNodeItemChildren.vue",
+      "registry": "registry/display/tree-node-item-children.md"
+    },
+    {
+      "name": "TreeSelect",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/TreeSelect.vue",
+      "rel": "data-entry/TreeSelect.vue",
+      "registry": "registry/primitives/tree-select.md"
+    },
+    {
+      "name": "TrendChart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/TrendChart.vue",
+      "rel": "data-display/TrendChart.vue",
+      "registry": "registry/display/trend-chart.md"
+    },
+    {
+      "name": "TrendIndicator",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/TrendIndicator.vue",
+      "rel": "data-display/TrendIndicator.vue",
+      "registry": "registry/display/trend-indicator.md"
+    },
+    {
+      "name": "Typography",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Typography.vue",
+      "rel": "utility/Typography.vue",
+      "registry": "registry/primitives/typography.md"
+    },
+    {
+      "name": "Upload",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-entry/Upload.vue",
+      "rel": "data-entry/Upload.vue",
+      "registry": "registry/primitives/upload.md"
+    },
+    {
+      "name": "VirtualList",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/VirtualList.vue",
+      "rel": "data-display/VirtualList.vue",
+      "registry": "registry/display/virtual-list.md"
+    },
+    {
+      "name": "Watermark",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/Watermark.vue",
+      "rel": "utility/Watermark.vue",
+      "registry": "registry/primitives/watermark.md"
+    },
+    {
+      "name": "WordCloud",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/WordCloud.vue",
+      "rel": "data-display/WordCloud.vue",
+      "registry": "registry/display/word-cloud.md"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+/**
+ * 布局类型样式（跨主题共享）
+ * 采样：Grid / ResponsiveLayout（page-inline tokens）
+ * 全局：响应式 gap 随 breakpoint 收缩；阅读区 text-wrap: pretty
+ */
+
+.grid {
+  gap: var(--space-4-md);
+}
+
+.shell-content,
+[data-ui-scene='workbench'] .admin-page__body,
+[data-ui-scene='copilot'] .admin-page__body {
+  text-wrap: pretty;
+}
+
+[data-ui-surface='list'] {
+  --surface-canvas: hsl(var(--background));
+}
+
+[data-ui-surface='detail'] {
+  --surface-canvas: hsl(var(--background));
+}
+
+[data-ui-surface='form'] {
+  --surface-canvas: hsl(var(--surface-inset));
+}
+
+@media (max-width: 767.98px) {
+  .grid {
+    gap: var(--space-4-sm);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .grid {
+    gap: var(--space-4-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: var(--space-4-lg);
+  }
+}

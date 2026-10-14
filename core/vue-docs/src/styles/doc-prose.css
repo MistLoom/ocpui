@@ -1,0 +1,195 @@
+/**
+ * 文档正文排版真源（阅读 HTML / 所见即所得 ProseMirror 共用）。
+ * 新增或修改字色、字阶、行距、引用、行内码等 prose 规则只改本文件；
+ * 两侧禁止再抄平行副本，避免读写视觉漂移。
+ */
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) {
+  color: hsl(var(--text));
+  font-size: var(--doc-font-size, 1rem);
+  line-height: var(--doc-leading, 1.75);
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) :is(h1, h2, h3, h4, h5, h6) {
+  color: hsl(var(--text));
+  font-family: var(--font-sans, inherit);
+  font-weight: 600;
+  line-height: var(--doc-heading-leading, 1.3);
+  margin-block: 1.25em 0.5em;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) h1 {
+  font-size: calc(2em * var(--doc-heading-scale, 1));
+  letter-spacing: -0.02em;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) h2 {
+  font-size: calc(1.5em * var(--doc-heading-scale, 1));
+  letter-spacing: -0.01em;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) h3 {
+  font-size: calc(1.25em * var(--doc-heading-scale, 1));
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) h4 {
+  font-size: calc(1.125em * var(--doc-heading-scale, 1));
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) h5 {
+  font-size: calc(1em * var(--doc-heading-scale, 1));
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) h6 {
+  font-size: calc(0.875em * var(--doc-heading-scale, 1));
+  color: hsl(var(--text-muted));
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) :is(p, li) {
+  line-height: var(--doc-leading, 1.75);
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) p {
+  margin-block: 1em;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) :is(ul, ol) {
+  margin-block: 1em;
+  padding-inline-start: 1.5em;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) li + li {
+  margin-block-start: 0.375em;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) blockquote {
+  margin-block: 1em;
+  padding-inline-start: 1em;
+  border-inline-start: 3px solid hsl(var(--border));
+  color: hsl(var(--text-muted));
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) hr {
+  margin-block: 2em;
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) a {
+  color: hsl(var(--primary));
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) :where(p, li, td, th, h1, h2, h3, h4, h5, h6, blockquote, a) > code {
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm, 0.25rem);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.875em;
+  background: hsl(var(--primary) / 0.06);
+  border: 1px solid hsl(var(--border) / 0.5);
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) pre {
+  position: relative;
+  margin-block: 1rem;
+  padding: 0.875rem 1rem;
+  overflow-x: auto;
+  border-radius: var(--radius-md, 0.5rem);
+  border: 1px solid hsl(var(--border));
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  background: var(--doc-code-bg, hsl(var(--surface-muted, var(--background))));
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) pre > code {
+  display: block;
+  white-space: pre;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: inherit;
+  font-family: inherit;
+  tab-size: 2;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin-block: 1rem;
+  border-collapse: collapse;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) :is(th, td) {
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem 0.75rem;
+}
+
+:is(
+  .markdown-body[data-ui-presentation-mode='read'] .markdown-body__content,
+  .doc-visual-editor .ProseMirror
+) th {
+  font-weight: 600;
+  background: hsl(var(--surface-muted, var(--background)));
+}

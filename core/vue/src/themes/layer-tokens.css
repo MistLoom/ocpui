@@ -1,0 +1,42 @@
+/**
+ * OCP 浮层层级令牌（@ocpui/docs/spec/foundation/layer-stack.md）
+ * 所有 Teleport/固定定位的悬停层、popover、overlay 必须引用此 scale。
+ */
+@layer tokens {
+  :root {
+    --z-base: 1;
+    --z-sticky: 100;
+    --z-dropdown: 1000;
+    --z-tooltip: 1100;
+    --z-popover: 1200;
+    --z-overlay: 1300;
+    --z-modal: 1400;
+    --z-toast: 1500;
+    --z-max: 9999;
+  }
+}
+
+@layer shared-components {
+  /* 经 Teleport 挂载的浮层提示统一样式 */
+  .ocpui-floating-hint {
+    position: fixed;
+    z-index: var(--z-tooltip);
+    pointer-events: none;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    font-family: var(--font-sans, system-ui, sans-serif);
+  }
+
+  .ocpui-floating-hint--compact {
+    padding: 8px 12px;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .ocpui-floating-hint--panel {
+    padding: 12px;
+    min-width: 120px;
+  }
+}

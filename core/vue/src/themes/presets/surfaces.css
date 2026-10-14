@@ -1,0 +1,43 @@
+/**
+ * L3 Surface preset — 差量 token，未定义组合回退 L2 themeStyle
+ */
+@layer semantic {
+  [data-ui-surface='list'] {
+    --surface-canvas: var(--background);
+    --surface-container: var(--surface);
+    --surface-container-low: var(--surface-inset);
+  }
+
+  [data-ui-surface='detail'] {
+    --surface-canvas: var(--background);
+    --surface-container: var(--surface-inset);
+    --surface-container-high: var(--background-elevated);
+  }
+
+  [data-ui-surface='form'] {
+    --surface-canvas: var(--surface-inset);
+    --surface-container: var(--surface);
+    --surface-container-low: var(--background);
+  }
+
+  [data-ui-surface='overlay'] {
+    --surface-canvas: var(--background-elevated);
+    --surface-overlay: var(--surface);
+    --surface-container-high: var(--background-elevated);
+  }
+
+  [data-ui-surface='chart'] {
+    --surface-canvas: var(--background);
+    --surface-container: var(--surface-inset);
+    --surface-container-high: var(--background-elevated);
+  }
+
+  /* AI 流式输出：轻 inset 底 + accent 条，overlay 级阴影不用 */
+  [data-ui-surface='ai-stream'] {
+    --surface-canvas: var(--background);
+    --surface-container: var(--surface-inset);
+    --surface-container-low: var(--background);
+    --surface-container-high: var(--surface);
+    --ocp-ai-accent-bar: var(--accent);
+  }
+}

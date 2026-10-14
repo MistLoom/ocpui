@@ -1,0 +1,41 @@
+/**
+ * Editorial 主题专属差量（L2）
+ * 类型样式见 themes/shared/；组合模式见 combination-patterns.css
+ */
+
+.theme-editorial .popup-panel {
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-md);
+}
+
+.theme-editorial .shell-content {
+  background: hsl(var(--background));
+}
+
+.theme-editorial [data-ui-surface='ai-stream'] {
+  background: hsl(var(--surface-inset));
+  border: 1px solid hsl(var(--border));
+  border-left: var(--ocp-ai-accent-bar-width) solid hsl(var(--ocp-ai-accent-bar));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-editorial [data-ui-surface='ai-stream'] .ocp-ai-stream-content {
+  padding: var(--space-4-md);
+  line-height: 1.55;
+}
+
+.theme-editorial.dark .tabs-tab-active,
+.dark.theme-editorial .tabs-tab-active {
+  background: hsl(var(--surface-container));
+  box-shadow: none;
+  border-color: hsl(var(--border-hover));
+}
+
+@media (max-width: 767.98px) {
+  .theme-editorial .popup-panel {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-height: calc(100dvh - var(--safe-area-top));
+  }
+}

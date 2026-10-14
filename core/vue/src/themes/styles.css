@@ -1,0 +1,33 @@
+/**
+ * 主题样式统一入口
+ *
+ * 使用 CSS @layer 显式声明层叠优先级，消除 import 顺序依赖。
+ * 层叠顺序（从低到高）：
+ *   tokens → animations → theme-tech → theme-editorial → semantic → utilities → shared-components → theme-overrides
+ *
+ * 这意味着：
+ *   - theme-overrides 中的样式会覆盖所有其他层
+ *   - shared-components 中的样式会覆盖 utilities、semantic 等
+ *   - tokens 中的变量可以被任何层覆盖
+ *
+ * 无论 import 顺序如何排列，@layer 声明的优先级始终生效。
+ */
+
+@layer tokens, animations, theme-tech, theme-editorial, semantic, utilities, shared-components, theme-overrides;
+
+@import './animation-tokens.css' layer(tokens);
+@import './layer-tokens.css' layer(tokens);
+@import './animations.css' layer(animations);
+@import './tech/theme.css' layer(theme-tech);
+@import './tech/index.css' layer(theme-tech);
+@import './editorial/theme.css' layer(theme-editorial);
+@import './editorial/index.css' layer(theme-editorial);
+@import './semantic-tokens.css' layer(semantic);
+@import './presets/index.css' layer(semantic);
+@import './surface-utilities.css' layer(utilities);
+@import './parts-hooks.css' layer(utilities);
+@import './shared/index.css' layer(shared-components);
+@import './shared-dark-components.css' layer(shared-components);
+@import './filter-row.css' layer(shared-components);
+@import './shared/async-content.css' layer(shared-components);
+@import './editorial/components.css' layer(theme-overrides);

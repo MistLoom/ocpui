@@ -1,0 +1,31 @@
+/**
+ * 表面继承工具类（运行时）
+ * 用法示例见 docs/conventions/theme/examples/
+ */
+
+/* 继承父级表面，用于 footer、section 等子区域 */
+.surface-inherit {
+  background: transparent;
+  background-color: transparent;
+}
+
+/* 语义表面快捷类（供模板或非 scoped 场景使用） */
+.surface-canvas {
+  background: hsl(var(--surface-canvas));
+}
+
+.surface-container {
+  background: hsl(var(--surface-container));
+}
+
+.surface-container-low {
+  background: hsl(var(--surface-container-low));
+}
+
+.surface-container-high {
+  background: hsl(var(--surface-container-high));
+}
+
+.surface-overlay {
+  background: hsl(var(--surface-overlay));
+}

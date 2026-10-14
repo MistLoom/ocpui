@@ -1,0 +1,53 @@
+{
+  "name": "@ocpui/docgen",
+  "version": "0.1.0",
+  "description": "OCP 文档静态站点生成器 — Vite 驱动，消费 markdown-core + vue-docs",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MistLoom/ocpui.git",
+    "directory": "tool/docgen"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "ocp-doc": "./bin/ocp-doc.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./theme-default/*": "./theme-default/*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "check": "pnpm typecheck && pnpm test:run"
+  },
+  "dependencies": {
+    "@ocpui/markdown-core": "workspace:*",
+    "@ocpui/vue": "workspace:*",
+    "@ocpui/vue-docs": "workspace:*",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "jiti": "^2.4.2",
+    "postcss": "^8.5.6",
+    "vite": "^6.0.7",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "tsx": "^4.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "~5.6.3",
+    "vitest": "^3.0.0"
+  },
+  "files": [
+    "bin",
+    "src",
+    "theme-default"
+  ]
+}
