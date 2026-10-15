@@ -45,9 +45,9 @@ status: stable
 ```
 spec/（规格）
     ↕ ID 引用
-packages/*/registry/（机读知识，v2 扩展）
+core/*/registry/（机读知识，v2 扩展）
     ↕ 实现
-packages/ocpui-vue|vue-admin/（Provider、通道、状态、token）
+core/vue|vue-admin/（Provider、通道、状态、token）
     ↕ 消费
 apps/admin（AppShell、T4）
 ```

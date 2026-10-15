@@ -30,9 +30,9 @@ OCP 已具备：
 
 ```
 spec/           ← 设计-工程桥接（本次产出）
-packages/*/registry/  ← v2 机读知识
-packages/ocpui/core/vue/   ← Provider、双通道、UiDataState 类型、motion token
-packages/ocpui/core/vue-admin/ ← Shell dispatchRole、useUiRegionState
+core/*/registry/      ← v2 机读知识
+core/vue/   ← Provider、双通道、UiDataState 类型、motion token
+core/vue-admin/ ← Shell dispatchRole、useUiRegionState
 apps/admin/           ← AppShell、T4、L5 上下文
 ```
 

@@ -18,7 +18,7 @@ status: stable
 
 Registry = OKF 思想在 OCP 中的落地：**人机共读、最小强制字段、生产者/消费者解耦**。
 
-- 物理位置：`packages/ocpui/core/vue/registry/`、`packages/ocpui/core/vue-admin/registry/`
+- 物理位置：`core/vue/registry/`、`core/vue-admin/registry/`
 - 随 npm 发布；消费方可脱离 monorepo 仅读 registry 选型
 - 权威 schema：`registry/frontmatter-v2.schema.yaml`
 

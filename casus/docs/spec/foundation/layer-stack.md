@@ -22,7 +22,7 @@ status: stable
 
 ## 层级 scale
 
-定义于 `packages/ocpui/core/vue/src/themes/layer-tokens.css`：
+定义于 `core/vue/src/themes/layer-tokens.css`：
 
 | Token | 值 | 用途 |
 |-------|-----|------|
@@ -82,4 +82,4 @@ Shell / Card 等容器：
 2. 是否 fixed + token z-index？
 3. 若嵌入 MetricCard / 列表，是否在 playground 中验证悬停不被裁切？
 
-CI：`pnpm check:floating-layer`（`scripts/check-floating-layer.mjs`）
+CI：`pnpm check:floating-layer`（`core/vue/scripts/check-floating-layer.mjs`）
