@@ -62,6 +62,73 @@ function parseFrontmatter(text) {
   return fm;
 }
 
+/**
+ * F:MOTION 强制范围（casus/docs/spec/foundation/motion-system.md §4）
+ * - registry/animation/* 全部必填
+ * - 下列 overlay / 过渡原语 / 态切换 Shell 必填
+ * - Button、Input 等 T0 控件不在此列（仅 interactionStates），勿扩大
+ */
+const MOTION_REQUIRED_NAMES = new Set([
+  'Modal', 'Drawer', 'Dialog', 'ConfirmDialog', 'PopupPanel', 'Overlay',
+  'Popover', 'Tooltip', 'Popconfirm', 'Popselect', 'ContextMenu',
+  'Message', 'Notification', 'LoadingOverlay',
+  'CollapseTransition', 'ListTransition',
+  'AdminWorkList',
+]);
+const MOTION_ENUM = {
+  // perception §5 受控词表
+  trigger: ['pointer_hover', 'pointer_press', 'user_select', 'user_submit', 'overlay_open', 'expand_panel', 'list_update', 'focus_transfer', 'system_event'],
+  purpose: ['explain_focus', 'explain_state', 'explain_spatial_origin', 'explain_progress'],
+  tier: ['micro', 'light', 'medium', 'heavy', 'scene'],
+  stopWhen: ['result_readable', 'user_acknowledged', 'focus_stable'],
+  mustNot: ['steal_focus', 'reorder_selection', 'imply_success'],
+};
+
+function motionRequired(c) {
+  return c.registry.startsWith('registry/animation/') || MOTION_REQUIRED_NAMES.has(c.name);
+}
+
+/** 解析 frontmatter 内嵌套的 motion 四元组（通用 parser 只认顶层键） */
+function parseMotion(raw) {
+  const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!m) return null;
+  const lines = m[1].split('\n');
+  const start = lines.findIndex((l) => /^motion:\s*$/.test(l));
+  if (start < 0) return null;
+  const motion = {};
+  for (const line of lines.slice(start + 1)) {
+    const kv = line.match(/^\s+(\w+):\s*(.*)$/);
+    if (!kv) break;
+    let v = kv[2].trim();
+    if (v.startsWith('[')) {
+      v = v.slice(1, -1).split(',').map((x) => x.trim()).filter(Boolean);
+    }
+    motion[kv[1]] = v;
+  }
+  return motion;
+}
+
+function checkMotion(name, motion) {
+  const errs = [];
+  for (const k of ['trigger', 'purpose', 'tier', 'interruptible', 'stopWhen', 'mustNot']) {
+    if (motion[k] === undefined || motion[k] === '') errs.push(`${name}: motion 缺少 ${k}`);
+  }
+  for (const k of ['trigger', 'purpose', 'stopWhen']) {
+    if (motion[k] && !MOTION_ENUM[k].includes(motion[k])) errs.push(`${name}: motion.${k}=${motion[k]} 不在受控词表`);
+  }
+  // tier=none 仅允许「态切换」声明（spec §4：AdminWorkList 态切换 tier=micro 或 none）
+  const tierOk = MOTION_ENUM.tier.includes(motion.tier) || (motion.tier === 'none' && motion.purpose === 'explain_state');
+  if (motion.tier && !tierOk) errs.push(`${name}: motion.tier=${motion.tier} 非法`);
+  if (motion.interruptible && !['true', 'false'].includes(motion.interruptible)) errs.push(`${name}: motion.interruptible 须为 true/false`);
+  if (['heavy', 'scene'].includes(motion.tier) && motion.interruptible !== 'true') errs.push(`${name}: motion.tier=${motion.tier}（>500ms）须 interruptible: true`);
+  if (Array.isArray(motion.mustNot)) {
+    for (const x of motion.mustNot) if (!MOTION_ENUM.mustNot.includes(x)) errs.push(`${name}: motion.mustNot 含未知项 ${x}`);
+  } else if (motion.mustNot !== undefined) {
+    errs.push(`${name}: motion.mustNot 须为数组`);
+  }
+  return errs;
+}
+
 function hasItems(v) {
   return Array.isArray(v) && v.length > 0;
 }
@@ -141,6 +208,13 @@ for (const c of components) {
   const minLines = MIN_BODY_LINES[c.tier] ?? MIN_BODY_LINES.default;
   if (countBodyLines(body) < minLines) {
     errors.push(`${c.name}: registry 正文不足 ${minLines} 行（当前 ${countBodyLines(body)}）`);
+  }
+
+  const motion = parseMotion(raw);
+  if (motion) {
+    errors.push(...checkMotion(c.name, motion));
+  } else if (motionRequired(c)) {
+    errors.push(`${c.name}: 属于 motion 强制范围（motion-system §4），缺少 motion 四元组`);
   }
 
   const antiPatterns = collectAntiPatterns(fm, body);

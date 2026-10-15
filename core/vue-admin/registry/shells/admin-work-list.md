@@ -54,6 +54,13 @@ decisions:
   - intent: "无权限不伪装为空"
     sceneRef: "责任范围不足"
     manifestation: "forbidden 独立分支与 #forbidden-action"
+motion:
+  trigger: system_event
+  purpose: explain_state
+  tier: none
+  interruptible: true
+  stopWhen: result_readable
+  mustNot: [steal_focus, imply_success]
 since: "0.1.0"
 
 ---

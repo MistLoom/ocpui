@@ -76,6 +76,12 @@ motion:
 | Button, Input 等 T0 | 否（仅 interactionStates） |
 | AdminWorkList 态切换 | purpose=explain_state, tier=micro 或 none |
 
+**CI 门禁**：`core/vue/scripts/check-registry-contract.mjs`（`pnpm --filter @ocpui/vue check:registry`）对上表「是」的类别强制要求 `motion` 四元组，并校验字段取值：
+
+- 强制范围：`registry/animation/*`；overlay：Modal、Drawer、Dialog、ConfirmDialog、PopupPanel、Overlay、Popover、Tooltip、Popconfirm、Popselect、ContextMenu、Message、Notification、LoadingOverlay；过渡原语：CollapseTransition、ListTransition（`registry/primitives/`）；Shell：AdminWorkList。
+- 任一声明了 `motion` 的条目都会做受控词表校验；`tier: none` 仅在 `purpose: explain_state` 时合法；`heavy` / `scene` 须 `interruptible: true`。
+- Button、Input 等 T0 控件不在强制范围，新增强制项须先改本节再改脚本。
+
 ## 5. 典型映射
 
 trigger 取值见 [perception](./perception.md) §5；mustNot 基线同该节规则 3。

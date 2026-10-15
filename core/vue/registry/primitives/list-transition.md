@@ -29,6 +29,13 @@ composes: []
 
 antiPatterns:[]
 
+motion:
+  trigger: list_update
+  purpose: explain_state
+  tier: light
+  interruptible: true
+  stopWhen: result_readable
+  mustNot: [steal_focus, reorder_selection]
 since: "0.1.0"
 
 ---
