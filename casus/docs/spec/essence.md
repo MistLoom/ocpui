@@ -41,6 +41,15 @@ status: stable
 - **担忧**：同功能多形态导致分裂；loading/error 合并为「待处理」；系统推送抢焦点；动效掩盖状态语义。
 - **异常**：部分失败、无权限、提交中、成功后续（传播未完成）须独立表达。
 
+### 场景优先级
+
+| 优先级 | 场景 | 约束力 |
+|--------|------|--------|
+| **首要** | 后台工作台（列表、详情、表单、审核、运维） | 本文与 `foundation/*` 的契约均以此为准；冲突时以 admin 为裁决依据 |
+| 扩展演示 | 面向终端用户的内容应用（playground `/full/consumer-app`） | 用于验证响应式、移动端与 T0–T2 原语的通用性；不新增独立契约，不改变 admin 优先的取舍 |
+
+C 端演示发现的问题若需改动契约，须先说明对 admin 场景的影响，再按 [reality-feedback](./reality-feedback/corrections-log.md) 记录。
+
 ## 3. 与 ui-design-planning 的关系
 
 | 设计技能产出 | OCP 承接方式 |
@@ -61,7 +70,7 @@ status: stable
 | `@ocpui/vue-admin` | T2–T3 | admin Block、Shell；列表/页面范式 |
 | 消费方 `ui-business`（包外） | T4 | 领域组件；只组合 T0–T3 |
 
-`packages/ocpui/` 物理分组：
+仓库根目录物理分组：
 
 | 子目录 | 包 |
 |--------|-----|
@@ -83,7 +92,7 @@ npm 包名（`@ocpui/*`）不变；仅 monorepo 内目录归组。
 
 | 决策 | 依据 | 表现 |
 |------|------|------|
-| Registry 随包发布 | AI/消费方脱离 monorepo 选型 | `packages/*/registry/` |
+| Registry 随包发布 | AI/消费方脱离 monorepo 选型 | `core/*/registry/` |
 | AppShell 留 apps | 应用壳绑定路由/菜单/权限 | [integration/admin-app-shell.md](./integration/admin-app-shell.md) |
 | Tier 保留 + Carrier 映射 | 工程分层已落地，设计技能用 L1–L5 | [foundation/tier-and-carrier.md](./foundation/tier-and-carrier.md) |
 | 规格与迁移文档分离 | 活体系 vs Phase 施工 | 本目录 vs `组件库改造方案.md` |
