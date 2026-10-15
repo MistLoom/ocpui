@@ -337,8 +337,23 @@ Registry 字段：`id`（`C:*`）、`duty`、`tier`、`handlesStates`、`motion`
 ## 发布
 
 ```bash
-pnpm --filter @ocpui/vue pack:dry
+pnpm --filter @ocpui/vue build      # vite lib → dist/（ESM + .d.ts + ocpui-vue.css）
+pnpm --filter @ocpui/vue pack:dry   # build + 真实 tarball 校验（exports 目标齐全、无 workspace: 残留）
 pnpm --filter @ocpui/vue publish --access public
 ```
 
-发布前先通过 `pnpm acceptance`；`@ocpui/vue-admin` 依赖本包 peer。
+发布形态：
+
+| 入口 | workspace 开发（`exports`） | 发布产物（`publishConfig.exports`） |
+|------|------------------------------|--------------------------------------|
+| `.`、`./types`、`./utility`、`./feedback`、`./themes`、`./validation`、`./system`、`./vite`、`./nuxt` 等 barrel | `src/*.ts` | `dist/*.js` + `dist/*.d.ts` |
+| `./styles`、`./styles/full`、`./themes/editorial`、`./themes/tech` | `src/themes/*.css` | 不变（主题 CSS 原样发布） |
+| `./styles/components` | — | `dist/ocpui-vue.css`（SFC 样式，使用 dist 入口时需引入一次） |
+| `./utility/*`、`./feedback/*`、`./data-display/*` 等通配深路径 | `src/**` | 不变（单 SFC 源码，需消费方 Vite + `@vitejs/plugin-vue` 编译） |
+
+- workspace（playground / docs / vitest）继续经 `ocpuiResolvePlugin` 与 `exports` 走源码，无需先 build。
+- `publishConfig.exports` 由 **pnpm** 在 `pack` / `publish` 时替换 `exports`；请用 pnpm 发布，`npm publish` 不认该字段。
+- `prepublishOnly` 依次跑 registry 同步、`check`、`acceptance`、`build`。
+- 声明生成目前有已知 TS4082 / TS2742 诊断（部分 SFC 的 `Props` 未导出），声明仍会产出；`OCPUI_STRICT_DTS=1 pnpm build` 可将其视为失败。
+
+`@ocpui/vue-admin` 依赖本包 peer，发布形态相同（`dist/ocpui-vue-admin.css`）。

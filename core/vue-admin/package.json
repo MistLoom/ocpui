@@ -10,7 +10,32 @@
     "directory": "core/vue-admin"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./styles/components": "./dist/ocpui-vue-admin.css",
+      "./layout/*": "./src/components/layout/*.vue",
+      "./data-display/*": "./src/components/data-display/*.vue",
+      "./business/*": "./src/components/business/*/index.ts",
+      "./validation": {
+        "types": "./dist/validation/index.d.ts",
+        "import": "./dist/validation/index.js"
+      },
+      "./vite": {
+        "types": "./dist/vite/index.d.ts",
+        "import": "./dist/vite/index.js"
+      },
+      "./registry": "./registry/index.md",
+      "./types/*": "./src/types/*.ts",
+      "./composables/*": "./src/composables/*.ts",
+      "./patterns": {
+        "types": "./dist/patterns/index.d.ts",
+        "import": "./dist/patterns/index.js"
+      }
+    }
   },
   "exports": {
     ".": "./src/index.ts",
@@ -31,9 +56,10 @@
     "check:boundary": "node scripts/check-boundary.mjs",
     "check:spacing": "node scripts/check-spacing-contract.mjs",
     "check": "pnpm check:boundary && pnpm check:spacing && pnpm typecheck && pnpm test:run",
-    "pack:dry": "npm pack --dry-run",
+    "build": "vite build -c vite.build.config.ts && BUILD_TARGET=node vite build -c vite.build.config.ts && node ../../scripts/publish/build-types.mjs",
+    "pack:dry": "pnpm build && node ../../scripts/publish/pack-check.mjs",
     "acceptance": "node scripts/acceptance.mjs",
-    "prepublishOnly": "pnpm acceptance"
+    "prepublishOnly": "pnpm acceptance && pnpm build"
   },
   "peerDependencies": {
     "@ocpui/vue": "^0.1.0",
@@ -53,7 +79,12 @@
   },
   "files": [
     "LICENSE",
+    "dist",
     "registry",
     "src"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "./src/**/*.vue"
   ]
 }
