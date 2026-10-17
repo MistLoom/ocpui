@@ -1,13 +1,8 @@
 {
-
   "name": "@ocpui/vue",
-
   "version": "0.1.0",
-
   "description": "OCP UI — Vue 3 组件库（T0–T2）",
-
   "type": "module",
-
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -15,15 +10,83 @@
     "directory": "core/vue"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./styles/components": "./dist/ocpui-vue.css",
+      "./types": {
+        "types": "./dist/types/index.d.ts",
+        "import": "./dist/types/index.js"
+      },
+      "./utility": {
+        "types": "./dist/components/utility/index.d.ts",
+        "import": "./dist/components/utility/index.js"
+      },
+      "./utility/*": "./src/components/utility/*",
+      "./feedback": {
+        "types": "./dist/components/feedback/index.d.ts",
+        "import": "./dist/components/feedback/index.js"
+      },
+      "./feedback/*": "./src/components/feedback/*",
+      "./feedback-context": {
+        "types": "./dist/feedback/index.d.ts",
+        "import": "./dist/feedback/index.js"
+      },
+      "./navigation/types": {
+        "types": "./dist/components/navigation/types.d.ts",
+        "import": "./dist/components/navigation/types.js"
+      },
+      "./themes": {
+        "types": "./dist/themes/index.d.ts",
+        "import": "./dist/themes/index.js"
+      },
+      "./styles": "./src/themes/globals.css",
+      "./styles/full": "./src/themes/styles.css",
+      "./themes/editorial": "./src/themes/editorial/index.css",
+      "./themes/tech": "./src/themes/tech/index.css",
+      "./validation": {
+        "types": "./dist/validation/index.d.ts",
+        "import": "./dist/validation/index.js"
+      },
+      "./locale/*": "./src/locale/*.ts",
+      "./composables/*": "./src/composables/*.ts",
+      "./system": {
+        "types": "./dist/system/index.d.ts",
+        "import": "./dist/system/index.js"
+      },
+      "./themes/composables": {
+        "types": "./dist/themes/composables/index.d.ts",
+        "import": "./dist/themes/composables/index.js"
+      },
+      "./themes/animation-tokens": {
+        "types": "./dist/themes/animation-tokens.d.ts",
+        "import": "./dist/themes/animation-tokens.js"
+      },
+      "./utils": {
+        "types": "./dist/components/utils/index.d.ts",
+        "import": "./dist/components/utils/index.js"
+      },
+      "./data-display/*": "./src/components/data-display/*",
+      "./layout/*": "./src/components/layout/*",
+      "./vite": {
+        "types": "./dist/vite/index.d.ts",
+        "import": "./dist/vite/index.js"
+      },
+      "./nuxt": {
+        "types": "./dist/nuxt/module.d.ts",
+        "import": "./dist/nuxt/module.js"
+      },
+      "./registry": "./registry/index.md",
+      "./docs/SELECTION": "./docs/SELECTION.md",
+      "./docs/QUICKSTART": "./docs/QUICKSTART.md"
+    }
   },
-
   "bin": {
-
     "ocp": "./bin/ocp.js"
-
   },
-
   "exports": {
     ".": "./src/index.ts",
     "./types": "./src/types/index.ts",
@@ -53,43 +116,28 @@
     "./docs/SELECTION": "./docs/SELECTION.md",
     "./docs/QUICKSTART": "./docs/QUICKSTART.md"
   },
-
   "scripts": {
-
     "typecheck": "vue-tsc --noEmit",
     "test": "vitest",
     "test:run": "vitest run",
-
     "check:ui-imports": "node scripts/check-ui-imports.mjs",
-
     "check:theme": "node scripts/check-theme-tokens.mjs",
     "check:spacing": "node scripts/check-spacing-contract.mjs",
     "check:coverage": "node scripts/check-design-system-coverage.mjs",
-
     "check:transition": "node scripts/check-transition-properties.mjs",
-
     "check:boundary": "node scripts/check-package-boundary.mjs",
-
     "check:registry": "node scripts/check-registry-sync.mjs && node scripts/check-registry-contract.mjs",
-
     "check:scenario": "node scripts/scenario-contract.mjs",
     "check:floating-layer": "node scripts/check-floating-layer.mjs",
-
     "registry:build": "node scripts/build-registry.mjs",
-
     "registry:assign-ids": "node scripts/assign-registry-ids.mjs",
-
     "registry:enrich-v2": "node scripts/enrich-registry-v2.mjs",
-
-    "prepublishOnly": "pnpm registry:build && pnpm check && pnpm acceptance",
-
+    "prepublishOnly": "pnpm registry:build && pnpm check && pnpm acceptance && pnpm build",
     "check": "pnpm typecheck && pnpm check:boundary && pnpm check:ui-imports && pnpm check:theme && pnpm check:spacing && pnpm check:coverage && pnpm check:transition && pnpm check:registry && pnpm check:scenario && pnpm check:floating-layer",
     "acceptance": "node scripts/acceptance.mjs",
-
-    "pack:dry": "npm pack --dry-run"
-
+    "build": "vite build -c vite.build.config.ts && BUILD_TARGET=node vite build -c vite.build.config.ts && node ../../scripts/publish/build-types.mjs",
+    "pack:dry": "pnpm build && node ../../scripts/publish/pack-check.mjs"
   },
-
   "peerDependencies": {
     "@floating-ui/dom": "^1.8.0",
     "@tanstack/vue-virtual": "^3.13.0",
@@ -100,40 +148,38 @@
     "vue-router": "^4.5.0",
     "@nuxt/kit": "^3.8.0"
   },
-
   "peerDependenciesMeta": {
-    "@nuxt/kit": { "optional": true },
-    "@tanstack/vue-virtual": { "optional": true },
-    "@tiptap/starter-kit": { "optional": true },
-    "@tiptap/vue-3": { "optional": true },
-    "motion-v": { "optional": true },
-    "vue-router": { "optional": true }
+    "@nuxt/kit": {
+      "optional": true
+    },
+    "@tanstack/vue-virtual": {
+      "optional": true
+    },
+    "@tiptap/starter-kit": {
+      "optional": true
+    },
+    "@tiptap/vue-3": {
+      "optional": true
+    },
+    "motion-v": {
+      "optional": true
+    },
+    "vue-router": {
+      "optional": true
+    }
   },
-
   "dependencies": {
-
     "@vueuse/core": "^14.2.1",
-
     "class-variance-authority": "^0.7.1",
-
     "clsx": "^2.1.1",
-
     "dayjs": "^1.11.20",
-
     "lucide-vue-next": "^0.468.0",
-
     "tailwind-merge": "^2.6.0",
-
     "unplugin-vue-components": "^32.0.0",
-
     "@vee-validate/zod": "^4.15.1",
-
     "vee-validate": "^4.15.1",
-
     "zod": "^3.24.4"
-
   },
-
   "devDependencies": {
     "@nuxt/kit": "^3.15.0",
     "@nuxt/schema": "^3.15.0",
@@ -152,16 +198,17 @@
     "vue": "^3.5.13",
     "vue-tsc": "^2.2.0"
   },
-
   "files": [
     "LICENSE",
     "bin",
     "docs",
+    "dist",
     "registry",
     "src",
     "ocpui.config.schema.json"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "./src/**/*.vue"
   ]
-
 }
-
-

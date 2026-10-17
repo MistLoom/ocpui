@@ -70,7 +70,7 @@ status: stable
 ## 3. 包归属与 Tier
 
 ```
-packages/ocpui/
+ocpui/                 (仓库根)
   core/
     vue/               @ocpui/vue              — T0–T2 原语、运行时
     vue-admin/         @ocpui/vue-admin        — T2–T3 Shell
@@ -91,7 +91,7 @@ packages/ocpui/
 | T3 | `@ocpui/vue-docs` | `DocReaderShell`, `DocWikiShell`, `DocEditorShell` |
 | T4 | `apps/*/ui-business` | 绑定 API 的 Wiki 管理页、发布流程、权限门 |
 
-T4 **禁止**进入 `packages/ocpui/*`（[G:T4-BOUNDARY](../guides/t4-boundary.md)）。
+T4 **禁止**进入 `core/*`、`tool/*`（[G:T4-BOUNDARY](../guides/t4-boundary.md)）。
 
 ## 4. 解析与渲染架构
 
@@ -456,7 +456,7 @@ export default defineDocgenConfig({
 
 ## 14. Registry 与 CI
 
-- 新组件 **MUST** 在 `packages/ocpui/core/vue-docs/registry/` 登记 v2 frontmatter
+- 新组件 **MUST** 在 `core/vue-docs/registry/` 登记 v2 frontmatter
 - animation/overlay 类 **MUST** 填 `motion`
 - T2+ **MUST** `handlesStates`；T3 **MUST** `dispatchRole`
 - CI 扩展：

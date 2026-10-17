@@ -37,7 +37,7 @@ status: stable
 |------|------|
 | **本目录 `spec/`** | 设计-工程桥接规格（权威） |
 | **`guide/`、`components/`** | VitePress 消费指南与 Demo |
-| **`packages/ocpui/core/vue/registry/`** | 机读组件知识（随 npm 发布） |
+| **`core/vue/registry/`** | 机读组件知识（随 npm 发布） |
 
 ## 导航
 

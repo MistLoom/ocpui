@@ -27,6 +27,13 @@ antiPatterns:
   - "createApp 挂 Message"
   - "messageService 旁路"
 
+motion:
+  trigger: overlay_open
+  purpose: explain_spatial_origin
+  tier: micro
+  interruptible: true
+  stopWhen: user_acknowledged
+  mustNot: [steal_focus, imply_success]
 since: "0.1.0"
 
 ---

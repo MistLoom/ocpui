@@ -65,7 +65,7 @@ scene: workbench
 
 - 规格互引：优先 ID，括号附路径
 - registry：`id` 必填（v2）；`related: [C:EMPTY, C:LOADING]`
-- T4 文档：引用 `C:` / `K:` / `S:`，禁止硬编码 `packages/ocpui/core/vue/src/...`
+- T4 文档：引用 `C:` / `K:` / `S:`，禁止硬编码 `core/vue/src/...`
 - CLI：`ocp list --id C:BUTTON`（S1 起实现）
 
 ## 6. CI

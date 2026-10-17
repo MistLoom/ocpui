@@ -27,6 +27,13 @@ antiPatterns:
   - "createApp 挂 Message"
   - "messageService 旁路"
 
+motion:
+  trigger: system_event
+  purpose: explain_state
+  tier: light
+  interruptible: true
+  stopWhen: result_readable
+  mustNot: [steal_focus]
 since: "0.1.0"
 
 ---

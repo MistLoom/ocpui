@@ -19,7 +19,7 @@ apps/admin/src/ui-business/     # T4 Product
 apps/admin/src/pages/         # 页面组装（T3 + T4）
 ```
 
-**禁止** T4 进入 `packages/ocpui/core/vue*`。
+**禁止** T4 进入 `core/vue*`。
 
 ## 2. T4 职责
 

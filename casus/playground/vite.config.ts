@@ -12,6 +12,10 @@ const ocpuiVueAdminRoot = path.resolve(__dirname, '../../core/vue-admin');
 const srcDir = path.resolve(__dirname, 'src');
 
 export default defineConfig({
+  define: {
+    // playground 纯客户端；与 @ocpui/vue 中 import.meta.client 对齐
+    'import.meta.client': JSON.stringify(true),
+  },
   plugins: [
     ocpuiResolvePlugin(),
     // playground 预编译链不产出 inline vue-demo，提供空 registry 仅为满足 vue-docs 对 virtual:ocp-doc-demos 的静态解析

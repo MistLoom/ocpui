@@ -46,7 +46,7 @@ pnpm docs:dev          # 文档站（默认 5190）
 ```bash
 pnpm check    # 各包 typecheck / 契约检查 / registry 同步
 pnpm test     # 单元测试
-pnpm publish:dry   # npm pack 预检（vue、vue-admin）
+pnpm publish:dry   # 构建 dist 并校验真实 tarball（vue、vue-admin），详见 core/vue/README.md「发布」
 ```
 
 ## 许可证

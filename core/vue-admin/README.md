@@ -109,7 +109,7 @@ const rows = ref([{ id: '1', name: 'Alpha', status: 'ready' }]);
 </AdminPage>
 ```
 
-示例实现：`packages/ocpui-playground/src/business/`。
+示例实现：`casus/playground/src/business/`。
 
 ---
 
@@ -221,3 +221,12 @@ pnpm --filter @ocpui/vue-admin acceptance
 ```
 
 Registry 条目位于 `registry/shells/`，由 `@ocpui/vue` 的 `registry:build` 一并生成 manifest。
+
+## 发布
+
+```bash
+pnpm --filter @ocpui/vue-admin pack:dry   # build（dist + .d.ts + ocpui-vue-admin.css）+ tarball 校验
+pnpm --filter @ocpui/vue-admin publish --access public
+```
+
+`.`、`./validation`、`./patterns`、`./vite` 发布后指向 `dist/`；`./layout/*` 等单 SFC 深路径仍为源码（消费方 Vite 编译）。使用 dist 入口时引入一次 `@ocpui/vue-admin/styles/components`。说明详见 [@ocpui/vue「发布」](../vue/README.md#发布)。

@@ -23,7 +23,7 @@ status: stable
 ## 2. 文件布局
 
 ```
-packages/ocpui/core/vue/
+core/vue/
   src/components/{category}/{Name}.vue
   registry/{category}/{name-kebab}.md
 ```

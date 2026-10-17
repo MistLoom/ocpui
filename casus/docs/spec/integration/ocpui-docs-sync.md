@@ -18,7 +18,7 @@ status: stable
 |------|------|------|
 | `spec/` | 维护者、AI、架构审查 | 哲学、契约、状态/交互/动效系统 |
 | `guide/`、`components/` | 组件消费者 | 快速上手、Demo、API 示例 |
-| `packages/ocpui/core/vue/registry/` 等 | CLI、AI 选型 | 机读 frontmatter + 简版说明 |
+| `core/vue/registry/` 等 | CLI、AI 选型 | 机读 frontmatter + 简版说明 |
 
 ## 2. 权威顺序
 

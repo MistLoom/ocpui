@@ -56,7 +56,7 @@ console.log('[scenario-contract] 开始');
 
 // F:MOTION — overlay + animation
 {
-  for (const name of ['Modal', 'Drawer', 'FadeTransition']) {
+  for (const name of ['Modal', 'Drawer', 'FadeTransition', 'ListTransition', 'AdminWorkList']) {
     const { raw } = readRegistry(name);
     assert.ok(fmHas(raw, 'motion'), `${name} 缺 motion`);
   }

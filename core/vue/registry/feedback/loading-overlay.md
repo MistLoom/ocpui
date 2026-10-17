@@ -27,6 +27,13 @@ antiPatterns:
   - "createApp 挂 Message"
   - "messageService 旁路"
 
+motion:
+  trigger: system_event
+  purpose: explain_progress
+  tier: micro
+  interruptible: true
+  stopWhen: result_readable
+  mustNot: [imply_success]
 since: "0.1.0"
 
 ---

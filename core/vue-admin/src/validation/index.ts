@@ -5,6 +5,8 @@ import { toTypedSchema } from '@ocpui/vue/validation';
 import type { z } from 'zod';
 
 /** 将 Zod schema 转为 vee-validate 可用 schema */
-export function toVeeValidateSchema<T extends z.ZodType>(schema: T) {
+export function toVeeValidateSchema<T extends z.ZodType>(
+  schema: T,
+): ReturnType<typeof toTypedSchema<T>> {
   return toTypedSchema(schema);
 }

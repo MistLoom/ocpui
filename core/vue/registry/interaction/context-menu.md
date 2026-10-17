@@ -26,6 +26,13 @@ composes: []
 
 antiPatterns:[]
 
+motion:
+  trigger: overlay_open
+  purpose: explain_spatial_origin
+  tier: micro
+  interruptible: true
+  stopWhen: focus_stable
+  mustNot: [reorder_selection]
 since: "0.1.0"
 
 ---

@@ -110,12 +110,48 @@ body {
 
 .playground-home {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
+  max-width: 960px;
+}
+
+.playground-home__hero {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+
+.playground-home__hero h1 {
+  margin: 0;
+}
+
+.playground-home__lead {
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.6;
+  color: hsl(var(--muted-foreground));
+}
+
+.playground-home__hint {
+  margin: 0;
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.playground-home__next h2,
+.playground-home__more summary {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.playground-home__more summary {
+  cursor: pointer;
+  color: hsl(var(--muted-foreground));
 }
 
 .playground-home__modes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
@@ -128,18 +164,9 @@ body {
   gap: 0.75rem;
 }
 
-.playground-home__mode-card--featured {
-  border-color: hsl(var(--primary) / 0.35);
-  background: hsl(var(--primary) / 0.04);
-}
-
-.playground-home__mode-card--featured h2 {
-  color: hsl(var(--primary));
-}
-
-.playground-home__mode-card h2 {
+.playground-home__mode-card h3 {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .playground-home__mode-card p {
@@ -149,19 +176,17 @@ body {
   line-height: 1.5;
 }
 
+.playground-home__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
 .playground-home__links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.playground-home__mode-card--consumer {
-  border-color: hsl(var(--success) / 0.35);
-  background: hsl(var(--success) / 0.04);
-}
-
-.playground-home__mode-card--consumer h2 {
-  color: hsl(var(--success));
 }
 
 .playground-main--consumer {
