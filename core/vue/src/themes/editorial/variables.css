@@ -4,5 +4,7 @@
 :root.theme-editorial,
 html.theme-editorial {
   --font-sans: 'Inter', 'SF Pro Text', 'PingFang SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Segoe UI Variable Display', 'SF Pro Display', 'Inter', 'PingFang SC', 'Noto Sans SC', system-ui,
+    sans-serif;
   --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 }

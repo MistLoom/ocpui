@@ -39,7 +39,7 @@ export type { LoadStateVariant } from './feedback';
 export * from './navigation';
 
 // Export data-display components, but not Collapse to avoid conflict
-export { Countdown, List, ListItem, Timeline, TimelineItem, Table, Tree, TreeNodeItem, Time, Thing, Tag, Card, CardHeader, Carousel, Chart, Code, Descriptions, DescriptionsItem, Ellipsis, Equation, Heatmap, Highlight, Image, Log, Progress, Statistic, ChartLegend, TrendIndicator, MiniLineChart, Sparkline, BulletFeatureList, DistributionPie, LiveCounter, GaugeChart, ProgressRing, ActiveFilterTags, AvatarGroup, AlertItem, StatusTag, MetricCard, HeatmapChart, RealtimeCounter, TopologyGraph, PasswordStrengthMeter, TrendChart, RankingList, AbnormalList, WordCloud, ComponentPreview, DiffView, AnimatedNumber } from './data-display';
+export { Countdown, List, ListItem, Timeline, TimelineItem, Table, Tree, TreeNodeItem, Time, Thing, Tag, Card, CardHeader, Carousel, Chart, Code, Descriptions, DescriptionsItem, Ellipsis, Equation, Heatmap, Highlight, Image, Log, Progress, Statistic, ChartLegend, TrendIndicator, MiniLineChart, Sparkline, BulletFeatureList, DistributionPie, LiveCounter, GaugeChart, ProgressRing, ActiveFilterTags, AvatarGroup, AlertItem, StatusTag, MetricCard, PreviewMetricCard, DashboardPanel, BarColumnChart, ToneBadge, HeatmapChart, RealtimeCounter, TopologyGraph, PasswordStrengthMeter, TrendChart, RankingList, AbnormalList, WordCloud, ComponentPreview, DiffView, AnimatedNumber } from './data-display';
 export type { ActiveFilter, StatusType, AbnormalItem } from './data-display';
 
 // Export utility components

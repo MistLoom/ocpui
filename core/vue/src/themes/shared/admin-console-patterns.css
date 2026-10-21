@@ -1,0 +1,975 @@
+/**
+ * 管理台壳层与区块样式（AIEPOCH admin console 稿）
+ * 消费方通过 @ocpui/vue/admin-chrome 引入；组件使用 ocp-admin-* 类名
+ */
+
+:root {
+  --ocp-admin-ease: var(--ease-emphasized);
+  --ocp-admin-r-sm: 10px;
+  --ocp-admin-r-md: 14px;
+  --ocp-admin-r-lg: var(--radius-panel);
+  --ocp-admin-r-xl: 22px;
+  --ocp-admin-glass: var(--glass-fill);
+  --ocp-admin-glass-strong: var(--glass-fill-strong);
+  --ocp-admin-fg-soft: var(--surface-soft);
+  --ocp-admin-shadow-float: var(--shadow-elevated-float);
+  --ocp-admin-shadow-soft: var(--shadow-elevated-soft);
+}
+
+/* —— Shell —— */
+.ocp-admin-shell {
+  position: relative;
+  min-height: 100vh;
+}
+
+.ocp-admin-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(850px 520px at 8% -8%, hsl(var(--primary) / 0.05), transparent 66%),
+    radial-gradient(720px 460px at 100% 12%, hsl(var(--success) / 0.03), transparent 72%);
+}
+
+.ocp-admin-workspace {
+  margin-left: calc(236px + 24px);
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 979.98px) {
+  .ocp-admin-workspace {
+    margin-left: 0;
+  }
+}
+
+/* —— 玻璃侧栏 —— */
+.ocp-admin-sider {
+  position: fixed;
+  z-index: 40;
+  left: 12px;
+  top: 12px;
+  bottom: 12px;
+  width: 236px;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 80%, transparent);
+  border-radius: var(--ocp-admin-r-xl);
+  background: var(--ocp-admin-glass);
+  backdrop-filter: blur(22px) saturate(1.18);
+  -webkit-backdrop-filter: blur(22px) saturate(1.18);
+  box-shadow: 0 16px 54px color-mix(in srgb, hsl(var(--text)) 7%, transparent);
+  transition: transform 0.24s var(--ocp-admin-ease);
+}
+
+.ocp-admin-sider--open {
+  transform: none;
+}
+
+@media (max-width: 979.98px) {
+  .ocp-admin-sider {
+    transform: translateX(calc(-100% - 20px));
+    box-shadow: var(--ocp-admin-shadow-float);
+  }
+
+  .ocp-admin-sider.ocp-admin-sider--open {
+    transform: none;
+  }
+}
+
+.ocp-admin-sider-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 4px 4px 18px;
+}
+
+.ocp-admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ocp-admin-brand-mark {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: hsl(var(--text));
+  color: hsl(var(--surface));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, hsl(var(--surface)) 16%, transparent);
+  flex: none;
+}
+
+.ocp-admin-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  min-width: 0;
+}
+
+.ocp-admin-brand-text strong {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  font-weight: 650;
+}
+
+.ocp-admin-brand-text span {
+  font-size: 11px;
+  color: hsl(var(--text-secondary));
+  letter-spacing: 0.12em;
+  margin-top: 4px;
+}
+
+.ocp-admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2px;
+  flex: 1;
+  min-height: 0;
+}
+
+.ocp-admin-nav::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.ocp-admin-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ocp-admin-nav-label {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: hsl(var(--text-secondary));
+  padding: 0 10px 6px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.ocp-admin-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: hsl(var(--text-secondary));
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    background 0.16s ease,
+    color 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.ocp-admin-nav-item:hover {
+  background: var(--ocp-admin-fg-soft);
+  color: hsl(var(--text));
+}
+
+.ocp-admin-nav-item:active {
+  transform: translateY(1px);
+}
+
+.ocp-admin-nav-item.is-active {
+  background: color-mix(in srgb, hsl(var(--text)) 6%, transparent);
+  border-color: color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  color: hsl(var(--text));
+  font-weight: 600;
+}
+
+.ocp-admin-nav-item.is-active::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 2px;
+  background: hsl(var(--text));
+}
+
+.ocp-admin-nav-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.ocp-admin-nav-count {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--ocp-admin-fg-soft);
+  color: hsl(var(--text-secondary));
+  flex: none;
+}
+
+.ocp-admin-nav-item.is-active .ocp-admin-nav-count {
+  background: hsl(var(--surface));
+  color: hsl(var(--text));
+}
+
+.ocp-admin-sider-foot {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ocp-admin-runtime-card {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 46px;
+  padding: 9px 10px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 13px;
+  background: color-mix(in srgb, hsl(var(--surface)) 44%, transparent);
+  text-align: left;
+  color: hsl(var(--text-secondary));
+  font-size: 12px;
+  cursor: pointer;
+  font: inherit;
+  transition: color 0.16s ease, border-color 0.16s ease;
+}
+
+.ocp-admin-runtime-card:hover {
+  color: hsl(var(--text));
+  border-color: color-mix(in srgb, hsl(var(--text)) 18%, hsl(var(--border)));
+}
+
+.ocp-admin-runtime-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: hsl(var(--success));
+  box-shadow: 0 0 0 4px hsl(var(--success) / 0.1);
+  flex: none;
+}
+
+.ocp-admin-runtime-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  min-width: 0;
+}
+
+.ocp-admin-runtime-copy strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(var(--text));
+}
+
+.ocp-admin-runtime-copy span {
+  font-size: 10px;
+  color: hsl(var(--text-secondary));
+  margin-top: 2px;
+}
+
+.ocp-admin-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 52px;
+  padding: 7px 8px;
+  border: 0;
+  border-radius: 13px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: background 0.16s ease;
+}
+
+.ocp-admin-profile-card:hover {
+  background: var(--ocp-admin-fg-soft);
+}
+
+.ocp-admin-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, hsl(var(--primary)) 12%, hsl(var(--surface)));
+  color: hsl(var(--text));
+  font-size: 13px;
+  font-weight: 650;
+  border: 1px solid color-mix(in srgb, hsl(var(--primary)) 16%, hsl(var(--border)));
+  flex: none;
+}
+
+.ocp-admin-profile-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+  flex: 1;
+}
+
+.ocp-admin-profile-copy strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ocp-admin-profile-copy span {
+  font-size: 10px;
+  color: hsl(var(--text-secondary));
+  margin-top: 3px;
+}
+
+/* —— 顶栏 —— */
+.ocp-admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 28px;
+  background: color-mix(in srgb, hsl(var(--background)) 76%, transparent);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  border-bottom: 1px solid color-mix(in srgb, hsl(var(--border)) 80%, transparent);
+}
+
+.ocp-admin-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.ocp-admin-crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: hsl(var(--text-secondary));
+  white-space: nowrap;
+}
+
+.ocp-admin-crumb-prefix {
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+}
+
+.ocp-admin-crumb-slash {
+  opacity: 0.45;
+}
+
+.ocp-admin-crumb-current {
+  color: hsl(var(--text));
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.ocp-admin-icon-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: hsl(var(--text-secondary));
+  position: relative;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    background 0.16s ease,
+    color 0.16s ease,
+    border-color 0.16s ease;
+}
+
+.ocp-admin-icon-btn:hover {
+  background: var(--ocp-admin-fg-soft);
+  color: hsl(var(--text));
+  border-color: hsl(var(--border));
+}
+
+.ocp-admin-notif-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: hsl(var(--text));
+  border: 2px solid hsl(var(--background));
+}
+
+.ocp-admin-top-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, hsl(var(--text)) 7%, hsl(var(--surface)));
+  border: 1px solid hsl(var(--border));
+  font-size: 12px;
+  font-weight: 650;
+  color: hsl(var(--text));
+  margin-left: 5px;
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.16s ease;
+}
+
+.ocp-admin-top-avatar:hover {
+  background: color-mix(in srgb, hsl(var(--text)) 10%, hsl(var(--surface)));
+}
+
+/* —— 视图动效 —— */
+.ocp-admin-view-enter {
+  animation: ocp-admin-view-in 0.26s var(--ocp-admin-ease) both;
+}
+
+.ocp-admin-region-enter {
+  animation: ocp-admin-region-in 0.2s var(--ocp-admin-ease) both;
+}
+
+@keyframes ocp-admin-view-in {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ocp-admin-region-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* —— 指标预览卡 —— */
+.ocp-admin-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1199.98px) {
+  .ocp-admin-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 519.98px) {
+  .ocp-admin-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ocp-admin-metric-card {
+  position: relative;
+  padding: 18px;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--ocp-admin-r-lg);
+  background: hsl(var(--surface));
+  min-height: 150px;
+  overflow: hidden;
+}
+
+.ocp-admin-metric-card::after {
+  content: '';
+  position: absolute;
+  right: -24px;
+  top: -34px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: hsl(var(--primary) / 0.03);
+  pointer-events: none;
+}
+
+/* —— 面板 —— */
+.ocp-admin-panel {
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--ocp-admin-r-lg);
+  background: hsl(var(--surface));
+  padding: 22px;
+  min-width: 0;
+}
+
+.ocp-admin-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.ocp-admin-panel-title {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 650;
+  margin: 0;
+}
+
+.ocp-admin-panel-sub {
+  font-size: 11.5px;
+  color: hsl(var(--text-secondary));
+  margin-top: 4px;
+}
+
+.ocp-admin-panel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  border: 0;
+  background: transparent;
+  color: hsl(var(--text-secondary));
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 0 6px;
+  cursor: pointer;
+  font: inherit;
+  transition: color 0.16s ease, background 0.16s ease;
+}
+
+.ocp-admin-panel-link:hover {
+  color: hsl(var(--text));
+  background: var(--ocp-admin-fg-soft);
+}
+
+/* —— 柱状图 —— */
+.ocp-admin-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 195px;
+  margin-top: 24px;
+  padding-top: 8px;
+}
+
+.ocp-admin-bar-col {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+}
+
+.ocp-admin-bar-rail {
+  width: 100%;
+  height: 154px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 8px;
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 0 3px;
+}
+
+.ocp-admin-bar {
+  width: 100%;
+  max-width: 38px;
+  min-height: 5px;
+  border-radius: 7px 7px 2px 2px;
+  background: color-mix(in srgb, hsl(var(--text)) 10%, transparent);
+  transform-origin: bottom;
+  animation: ocp-admin-bar-in 0.5s var(--ocp-admin-ease) both;
+  transition: background 0.16s ease;
+}
+
+.ocp-admin-bar-col:hover .ocp-admin-bar {
+  background: color-mix(in srgb, hsl(var(--text)) 18%, transparent);
+}
+
+.ocp-admin-bar.is-peak,
+.ocp-admin-bar-col:hover .ocp-admin-bar.is-peak {
+  background: hsl(var(--primary));
+}
+
+@keyframes ocp-admin-bar-in {
+  from {
+    transform: scaleY(0.05);
+    opacity: 0.35;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* —— 任务 / 紧凑列表 —— */
+.ocp-admin-task-list,
+.ocp-admin-compact-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ocp-admin-task-row {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 0;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.ocp-admin-task-row:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+
+.ocp-admin-task-mark {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--warning));
+}
+
+.ocp-admin-compact-row {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 11px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.ocp-admin-compact-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.ocp-admin-type-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--ocp-admin-fg-soft);
+  color: hsl(var(--text-secondary));
+}
+
+/* —— 状态条 —— */
+.ocp-admin-status-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1199.98px) {
+  .ocp-admin-status-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ocp-admin-status-cell {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 15px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 14px;
+  background: hsl(var(--surface));
+  min-width: 0;
+}
+
+/* —— 健康指标 —— */
+.ocp-admin-health-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ocp-admin-health-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 10px;
+  align-items: center;
+}
+
+.ocp-admin-health-item .ocp-admin-progress {
+  grid-column: 1 / -1;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--ocp-admin-fg-soft);
+  overflow: hidden;
+}
+
+.ocp-admin-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: hsl(var(--success));
+  transition: width 0.5s var(--ocp-admin-ease);
+}
+
+.ocp-admin-progress-fill.is-warning {
+  background: hsl(var(--warning));
+}
+
+/* —— 色调徽章 —— */
+.ocp-admin-tone-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  white-space: nowrap;
+  flex: none;
+  font-weight: 520;
+}
+
+.ocp-admin-tone-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+
+.ocp-admin-tone-success {
+  background: hsl(var(--success) / 0.1);
+  color: hsl(var(--success));
+}
+
+.ocp-admin-tone-warning {
+  background: hsl(var(--warning) / 0.11);
+  color: hsl(var(--warning));
+}
+
+.ocp-admin-tone-danger {
+  background: hsl(var(--error) / 0.09);
+  color: hsl(var(--error));
+}
+
+.ocp-admin-tone-neutral {
+  background: var(--ocp-admin-fg-soft);
+  color: hsl(var(--text-secondary));
+}
+
+.ocp-admin-tone-accent {
+  background: hsl(var(--primary) / 0.09);
+  color: color-mix(in srgb, hsl(var(--primary)) 82%, black);
+}
+
+/* —— 玻璃 Popover —— */
+.ocp-admin-popover-glass.popover-container {
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  border-radius: 16px;
+  background: var(--ocp-admin-glass-strong);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  box-shadow: var(--ocp-admin-shadow-float);
+  padding: 8px;
+  max-width: calc(100vw - 24px);
+}
+
+.ocp-admin-popover-glass .popover-arrow {
+  display: none;
+}
+
+.ocp-admin-popover-glass.popover-enter-active {
+  animation: ocp-admin-pop-in 0.18s var(--ocp-admin-ease) both;
+}
+
+@keyframes ocp-admin-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* —— 账户面板 —— */
+.ocp-admin-account-pop-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid hsl(var(--border));
+  margin-bottom: 5px;
+}
+
+.ocp-admin-account-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.ocp-admin-account-action {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  font-size: 12px;
+  color: hsl(var(--text-secondary));
+  cursor: pointer;
+  font: inherit;
+  width: 100%;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.ocp-admin-account-action:hover {
+  background: var(--ocp-admin-fg-soft);
+  color: hsl(var(--text));
+}
+
+/* —— 通知项 —— */
+.ocp-admin-notif-item {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+  padding: 11px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  text-align: left;
+  color: hsl(var(--text));
+  cursor: pointer;
+  font: inherit;
+  width: 100%;
+  transition: background 0.16s ease;
+}
+
+.ocp-admin-notif-item:hover {
+  background: var(--ocp-admin-fg-soft);
+}
+
+.ocp-admin-notif-mark {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--text));
+  margin-top: 6px;
+}
+
+.ocp-admin-notif-item.is-read .ocp-admin-notif-mark {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px hsl(var(--border));
+}
+
+/* —— 可控制树列表 —— */
+.ocp-admin-tree-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ocp-admin-tree-row {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 8px;
+  border-top: 1px solid hsl(var(--border));
+  font-size: 12px;
+}
+
+.ocp-admin-tree-row:first-child {
+  border-top: 0;
+}
+
+/* —— 区块提示 —— */
+.ocp-admin-section-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: color-mix(in srgb, hsl(var(--background)) 58%, hsl(var(--surface)));
+  font-size: 11.5px;
+  color: hsl(var(--text-secondary));
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
+
+.ocp-admin-mobile-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  background: color-mix(in srgb, hsl(var(--text)) 14%, transparent);
+  backdrop-filter: blur(3px);
+  animation: ocp-admin-fade-in 0.16s ease both;
+}
+
+@keyframes ocp-admin-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocp-admin-view-enter,
+  .ocp-admin-region-enter,
+  .ocp-admin-bar,
+  .ocp-admin-popover-glass.popover-enter-active,
+  .ocp-admin-mobile-scrim {
+    animation: none !important;
+  }
+}

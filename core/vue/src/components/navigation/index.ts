@@ -16,5 +16,6 @@ export { default as Pagination } from './Pagination.vue';
 export { default as Steps } from './Steps.vue';
 export { default as Navbar } from './Navbar.vue';
 export { default as BottomNav } from './BottomNav.vue';
-export type { BottomNavItem } from './types';
+export { default as NavTrack } from './NavTrack.vue';
+export type { BottomNavItem, NavTrackIndicator } from './types';
 

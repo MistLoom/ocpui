@@ -1,6 +1,22 @@
 <template>
   <nav :class="breadcrumbClass" :aria-label="t('components.navigation.breadcrumb.ariaLabel')">
-    <ol class="breadcrumb-list" v-if="items.length > 0">
+    <div
+      v-if="variant === 'admin' && items.length > 0"
+      class="ocp-admin-crumb"
+    >
+      <span v-if="prefix" class="ocp-admin-crumb-prefix">{{ prefix }}</span>
+      <template v-for="(item, index) in items" :key="item.href || item.label + index">
+        <span v-if="index > 0 || prefix" class="ocp-admin-crumb-slash">/</span>
+        <a
+          v-if="item.href && index < items.length - 1"
+          :href="item.href"
+          class="ocp-admin-crumb-current"
+          @click="handleClick(item, $event)"
+        >{{ item.label }}</a>
+        <strong v-else class="ocp-admin-crumb-current">{{ item.label }}</strong>
+      </template>
+    </div>
+    <ol v-else-if="items.length > 0" class="breadcrumb-list">
       <li
         v-for="(item, index) in items"
         :key="item.href || item.label + index"
@@ -71,12 +87,18 @@ interface Props {
   items: BreadcrumbItem[];
   separator?: string;
   customClass?: string;
+  /** admin：管理台顶栏紧凑样式 */
+  variant?: 'default' | 'admin';
+  /** admin 变体下的品牌前缀（如 AIEPOCH） */
+  prefix?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => [],
   separator: '/',
   customClass: '',
+  variant: 'default',
+  prefix: '',
 });
 
 const emit = defineEmits<{

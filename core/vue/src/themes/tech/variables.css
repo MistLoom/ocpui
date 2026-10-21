@@ -3,6 +3,7 @@
 /* tech L2 差量：偏蓝工具感，饱和度 ≤55%，略大圆角，无 glow */
 :is(:root.theme-tech, html.theme-tech) {
   --font-sans: 'IBM Plex Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'IBM Plex Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'SF Mono', 'Monaco', 'JetBrains Mono', 'Fira Code', monospace;
 
   --radius-sm: 8px;

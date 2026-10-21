@@ -104,6 +104,10 @@ const buttonClass = computed(() => {
       classes.push('btn-text');
     } else if (props.variant === 'danger') {
       classes.push('btn-danger');
+    } else if (props.variant === 'success') {
+      classes.push('btn-success');
+    } else if (props.variant === 'ghost') {
+      classes.push('btn-ghost');
     }
     
     if (size === 'sm') {
@@ -160,12 +164,19 @@ button {
   justify-content: center;
   padding: var(--space-3) var(--space-5);
   font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-weight: 560;
   line-height: 1.5;
-  border-radius: var(--radius-md-md);
+  letter-spacing: -0.005em;
+  min-height: var(--control-min-height);
+  border-radius: var(--radius-control);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background-color var(--transition-normal) var(--ease-out), border-color var(--transition-normal) var(--ease-out), color var(--transition-normal) var(--ease-out), box-shadow var(--transition-normal) var(--ease-out), transform var(--transition-normal) var(--ease-out);
+  transition:
+    background-color 0.16s var(--ease-emphasized),
+    border-color 0.16s var(--ease-emphasized),
+    color 0.16s var(--ease-emphasized),
+    box-shadow 0.16s var(--ease-emphasized),
+    transform 0.12s var(--ease-emphasized);
   user-select: none;
   white-space: nowrap;
 }
@@ -186,16 +197,17 @@ button {
   background: hsl(var(--primary));
   color: hsl(var(--surface));
   border-color: hsl(var(--primary));
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 3px 12px hsl(var(--primary) / 0.15);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: hsl(var(--primary) / 0.9);
-  border-color: hsl(var(--primary) / 0.9);
+  background: hsl(var(--primary-dark));
+  border-color: hsl(var(--primary-dark));
+  transform: translateY(-1px);
 }
 
 .btn-primary:active:not(:disabled) {
-  transform: scale(0.96);
+  transform: translateY(1px);
 }
 
 .btn-secondary {
@@ -211,7 +223,7 @@ button {
 }
 
 .btn-secondary:active:not(:disabled) {
-  transform: scale(0.96);
+  transform: translateY(1px);
 }
 
 .btn-text {

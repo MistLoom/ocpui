@@ -53,7 +53,7 @@ import Icon from './Icon.vue';
 import type { ComponentSizeWithXs } from '@ocpui/vue/types';
 import { useComponentSize } from '../composables/useComponentSize';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'error' | 'danger' | 'default' | 'text' | 'outline';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'error' | 'danger' | 'default' | 'text' | 'outline' | 'chrome';
 type ButtonSize = ComponentSizeWithXs;
 type ButtonType = 'button' | 'submit' | 'reset';
 type ButtonShape = 'circle' | 'square';
@@ -274,6 +274,21 @@ const handleClick = (event: MouseEvent) => {
   background: hsl(var(--surface-hover));
   color: hsl(var(--text));
   border-color: hsl(var(--border));
+}
+
+.icon-button--chrome {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 9px;
+  background: transparent;
+  color: hsl(var(--text-secondary));
+  border-color: transparent;
+}
+
+.icon-button--chrome:hover:not(:disabled) {
+  background: hsl(var(--surface-hover));
+  color: hsl(var(--text));
 }
 
 .icon-button--text {

@@ -1,0 +1,96 @@
+/**
+ * NavTrack / 顶栏导航项（平台稿胶囊指示）
+ * 兼容站点 .flow-nav-* 类名
+ */
+
+.ocp-nav-track,
+.flow-nav-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  min-width: 0;
+}
+
+.ocp-nav-track--pill,
+.flow-nav-track:not(.ocp-nav-track--underline) {
+  justify-content: center;
+}
+
+.ocp-nav-track__ink,
+.flow-nav-ink {
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition:
+    transform var(--duration-normal, 0.22s) var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)),
+    width var(--duration-normal, 0.22s) var(--ease-out-soft, cubic-bezier(0.22, 1, 0.36, 1)),
+    opacity var(--duration-fast, 0.14s) var(--ease-standard, ease);
+}
+
+.ocp-nav-track--pill .ocp-nav-track__ink,
+.ocp-nav-track--pill .flow-nav-ink,
+.flow-nav-track:not(.ocp-nav-track--underline) .flow-nav-ink {
+  top: 2px;
+  bottom: 2px;
+  height: auto;
+  border-radius: 999px;
+  background: var(--color-bg-subtle, hsl(var(--surface-container-low)));
+  border: 1px solid var(--color-border, hsl(var(--border)));
+}
+
+.ocp-nav-track--underline .ocp-nav-track__ink,
+.ocp-nav-track--underline .flow-nav-ink {
+  bottom: 4px;
+  height: 2px;
+  border-radius: 1px;
+  border: 0;
+  background: hsl(var(--primary));
+}
+
+.ocp-nav-item,
+.flow-nav-item {
+  position: relative;
+  z-index: 1;
+}
+
+.ocp-nav-item--pill,
+.flow-nav-item.ocp-nav-item--pill,
+a.flow-nav-item.hdr__link,
+.hdr__link.flow-nav-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  color: var(--color-text-muted, hsl(var(--text-secondary)));
+  text-decoration: none;
+  background: transparent;
+  transition: color var(--duration-fast, 0.14s) var(--ease-standard, ease);
+}
+
+.ocp-nav-item--pill:hover,
+.flow-nav-item.ocp-nav-item--pill:hover,
+a.flow-nav-item.hdr__link:hover,
+.hdr__link.flow-nav-item:hover {
+  color: var(--color-text, hsl(var(--text)));
+  background: transparent;
+}
+
+.ocp-nav-item--pill.is-active,
+.flow-nav-item.ocp-nav-item--pill.is-active,
+a.flow-nav-item.hdr__link.is-active,
+.hdr__link.flow-nav-item.is-active {
+  color: var(--color-text, hsl(var(--text)));
+  font-weight: 500;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocp-nav-track__ink,
+  .flow-nav-ink {
+    transition: none !important;
+  }
+}

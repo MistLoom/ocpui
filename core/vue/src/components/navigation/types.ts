@@ -12,6 +12,8 @@ export interface TabItem {
   count?: number;
 }
 
+export type NavTrackIndicator = 'pill' | 'underline';
+
 export interface BottomNavItem {
   key: string | number;
   label: string;

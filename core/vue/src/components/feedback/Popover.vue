@@ -86,6 +86,8 @@ interface Props {
   offset?: number;
   customClass?: string;
   width?: number | string;
+  /** glass：管理台毛玻璃浮层 */
+  surface?: 'default' | 'glass';
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -97,6 +99,7 @@ const props = withDefaults(defineProps<Props>(), {
   offset: 8,
   customClass: '',
   width: undefined,
+  surface: 'default',
 });
 
 const emit = defineEmits<{
@@ -123,6 +126,9 @@ const visible = computed(() => {
 
 const popoverClass = computed(() => {
   const classes = ['popover', `popover-${resolvedSide.value}`];
+  if (props.surface === 'glass') {
+    classes.push('ocp-admin-popover-glass');
+  }
   if (props.customClass) {
     classes.push(props.customClass);
   }
@@ -258,11 +264,13 @@ watch(visible, (val) => {
   z-index: var(--z-popover);
   min-width: 180px;
   max-width: 320px;
-  background: hsl(var(--surface));
-  border: 1px solid hsl(var(--border));
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--glass-fill-strong);
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  border-radius: 16px;
+  box-shadow: var(--shadow-elevated-soft);
+  backdrop-filter: blur(20px) saturate(1.15);
+  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  font-family: var(--font-sans);
   overflow: hidden;
 }
 
@@ -328,15 +336,28 @@ watch(visible, (val) => {
   }
 }
 
-.popover-enter-active,
-.popover-leave-active {
-  transition: var(--transition-dropdown);
+.popover-enter-active {
+  animation: ocp-popover-in 0.18s var(--ease-emphasized) both;
 }
 
-.popover-enter-from,
+.popover-leave-active {
+  transition: opacity 0.14s var(--ease-emphasized), transform 0.14s var(--ease-emphasized);
+}
+
 .popover-leave-to {
   opacity: 0;
-  transform: scale(0.96);
+  transform: translateY(-4px) scale(0.98);
+}
+
+@keyframes ocp-popover-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .popover-top,

@@ -5,7 +5,7 @@
  */
 
 .select-selector {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-field);
   border-color: hsl(var(--border));
   box-shadow: var(--shadow-sm);
   min-height: 40px;

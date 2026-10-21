@@ -1,0 +1,418 @@
+/**
+ * 管理台稿与 T0–T2 组件的统一视觉（引入 styles/full 即生效）
+ * 壳层专用 class 仍见 admin-console-patterns.css
+ */
+
+/* —— 按钮 —— */
+.btn,
+.button {
+  min-height: var(--control-min-height);
+  border-radius: var(--radius-control);
+  font-weight: 560;
+  letter-spacing: -0.005em;
+  transition:
+    background-color 0.16s var(--ease-emphasized),
+    border-color 0.16s var(--ease-emphasized),
+    color 0.16s var(--ease-emphasized),
+    box-shadow 0.16s var(--ease-emphasized),
+    transform 0.12s var(--ease-emphasized);
+}
+
+.btn-sm,
+.button--sm {
+  min-height: 38px;
+  border-radius: 10px;
+  font-size: 12.5px;
+}
+
+.btn-primary,
+.button--primary {
+  box-shadow: 0 3px 12px hsl(var(--primary) / 0.15);
+}
+
+.btn-primary:hover:not(:disabled),
+.button--primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px hsl(var(--primary) / 0.18);
+}
+
+.btn-primary:active:not(:disabled),
+.button--primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-secondary:hover:not(:disabled),
+.button--secondary:hover:not(:disabled) {
+  border-color: color-mix(in srgb, hsl(var(--text)) 22%, hsl(var(--border)));
+  background: color-mix(in srgb, hsl(var(--surface)) 86%, hsl(var(--text)) 3%);
+}
+
+.btn-secondary:active:not(:disabled),
+.button--secondary:active:not(:disabled),
+.btn-ghost:active:not(:disabled),
+.btn-success:active:not(:disabled),
+.btn-danger:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-danger {
+  background: hsl(var(--error) / 0.09);
+  border-color: transparent;
+  color: hsl(var(--error));
+  box-shadow: none;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: hsl(var(--error) / 0.16);
+}
+
+.btn-success {
+  background: hsl(var(--success) / 0.1);
+  border-color: transparent;
+  color: hsl(var(--success));
+  box-shadow: none;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: hsl(var(--success) / 0.17);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: hsl(var(--text-secondary));
+  padding-inline: 9px;
+  box-shadow: none;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--surface-soft);
+  color: hsl(var(--text));
+}
+
+.text-btn {
+  min-height: 40px;
+  padding: 0 6px;
+  border: 0;
+  background: transparent;
+  color: hsl(var(--text-secondary));
+  font-size: 12.5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  transition:
+    color 0.16s var(--ease-emphasized),
+    background 0.16s var(--ease-emphasized);
+}
+
+.text-btn:hover:not(:disabled) {
+  color: hsl(var(--text));
+  background: var(--surface-soft);
+}
+
+.tool-button {
+  width: var(--control-min-height);
+  height: var(--control-min-height);
+  border-radius: var(--radius-control);
+  border: 1px solid transparent;
+  color: hsl(var(--text-secondary));
+  transition:
+    background 0.16s var(--ease-emphasized),
+    color 0.16s var(--ease-emphasized),
+    border-color 0.16s var(--ease-emphasized);
+}
+
+.tool-button:hover:not(:disabled) {
+  background: var(--surface-soft);
+  color: hsl(var(--text));
+  border-color: hsl(var(--border));
+}
+
+/* —— 录入控件 —— */
+.input-wrapper .input-line,
+.input-wrapper .input-container,
+.select-selector,
+.datepicker-selector,
+.textarea,
+.input-native {
+  border-radius: var(--radius-field);
+  min-height: 42px;
+  transition:
+    border-color 0.16s var(--ease-emphasized),
+    box-shadow 0.16s var(--ease-emphasized),
+    background-color 0.16s var(--ease-emphasized);
+}
+
+.input-wrapper .input-line:hover:not(.input-line--disabled):not(.input-line--readonly),
+.input-wrapper .input-container:hover:not(.input-container--disabled):not(.input-container--readonly),
+.select:hover:not(.select--disabled) .select-selector,
+.datepicker:hover:not(.datepicker--disabled) .datepicker-selector {
+  border-color: color-mix(in srgb, hsl(var(--text)) 18%, hsl(var(--border)));
+}
+
+.input-wrapper .input-line--focused,
+.input-wrapper .input-container--focused,
+.select--focused .select-selector,
+.datepicker--focused .datepicker-selector {
+  border-color: hsl(var(--border-focus));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.09);
+}
+
+/* —— 卡片 / 面板 —— */
+.card,
+.metric-card {
+  border-radius: var(--radius-panel);
+}
+
+.card--bordered {
+  border-color: color-mix(in srgb, hsl(var(--border)) 92%, transparent);
+}
+
+/* —— 数据展示：状态 / 标签 —— */
+.status-tag,
+.tag,
+.chip {
+  font-weight: 520;
+}
+
+.tag-default,
+.chip-default {
+  background: var(--surface-soft);
+}
+
+/* —— 表格 —— */
+.datatable-inner tbody tr,
+.table-inner tbody tr {
+  transition: background 0.14s var(--ease-emphasized);
+}
+
+.datatable-inner tbody tr:hover,
+.table-inner tbody tr:hover {
+  background: color-mix(in srgb, hsl(var(--text)) 2.6%, transparent);
+}
+
+/* —— 导航：纵向菜单（与 AdminNav 同调） —— */
+.menu--vertical .menu-item {
+  min-height: var(--control-min-height);
+  padding: 0 11px;
+  gap: 10px;
+  border-radius: var(--radius-control);
+  font-size: 14px;
+  font-weight: 500;
+  color: hsl(var(--text-secondary));
+  transition:
+    background 0.16s var(--ease-emphasized),
+    color 0.16s var(--ease-emphasized),
+    border-color 0.16s var(--ease-emphasized),
+    transform 0.16s var(--ease-emphasized);
+}
+
+.menu--vertical .menu-item:hover:not(.menu-item--disabled) {
+  background: var(--surface-soft);
+  color: hsl(var(--text));
+}
+
+.menu--vertical .menu-item--active {
+  background: color-mix(in srgb, hsl(var(--text)) 6%, transparent);
+  border-color: color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  color: hsl(var(--text));
+  font-weight: 600;
+}
+
+.menu--vertical .menu-item--active::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 2px;
+  background: hsl(var(--text));
+}
+
+.menu--vertical .menu-item:active:not(.menu-item--disabled) {
+  transform: translateY(1px);
+}
+
+.menu-sub-item {
+  border-radius: 9px;
+}
+
+/* —— 反馈：浮层 / 提示 —— */
+.popover-container {
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  background: var(--glass-fill-strong);
+  backdrop-filter: blur(20px) saturate(1.15);
+  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  box-shadow: var(--shadow-elevated-soft);
+}
+
+.popover-title {
+  font-size: 12.5px;
+  font-weight: 650;
+  padding: 9px 12px 10px;
+  background: transparent;
+  border-bottom: 1px solid color-mix(in srgb, hsl(var(--border)) 80%, transparent);
+}
+
+.popover-content {
+  padding: 8px;
+  font-size: 13px;
+}
+
+.tooltip-container {
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  background: var(--glass-fill-strong);
+  backdrop-filter: blur(16px) saturate(1.12);
+  -webkit-backdrop-filter: blur(16px) saturate(1.12);
+  box-shadow: var(--shadow-elevated-soft);
+  font-size: 12px;
+}
+
+.toast-item {
+  border-radius: var(--radius-control);
+  background: var(--glass-fill-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-elevated-soft);
+}
+
+.modal-content,
+.dialog-container,
+.drawer-panel,
+.popup-panel {
+  border-radius: var(--radius-panel);
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 80%, transparent);
+}
+
+.dropdown-menu,
+.select-dropdown {
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  background: var(--glass-fill-strong);
+  backdrop-filter: blur(22px) saturate(1.15);
+  -webkit-backdrop-filter: blur(22px) saturate(1.15);
+  box-shadow: var(--shadow-elevated-soft);
+  padding: 6px;
+}
+
+.dropdown-item,
+.select-option {
+  border-radius: 9px;
+  min-height: 40px;
+  font-size: 13px;
+}
+
+.dropdown-item:hover:not(.dropdown-item--disabled),
+.select-option:hover:not(.select-option--disabled) {
+  background: var(--surface-soft);
+}
+
+/* —— 分段 / Tabs 胶囊 —— */
+.seg-tabs,
+.segmented-control {
+  padding: 3px;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-control);
+  background: color-mix(in srgb, hsl(var(--surface)) 76%, transparent);
+  gap: 2px;
+}
+
+.seg-tab,
+.segmented-option {
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  color: hsl(var(--text-secondary));
+  transition:
+    background 0.15s var(--ease-emphasized),
+    color 0.15s var(--ease-emphasized),
+    box-shadow 0.15s var(--ease-emphasized);
+}
+
+.seg-tab.is-active,
+.segmented-option--active {
+  background: hsl(var(--surface));
+  color: hsl(var(--text));
+  font-weight: 600;
+  box-shadow: 0 1px 3px color-mix(in srgb, hsl(var(--text)) 8%, transparent);
+}
+
+/* —— 面包屑 —— */
+.breadcrumb-link,
+.breadcrumb-text {
+  font-size: 12px;
+}
+
+.breadcrumb-item-current .breadcrumb-text {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* —— 搜索触发器（site-chrome） —— */
+.ocp-search-trigger {
+  min-height: 40px;
+  border-radius: var(--radius-control);
+  transition:
+    border-color 0.16s var(--ease-emphasized),
+    background 0.16s var(--ease-emphasized),
+    box-shadow 0.16s var(--ease-emphasized);
+}
+
+.ocp-search-trigger:hover {
+  border-color: color-mix(in srgb, hsl(var(--text)) 22%, hsl(var(--border)));
+  background: hsl(var(--surface));
+  box-shadow: 0 2px 12px color-mix(in srgb, hsl(var(--text)) 4%, transparent);
+}
+
+/* —— 空状态 / 告警条 —— */
+.empty-state,
+.alert {
+  border-radius: var(--radius-control);
+}
+
+.list-item {
+  border-radius: var(--radius-md);
+  transition: background 0.14s var(--ease-emphasized);
+}
+
+.list-item:hover {
+  background: var(--surface-soft);
+}
+
+/* —— 管理台 tone 徽章（通用 ToneBadge） —— */
+.ocp-admin-tone-badge {
+  font-weight: 520;
+}
+
+.ocp-admin-tone-neutral {
+  background: var(--surface-soft);
+}
+
+/* —— 浮层提示 —— */
+.ocpui-floating-hint {
+  border-radius: 10px;
+  background: var(--glass-fill-strong);
+  backdrop-filter: blur(16px) saturate(1.12);
+  -webkit-backdrop-filter: blur(16px) saturate(1.12);
+  box-shadow: var(--shadow-elevated-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .button,
+  .menu--vertical .menu-item,
+  .popover-enter-active {
+    transition-duration: 0.001ms !important;
+  }
+
+  .btn-primary:hover:not(:disabled),
+  .btn-primary:active:not(:disabled) {
+    transform: none;
+  }
+}

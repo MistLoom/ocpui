@@ -5,7 +5,7 @@ ThemeToggle 组件
 
 属性：
 - size: 'sm' | 'md' | 'lg' - 按钮尺寸，默认 'md'
-- variant: 'default' | 'ghost' | 'outline' - 按钮样式，默认 'default'
+- variant: 'default' | 'ghost' | 'outline' | 'chrome' - 按钮样式，默认 'default'
 - showLabel: boolean - 是否显示文字标签，默认 false
 
 事件：
@@ -50,7 +50,7 @@ import Icon from './Icon.vue';
 
 interface Props {
   size?: 'sm' | 'md' | 'lg';
-  variant?: 'default' | 'ghost' | 'outline';
+  variant?: 'default' | 'ghost' | 'outline' | 'chrome';
   showLabel?: boolean;
 }
 
@@ -172,6 +172,21 @@ const handleToggle = async (event: MouseEvent) => {
 .theme-toggle--outline:hover:not(:disabled) {
   background: hsl(var(--surface-hover));
   border-color: hsl(var(--border-hover));
+}
+
+.theme-toggle--chrome {
+  background: transparent;
+  color: hsl(var(--text-secondary));
+  min-width: 36px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 9px;
+}
+
+.theme-toggle--chrome:hover:not(:disabled) {
+  background: hsl(var(--surface-hover));
+  color: hsl(var(--text));
 }
 
 .theme-toggle-icon-wrapper {

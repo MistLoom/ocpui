@@ -25,6 +25,7 @@ export { default as StatusIndicator } from './StatusIndicator.vue';
 export { default as ThemePreviewCard } from './ThemePreviewCard.vue';
 export { default as ThemeSelector } from './ThemeSelector.vue';
 export { default as ThemeToggle } from './ThemeToggle.vue';
+export { default as SearchTrigger } from './SearchTrigger.vue';
 export { default as Toast } from './Toast.vue';
 export { default as ToastContainer } from './ToastContainer.vue';
 export { toast } from './toast';

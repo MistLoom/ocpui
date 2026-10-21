@@ -1,0 +1,5 @@
+/**
+ * 管理台壳层样式包（玻璃侧栏、顶栏、仪表区块、列表与浮层）
+ * 在 @ocpui/vue/styles 之后引入：@ocpui/vue/admin-chrome
+ */
+@import '../shared/admin-console-patterns.css';

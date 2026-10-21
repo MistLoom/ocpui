@@ -7,9 +7,9 @@
 
 .btn,
 .button {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   box-shadow: var(--shadow-sm);
-  min-height: 40px;
+  min-height: var(--control-min-height);
 }
 
 .btn-secondary,
@@ -38,7 +38,7 @@
 
 /* ????????36px????????40px ????*/
 .tool-button {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-control);
 }
 
 .tool-button::after {
@@ -48,8 +48,9 @@
 /* Input?????????? .input-line ?? */
 .input-wrapper .input-line,
 .input-wrapper .input-container {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-field);
   box-shadow: var(--shadow-sm);
+  min-height: 42px;
 }
 
 .input-wrapper .input-line:hover:not(.input-line--disabled):not(.input-line--readonly),

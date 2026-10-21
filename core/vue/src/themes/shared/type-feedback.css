@@ -5,9 +5,9 @@
  */
 
 .toast-item {
-  border-radius: var(--radius-lg);
-  border: 1px solid hsl(var(--border));
-  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-control);
+  border: 1px solid color-mix(in srgb, hsl(var(--border)) 72%, transparent);
+  box-shadow: var(--shadow-elevated-soft);
 }
 
 .toast-close {

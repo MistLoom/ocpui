@@ -39,12 +39,17 @@
         "types": "./dist/components/navigation/types.d.ts",
         "import": "./dist/components/navigation/types.js"
       },
+      "./navigation/*": "./src/components/navigation/*",
+      "./themes/shared/nav-track.css": "./src/themes/shared/nav-track.css",
+      "./themes/shared/chrome-surfaces.css": "./src/themes/shared/chrome-surfaces.css",
       "./themes": {
         "types": "./dist/themes/index.d.ts",
         "import": "./dist/themes/index.js"
       },
       "./styles": "./src/themes/globals.css",
       "./styles/full": "./src/themes/styles.css",
+      "./site-chrome": "./src/themes/styles/chrome.css",
+      "./admin-chrome": "./src/themes/styles/admin-chrome.css",
       "./themes/editorial": "./src/themes/editorial/index.css",
       "./themes/tech": "./src/themes/tech/index.css",
       "./validation": {
@@ -96,9 +101,14 @@
     "./feedback/*": "./src/components/feedback/*",
     "./feedback-context": "./src/feedback/index.ts",
     "./navigation/types": "./src/components/navigation/types.ts",
+    "./navigation/*": "./src/components/navigation/*",
+    "./themes/shared/nav-track.css": "./src/themes/shared/nav-track.css",
+    "./themes/shared/chrome-surfaces.css": "./src/themes/shared/chrome-surfaces.css",
     "./themes": "./src/themes/index.ts",
     "./styles": "./src/themes/globals.css",
     "./styles/full": "./src/themes/styles.css",
+    "./site-chrome": "./src/themes/styles/chrome.css",
+    "./admin-chrome": "./src/themes/styles/admin-chrome.css",
     "./themes/editorial": "./src/themes/editorial/index.css",
     "./themes/tech": "./src/themes/tech/index.css",
     "./validation": "./src/validation/index.ts",

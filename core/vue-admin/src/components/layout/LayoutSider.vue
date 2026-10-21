@@ -163,6 +163,8 @@ interface Props {
   mobileVisible?: boolean;
   customClass?: string;
   drawerZIndex?: number;
+  /** classic：贴边侧栏；glass-dock：管理台玻璃浮岛（见 admin-chrome） */
+  variant?: 'classic' | 'glass-dock';
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -175,6 +177,7 @@ const props = withDefaults(defineProps<Props>(), {
   mobileVisible: false,
   customClass: '',
   drawerZIndex: 1000,
+  variant: 'classic',
 });
 
 const emit = defineEmits<{
@@ -188,6 +191,12 @@ const emit = defineEmits<{
 // 类名计算
 const layoutSiderClass = computed(() => {
   const classes = ['layout-sider'];
+  if (props.variant === 'glass-dock') {
+    classes.push('layout-sider--glass-dock', 'ocp-admin-sider');
+    if (props.mobileVisible) {
+      classes.push('ocp-admin-sider--open');
+    }
+  }
   if (props.collapsed) {
     classes.push('layout-sider--collapsed');
   }
@@ -259,6 +268,17 @@ defineExpose({
   height: 100%;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   transition: width 0.3s var(--ease-out);
+}
+
+.layout-sider--glass-dock {
+  width: auto !important;
+  height: auto;
+  border: none;
+  background: transparent;
+}
+
+.layout-sider--glass-dock .layout-sider-inner {
+  display: none;
 }
 
 /* 桌面端样式 */

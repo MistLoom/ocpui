@@ -64,8 +64,14 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid hsl(var(--ring) / 0.45);
+  outline: 2px solid hsl(var(--border-focus));
   outline-offset: 2px;
+}
+
+.btn-primary:focus-visible,
+.button--primary:focus-visible {
+  outline-color: hsl(var(--text));
+  outline-offset: 3px;
 }
 
 button,

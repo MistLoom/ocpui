@@ -5,7 +5,7 @@
  */
 
 .card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-panel);
   transition:
     background-color var(--duration-slow) var(--ease-standard),
     border-color var(--duration-slow) var(--ease-standard),

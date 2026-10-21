@@ -106,10 +106,10 @@ const handleSelect = (item: BottomNavItem) => {
   padding-bottom: calc(var(--space-1) + var(--safe-area-bottom));
   padding-left: var(--safe-area-left);
   padding-right: var(--safe-area-right);
-  background: hsl(var(--surface) / 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid hsl(var(--border));
+  background: color-mix(in srgb, var(--color-bg, hsl(var(--background))) 74%, transparent);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  border-top: 1px solid var(--color-border, hsl(var(--border)));
   box-shadow: 0 -2px 8px hsl(var(--shadow));
 }
 

@@ -1,0 +1,6 @@
+/**
+ * T4 消费者站点壳层样式包（顶栏/底栏 NavTrack、玻璃、搜索触发器等）
+ * 站点须在 Tailwind（main.css）之后通过 @ocpui/vue/site-chrome 引入。
+ */
+@import '../shared/nav-track.css';
+@import '../shared/chrome-surfaces.css';
