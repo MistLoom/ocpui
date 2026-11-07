@@ -28,9 +28,9 @@
 
 <script setup lang="ts">
 /**
- * 类型库式列表体：加载骨架 / 失败 / 空与无结�?/ 行列表�?
- * 页头与筛选仍�?AdminPage 负责�?
- * 可�?regionState 统一 10 态语义（@ocpui/docs/spec/foundation/state-system.md）�?
+ * 类型库式列表体：加载骨架 / 失败 / 空与无结果 / 行列表。
+ * 页头与筛选仍由 AdminPage 负责。
+ * 可选 regionState 统一 10 态语义（@ocpui/docs/spec/foundation/state-system.md）。
  */
 import { computed } from 'vue';
 import { Empty, Skeleton } from '@ocpui/vue';
@@ -41,7 +41,7 @@ import {
 
 const props = withDefaults(
   defineProps<{
-    /** 统一区域状态；设置后覆�?loading/isError/isEmpty/isForbidden */
+    /** 统一区域状态；设置后覆盖 loading/isError/isEmpty/isForbidden */
     regionState?: UiDataState;
     loading?: boolean;
     isError?: boolean;

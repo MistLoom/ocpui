@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-/** OCP 语义 ID：PascalCase name �?C:KEBAB-NAME；重名按 registry 目录消歧 */
+/** OCP 语义 ID：PascalCase name → C:KEBAB-NAME；重名按 registry 目录消歧 */
 
 /**
- * @param {string} name 组件�?PascalCase
+ * @param {string} name 组件名 PascalCase
  */
 export function nameToIdBase(name) {
   return name
@@ -14,7 +14,7 @@ export function nameToIdBase(name) {
 
 /**
  * @param {string} name
- * @param {string} registryRel �?registry/feedback/context-menu.md
+ * @param {string} registryRel 如 registry/feedback/context-menu.md
  * @param {boolean} disambiguate 重名组件加目录前缀
  */
 export function componentSemanticId(name, registryRel, disambiguate = false) {
