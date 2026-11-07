@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { defineNuxtModule, addVitePlugin } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
-import type { Alias, AliasOptions, Plugin, UserConfig } from 'vite'
+import type { Alias, AliasOptions, Plugin } from 'vite'
 import {
   VUE_PKG,
   ocpuiVitePlugins,
@@ -56,7 +56,17 @@ function asAliasArray(alias: AliasOptions | undefined): Alias[] {
   }))
 }
 
-function applyViteAliases(config: Pick<UserConfig, 'resolve'>) {
+/**
+ * alias 项的本地结构声明：只取 find/replacement 两字段。
+ * 勿改用 vite 导出的 Alias/UserConfig —— pnpm 双 vite 实例（根 vite 与 @vitejs/plugin-vue 嵌套 vite）下
+ * 其 customResolver 携带 rollup/rolldown 不同版本类型身份，与 @nuxt/schema 的 ViteConfig 判定不兼容。
+ */
+interface LocalAlias {
+  find: string | RegExp
+  replacement: string
+}
+
+function applyViteAliases(config: { resolve?: { alias?: LocalAlias[] } }) {
   config.resolve ??= {}
   const aliases = asAliasArray(config.resolve.alias as AliasOptions | undefined).filter((a) => {
     return !(typeof a.find === 'string' && a.find === '@ocpui/vue')
@@ -170,8 +180,9 @@ export default defineNuxtModule<OcpuiNuxtOptions>({
       addVitePlugin(plugin as Plugin)
     }
 
-    nuxt.hook('vite:extendConfig', (config: UserConfig) => {
-      applyViteAliases(config)
+    // 回调参数用本地结构类型（见 LocalAlias 注释），避免双 vite 实例类型身份冲突
+    nuxt.hook('vite:extendConfig', (config) => {
+      applyViteAliases(config as { resolve?: { alias?: LocalAlias[] } })
     })
   },
 })
