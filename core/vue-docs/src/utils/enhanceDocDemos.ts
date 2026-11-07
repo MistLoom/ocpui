@@ -1,3 +1,4 @@
+/// <reference path="./virtual-doc-demos.d.ts" />
 import { createApp, h, type App } from 'vue';
 import { UiRoot } from '@ocpui/vue';
 import { loadDocDemo } from 'virtual:ocp-doc-demos';

@@ -10,7 +10,5 @@ declare module '*.vue' {
   export default component;
 }
 
-declare module 'virtual:ocp-doc-demos' {
-  import type { Component } from 'vue';
-  export function loadDocDemo(id: string): Promise<Component>;
-}
+// virtual:ocp-doc-demos 声明已拆至 src/utils/virtual-doc-demos.d.ts，由 enhanceDocDemos.ts /// <reference> 拉入，
+// 本 tsconfig 的 include 覆盖 src/**/*.d.ts，消费方程序也能解析该虚拟模块
