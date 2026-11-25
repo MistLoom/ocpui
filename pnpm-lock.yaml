@@ -4,18 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  vue: 3.5.40
-  '@vue/runtime-core': 3.5.40
-  '@vue/runtime-dom': 3.5.40
-  '@vue/reactivity': 3.5.40
-  '@vue/shared': 3.5.40
-  '@vue/compiler-core': 3.5.40
-  '@vue/compiler-dom': 3.5.40
-  '@vue/compiler-sfc': 3.5.40
-  '@vue/compiler-ssr': 3.5.40
-  '@vue/server-renderer': 3.5.40
-
 importers:
 
   .:
@@ -45,7 +33,7 @@ importers:
         specifier: workspace:*
         version: link:../../core/vue-docs
       vue:
-        specifier: 3.5.40
+        specifier: ^3.5.13
         version: 3.5.40(typescript@5.6.3)
       vue-router:
         specifier: ^4.5.0
@@ -76,7 +64,7 @@ importers:
         specifier: workspace:*
         version: link:../../core/vue-docs
       vue:
-        specifier: 3.5.40
+        specifier: ^3.5.13
         version: 3.5.40(typescript@5.6.3)
       vue-router:
         specifier: ^4.5.0
@@ -171,7 +159,7 @@ importers:
         specifier: ^3.0.0
         version: 3.2.7(@types/debug@4.1.13)(@types/node@22.20.5)(happy-dom@16.8.1)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
       vue:
-        specifier: 3.5.40
+        specifier: ^3.5.13
         version: 3.5.40(typescript@5.6.3)
       vue-router:
         specifier: ^4.6.3
@@ -204,7 +192,7 @@ importers:
         specifier: ^3.0.0
         version: 3.2.7(@types/debug@4.1.13)(@types/node@22.20.5)(happy-dom@16.8.1)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
       vue:
-        specifier: 3.5.40
+        specifier: ^3.5.13
         version: 3.5.40(typescript@5.6.3)
       vue-tsc:
         specifier: ^2.2.0
@@ -262,7 +250,7 @@ importers:
         specifier: ^3.0.0
         version: 3.2.7(@types/debug@4.1.13)(@types/node@22.20.5)(happy-dom@16.8.1)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
       vue:
-        specifier: 3.5.40
+        specifier: ^3.5.13
         version: 3.5.40(typescript@5.6.3)
       vue-tsc:
         specifier: ^2.2.0
@@ -295,7 +283,7 @@ importers:
         specifier: ^6.0.7
         version: 6.4.4(@types/node@22.20.5)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
       vue:
-        specifier: 3.5.40
+        specifier: ^3.5.13
         version: 3.5.40(typescript@5.6.3)
       vue-router:
         specifier: ^4.5.0
@@ -960,7 +948,7 @@ packages:
   '@milkdown/vue@7.22.3':
     resolution: {integrity: sha512-pH9KtmXB+N1BOC/TJmG0BTnRz8EfbnTcS5wXCftlwGIYBJWKYDRh6sSCSxCjQAISDIheq3/yConNpdiHlHSsxg==}
     peerDependencies:
-      vue: 3.5.40
+      vue: ^3.0.0
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
     resolution: {integrity: sha512-oTXEIha4SsuXdTA4Iyskj0kpdx2yVXdhd75c2v3xGrHFfVMsbhTPZU/nMPL4sWKo4pBHm3aucLaqGlF696dTyQ==}
@@ -1148,7 +1136,7 @@ packages:
   '@tanstack/vue-virtual@3.13.45':
     resolution: {integrity: sha512-AnYTTgpps/HyHJ9jgBW6dAPVTOY9UVb1AY8Gi2Th1dTDDUiUqalbq5W2hBrW0q8/DI8V5bt9HUgTvatbvZIukQ==}
     peerDependencies:
-      vue: 3.5.40
+      vue: ^2.7.0 || ^3.0.0
 
   '@tiptap/core@3.32.0':
     resolution: {integrity: sha512-Ghh2h02GKSqzytQGcLV4espYOG4EHxjj0MsrUB2Vnr47xmlZYRf6r7k2J09H+JpBdaGrWwrTkyBEi5i3c3yy2Q==}
@@ -1296,7 +1284,7 @@ packages:
       '@floating-ui/dom': ^1.0.0
       '@tiptap/core': 3.32.0
       '@tiptap/pm': 3.32.0
-      vue: 3.5.40
+      vue: ^3.0.0
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -1356,7 +1344,7 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0
-      vue: 3.5.40
+      vue: ^3.2.25
 
   '@vitest/expect@3.2.7':
     resolution: {integrity: sha512-E8eBXaKibuvH2pSZErOjdVb5vF4PbKYcrnluBTYxEk1l/VhhwZg1kZQsdtjq+CsF5CFydf2Rdkz7jDHKSisi3w==}
@@ -1449,9 +1437,9 @@ packages:
   '@vue/test-utils@2.5.1':
     resolution: {integrity: sha512-V/4a99odJ7hapr0bRt35XxljGk8hefq31gSOnlKTcEq2fUeoj2qb+FcpJYfQu4qfYhW9Ug+O2+CZ3QmZ7gXDzA==}
     peerDependencies:
-      '@vue/compiler-dom': 3.5.40
-      '@vue/server-renderer': 3.5.40
-      vue: 3.5.40
+      '@vue/compiler-dom': 3.x
+      '@vue/server-renderer': 3.x
+      vue: 3.x
     peerDependenciesMeta:
       '@vue/server-renderer':
         optional: true
@@ -1459,7 +1447,7 @@ packages:
   '@vueuse/core@14.4.0':
     resolution: {integrity: sha512-X4WHz1HlCzCBoYXesUkifzzWBAcZgXG8Fi5iNPQg/epdzOB3gu8Fawj3hvuwYR1nGcXGnvxwYYcUC/71++svtQ==}
     peerDependencies:
-      vue: 3.5.40
+      vue: ^3.5.0
 
   '@vueuse/metadata@14.4.0':
     resolution: {integrity: sha512-swx/255R6JyHZFJhx845iz5CRWDZdCfvkZOpACWc5+c5WHcG24mv8gUT1WIdFQaHt6dq79rvILd9QnCWiyVm9g==}
@@ -1467,7 +1455,7 @@ packages:
   '@vueuse/shared@14.4.0':
     resolution: {integrity: sha512-JRgY90Sz8DDtPMsaDflvPMp9xYk69JZAmbuDvAquUVXKr2gEjqtzGNTTthLfckH0BzBqvnu31gb4a8TGLRe79g==}
     peerDependencies:
-      vue: 3.5.40
+      vue: ^3.5.0
 
   abbrev@5.0.0:
     resolution: {integrity: sha512-/XrFJgzQQQHpti1raDJC6m4ws6aNktmjBlhk8Fdlk7LwCEuDoieEJJY9OFHjfiFJFFRM2tK+Ky/IsfbbmlMu1w==}
@@ -1833,7 +1821,7 @@ packages:
     resolution: {integrity: sha512-quV/6T8YB1XK0VOEnebg3Byd8Rsan5/m95cvjnuHV4vcS3qEnLAybkrSh0hk3ppavx+V7R1PjNW+mGDvcBdz4A==}
     deprecated: Package deprecated. Please use @lucide/vue instead.
     peerDependencies:
-      vue: 3.5.40
+      vue: '>=3.0.1'
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -2346,7 +2334,7 @@ packages:
     engines: {node: '>=20.19.0'}
     peerDependencies:
       '@nuxt/kit': ^3.2.2 || ^4.0.0
-      vue: 3.5.40
+      vue: ^3.0.0
     peerDependenciesMeta:
       '@nuxt/kit':
         optional: true
@@ -2398,7 +2386,7 @@ packages:
   vee-validate@4.15.1:
     resolution: {integrity: sha512-DkFsiTwEKau8VIxyZBGdO6tOudD+QoUBPuHj3e6QFqmbfCRj1ArmYWue9lEp6jLSWBIw4XPlDLjFIZNLdRAMSg==}
     peerDependencies:
-      vue: 3.5.40
+      vue: ^3.4.26
 
   vfile-message@4.0.3:
     resolution: {integrity: sha512-QTHzsGd1EhbZs4AsQ20JX1rC3cOlt/IWJruk893DfLRr57lcnOeMaWG4K0JrRta4mIJZKth2Au3mM3u03/JWKw==}
@@ -2488,7 +2476,7 @@ packages:
   vue-router@4.6.4:
     resolution: {integrity: sha512-Hz9q5sa33Yhduglwz6g9skT8OBPii+4bFn88w6J+J4MfEo4KRRpmiNG/hHHkdbRFlLBOqxN8y8gf2Fb0MTUgVg==}
     peerDependencies:
-      vue: 3.5.40
+      vue: ^3.5.0
 
   vue-tsc@2.2.12:
     resolution: {integrity: sha512-P7OP77b2h/Pmk+lZdJ0YWs+5tJ6J2+uOQPo7tlBnY44QqQSPYvS0qVT4wqDJgwrZaLe47etJLLQRFia71GYITw==}

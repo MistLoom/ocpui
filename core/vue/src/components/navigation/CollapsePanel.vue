@@ -159,9 +159,11 @@ const handleClick = () => {
 /* 动画 */
 .collapse-panel-enter-active,
 .collapse-panel-leave-active {
+  interpolate-size: allow-keywords;
   transition-property: opacity, max-height;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow: hidden;
 }
 
 .collapse-panel-enter-from,
@@ -173,6 +175,6 @@ const handleClick = () => {
 .collapse-panel-enter-to,
 .collapse-panel-leave-from {
   opacity: 1;
-  max-height: 500px;
+  max-height: auto;
 }
 </style>

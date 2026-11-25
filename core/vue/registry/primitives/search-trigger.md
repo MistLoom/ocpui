@@ -1,11 +1,63 @@
+---
+
+type: Component
+
+id: C:SEARCH-TRIGGER
+
+name: SearchTrigger
+
+tier: T0
+
+package: "@ocpui/vue"
+
+status: stable
+
+surfaces: 
+  - "list"
+  - "form"
+  - "overlay"
+
+scenes: 
+  - "workbench"
+  - "settings"
+  - "editor"
+  - "audit"
+
+requires: [UiRoot]
+
+composes: []
+
+antiPatterns:[]
+
+since: "0.1.0"
+
+---
 # SearchTrigger
 
-顶栏搜索入口：图标、可选文案与快捷键 `kbd`。
+源码：`src/components/utility/SearchTrigger.vue`
 
-| 属性 | 说明 |
-| --- | --- |
-| `ariaLabel` | 必填 |
-| `label` / `shortcut` | 文案与快捷键展示 |
-| `compact` | 仅图标 |
+## 选用
 
-事件：`click`。
+- **Tier**：T0
+- **Surface**：list、form、overlay
+- **Scene**：workbench、settings、editor、audit
+
+## 安装
+
+```bash
+ocp add SearchTrigger
+```
+
+## Props
+
+- 见组件源码 `defineProps` 与类型导出
+
+## 反模式
+
+- 绕过 SearchTrigger 手写等价 UI
+
+## 示例
+
+```vue
+<!-- 见 VitePress docs 或源码 __demos__ -->
+```

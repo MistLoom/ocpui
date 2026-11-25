@@ -16,6 +16,9 @@
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
     transition: none;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+    color-scheme: light dark;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -69,24 +72,6 @@
 
   .no-theme-transition {
     transition: none !important;
-  }
-
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border));
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--border-hover));
   }
 
   *:focus {

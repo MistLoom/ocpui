@@ -1,7 +1,7 @@
 // @ocpSourceVersion @ocpui/vue@0.1.0
 export type Size = 'xs' | 'sm' | 'md' | 'lg';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'text' | 'icon' | 'danger' | 'ghost';
+export type ButtonVariant = 'primary' | 'secondary' | 'text' | 'icon' | 'danger' | 'ghost' | 'success';
 
 export type TagVariant = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'info';
 

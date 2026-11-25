@@ -30,27 +30,9 @@
   background: hsl(var(--surface-inset));
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: var(--radius-full);
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  transition: background-color var(--duration-fast) var(--ease-standard);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--text-muted));
-  background-clip: padding-box;
-  border: 2px solid transparent;
+html {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
 }
 
 a {

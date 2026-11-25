@@ -22,7 +22,6 @@
 import { computed } from 'vue';
 
 import type { BarColumnPoint } from './bar-column-chart.types';
-export type { BarColumnPoint } from './bar-column-chart.types';
 
 interface Props {
   data: BarColumnPoint[];

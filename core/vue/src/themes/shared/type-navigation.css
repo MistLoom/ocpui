@@ -88,10 +88,6 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .tabs-nav::-webkit-scrollbar {
-    display: none;
-  }
-
   .tabs-tab {
     flex: 0 0 auto;
     padding-inline: var(--space-4);

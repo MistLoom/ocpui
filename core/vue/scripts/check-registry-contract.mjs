@@ -92,7 +92,8 @@ function motionRequired(c) {
 function parseMotion(raw) {
   const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!m) return null;
-  const lines = m[1].split('\n');
+  // 归一化行尾：registry 文件在 Windows 工作区为 CRLF，未归一化会使 (\w+):(.*)$ 全部失配
+  const lines = m[1].split(/\r?\n/);
   const start = lines.findIndex((l) => /^motion:\s*$/.test(l));
   if (start < 0) return null;
   const motion = {};

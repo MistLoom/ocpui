@@ -356,10 +356,6 @@ defineExpose({
   outline: none;
 }
 
-.scrollbar-content::-webkit-scrollbar {
-  display: none;
-}
-
 .scrollbar-bar {
   position: absolute;
   background: v-bind('props.trackColor || "transparent"');

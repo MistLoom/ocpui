@@ -17,6 +17,54 @@
       "registry": "registry/display/active-filter-tags.md"
     },
     {
+      "name": "AdminAccountAction",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminAccountAction.vue",
+      "rel": "shell/AdminAccountAction.vue",
+      "registry": "registry/shells/admin-account-action.md"
+    },
+    {
+      "name": "AdminAccountPanel",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminAccountPanel.vue",
+      "rel": "shell/AdminAccountPanel.vue",
+      "registry": "registry/shells/admin-account-panel.md"
+    },
+    {
+      "name": "AdminAppShell",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminAppShell.vue",
+      "rel": "shell/AdminAppShell.vue",
+      "registry": "registry/shells/admin-app-shell.md"
+    },
+    {
+      "name": "AdminBrand",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminBrand.vue",
+      "rel": "shell/AdminBrand.vue",
+      "registry": "registry/shells/admin-brand.md"
+    },
+    {
+      "name": "AdminCompactItem",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminCompactItem.vue",
+      "rel": "data-display/AdminCompactItem.vue",
+      "registry": "registry/shells/admin-compact-item.md"
+    },
+    {
+      "name": "AdminCompactList",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminCompactList.vue",
+      "rel": "data-display/AdminCompactList.vue",
+      "registry": "registry/shells/admin-compact-list.md"
+    },
+    {
       "name": "AdminFilterToolbar",
       "package": "@ocpui/vue-admin",
       "tier": "T0",
@@ -25,12 +73,164 @@
       "registry": "registry/shells/admin-filter-toolbar.md"
     },
     {
+      "name": "AdminHealthItem",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminHealthItem.vue",
+      "rel": "data-display/AdminHealthItem.vue",
+      "registry": "registry/shells/admin-health-item.md"
+    },
+    {
+      "name": "AdminHealthList",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminHealthList.vue",
+      "rel": "data-display/AdminHealthList.vue",
+      "registry": "registry/shells/admin-health-list.md"
+    },
+    {
+      "name": "AdminNavGroup",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminNavGroup.vue",
+      "rel": "shell/AdminNavGroup.vue",
+      "registry": "registry/shells/admin-nav-group.md"
+    },
+    {
+      "name": "AdminNavItem",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminNavItem.vue",
+      "rel": "shell/AdminNavItem.vue",
+      "registry": "registry/shells/admin-nav-item.md"
+    },
+    {
+      "name": "AdminNavItemInner",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminNavItemInner.vue",
+      "rel": "shell/AdminNavItemInner.vue",
+      "registry": "registry/shells/admin-nav-item-inner.md"
+    },
+    {
+      "name": "AdminNotificationItem",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminNotificationItem.vue",
+      "rel": "shell/AdminNotificationItem.vue",
+      "registry": "registry/shells/admin-notification-item.md"
+    },
+    {
+      "name": "AdminNotificationPanel",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminNotificationPanel.vue",
+      "rel": "shell/AdminNotificationPanel.vue",
+      "registry": "registry/shells/admin-notification-panel.md"
+    },
+    {
       "name": "AdminPage",
       "package": "@ocpui/vue-admin",
       "tier": "T3",
       "source": "src/components/layout/AdminPage.vue",
       "rel": "layout/AdminPage.vue",
       "registry": "registry/shells/admin-page.md"
+    },
+    {
+      "name": "AdminProfileTrigger",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminProfileTrigger.vue",
+      "rel": "shell/AdminProfileTrigger.vue",
+      "registry": "registry/shells/admin-profile-trigger.md"
+    },
+    {
+      "name": "AdminRowActionTip",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminRowActionTip.vue",
+      "rel": "data-display/AdminRowActionTip.vue",
+      "registry": "registry/shells/admin-row-action-tip.md"
+    },
+    {
+      "name": "AdminRuntimeCard",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminRuntimeCard.vue",
+      "rel": "shell/AdminRuntimeCard.vue",
+      "registry": "registry/shells/admin-runtime-card.md"
+    },
+    {
+      "name": "AdminSectionNote",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminSectionNote.vue",
+      "rel": "data-display/AdminSectionNote.vue",
+      "registry": "registry/shells/admin-section-note.md"
+    },
+    {
+      "name": "AdminSidebar",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminSidebar.vue",
+      "rel": "shell/AdminSidebar.vue",
+      "registry": "registry/shells/admin-sidebar.md"
+    },
+    {
+      "name": "AdminStatusCell",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminStatusCell.vue",
+      "rel": "data-display/AdminStatusCell.vue",
+      "registry": "registry/shells/admin-status-cell.md"
+    },
+    {
+      "name": "AdminStatusStrip",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminStatusStrip.vue",
+      "rel": "data-display/AdminStatusStrip.vue",
+      "registry": "registry/shells/admin-status-strip.md"
+    },
+    {
+      "name": "AdminTaskItem",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminTaskItem.vue",
+      "rel": "data-display/AdminTaskItem.vue",
+      "registry": "registry/shells/admin-task-item.md"
+    },
+    {
+      "name": "AdminTaskList",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminTaskList.vue",
+      "rel": "data-display/AdminTaskList.vue",
+      "registry": "registry/shells/admin-task-list.md"
+    },
+    {
+      "name": "AdminTopbar",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/shell/AdminTopbar.vue",
+      "rel": "shell/AdminTopbar.vue",
+      "registry": "registry/shells/admin-topbar.md"
+    },
+    {
+      "name": "AdminTreeList",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminTreeList.vue",
+      "rel": "data-display/AdminTreeList.vue",
+      "registry": "registry/shells/admin-tree-list.md"
+    },
+    {
+      "name": "AdminTreeRow",
+      "package": "@ocpui/vue-admin",
+      "tier": "T0",
+      "source": "src/components/data-display/AdminTreeRow.vue",
+      "rel": "data-display/AdminTreeRow.vue",
+      "registry": "registry/shells/admin-tree-row.md"
     },
     {
       "name": "AdminWorkList",
@@ -127,6 +327,14 @@
       "source": "src/components/utility/Badge.vue",
       "rel": "utility/Badge.vue",
       "registry": "registry/primitives/badge.md"
+    },
+    {
+      "name": "BarColumnChart",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/BarColumnChart.vue",
+      "rel": "data-display/BarColumnChart.vue",
+      "registry": "registry/display/bar-column-chart.md"
     },
     {
       "name": "BatchSelector",
@@ -399,6 +607,14 @@
       "source": "src/components/data-entry/CronPicker.vue",
       "rel": "data-entry/CronPicker.vue",
       "registry": "registry/primitives/cron-picker.md"
+    },
+    {
+      "name": "DashboardPanel",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/DashboardPanel.vue",
+      "rel": "data-display/DashboardPanel.vue",
+      "registry": "registry/display/dashboard-panel.md"
     },
     {
       "name": "DataTable",
@@ -1025,6 +1241,14 @@
       "registry": "registry/navigation/navbar.md"
     },
     {
+      "name": "NavTrack",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/navigation/NavTrack.vue",
+      "rel": "navigation/NavTrack.vue",
+      "registry": "registry/navigation/nav-track.md"
+    },
+    {
       "name": "NetworkTrafficChart",
       "package": "@ocpui/vue",
       "tier": "T0",
@@ -1111,6 +1335,14 @@
       "source": "src/components/feedback/PopupPanel.vue",
       "rel": "feedback/PopupPanel.vue",
       "registry": "registry/feedback/popup-panel.md"
+    },
+    {
+      "name": "PreviewMetricCard",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/PreviewMetricCard.vue",
+      "rel": "data-display/PreviewMetricCard.vue",
+      "registry": "registry/display/preview-metric-card.md"
     },
     {
       "name": "ProcessProgress",
@@ -1255,6 +1487,14 @@
       "source": "src/components/interaction/SearchHistory.vue",
       "rel": "interaction/SearchHistory.vue",
       "registry": "registry/interaction/search-history.md"
+    },
+    {
+      "name": "SearchTrigger",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/utility/SearchTrigger.vue",
+      "rel": "utility/SearchTrigger.vue",
+      "registry": "registry/primitives/search-trigger.md"
     },
     {
       "name": "SegmentedControl",
@@ -1569,6 +1809,14 @@
       "registry": "registry/primitives/toast-container.md"
     },
     {
+      "name": "ToneBadge",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/data-display/ToneBadge.vue",
+      "rel": "data-display/ToneBadge.vue",
+      "registry": "registry/display/tone-badge.md"
+    },
+    {
       "name": "Tooltip",
       "package": "@ocpui/vue",
       "tier": "T0",
@@ -1663,6 +1911,14 @@
       "source": "src/components/data-entry/Upload.vue",
       "rel": "data-entry/Upload.vue",
       "registry": "registry/primitives/upload.md"
+    },
+    {
+      "name": "ViewRegion",
+      "package": "@ocpui/vue",
+      "tier": "T0",
+      "source": "src/components/animation/ViewRegion.vue",
+      "rel": "animation/ViewRegion.vue",
+      "registry": "registry/animation/view-region.md"
     },
     {
       "name": "VirtualList",

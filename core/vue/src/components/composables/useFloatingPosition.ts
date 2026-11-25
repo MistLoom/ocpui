@@ -9,7 +9,7 @@ import {
   type Middleware,
   type ReferenceElement,
 } from '@floating-ui/dom';
-import { onUnmounted, toValue, watch, type MaybeRefOrGetter, type Ref } from 'vue';
+import { onUnmounted, toValue, watch, type MaybeRefOrGetter } from 'vue';
 
 export type FloatingPlacement =
   | 'bottom'

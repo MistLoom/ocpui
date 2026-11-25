@@ -175,6 +175,7 @@
 /* Collapse 折叠过渡 */
 .collapse-enter-active,
 .collapse-leave-active {
+  interpolate-size: allow-keywords;
   transition: max-height var(--duration-medium) var(--ease-standard),
               opacity var(--duration-fast) var(--ease-standard);
   overflow: hidden;
@@ -183,6 +184,11 @@
 .collapse-leave-to {
   max-height: 0;
   opacity: 0;
+}
+.collapse-enter-to,
+.collapse-leave-from {
+  max-height: auto;
+  opacity: 1;
 }
 
 /* ============================================

@@ -667,19 +667,6 @@ defineExpose({
   scrollbar-color: hsl(var(--border)) transparent;
 }
 
-.timepicker-column-body::-webkit-scrollbar {
-  width: 4px;
-}
-
-.timepicker-column-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.timepicker-column-body::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 2px;
-}
-
 .timepicker-option {
   display: flex;
   align-items: center;

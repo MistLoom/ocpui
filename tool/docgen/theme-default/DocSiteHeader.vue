@@ -177,12 +177,6 @@ const emit = defineEmits<{
   scrollbar-width: none;
 }
 
-.doc-site-header__nav::-webkit-scrollbar {
-  display: none;
-}
-
-
-
 .doc-site-header__nav-item {
 
   padding: 0.375rem 0.75rem;

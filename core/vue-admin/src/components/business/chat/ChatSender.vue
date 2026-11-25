@@ -349,20 +349,6 @@ function handleKeydown(e: KeyboardEvent) {
 }
 
 function handleInput() {
-  autoResize();
-}
-
-function autoResize() {
-  if (!textareaRef.value) return;
-
-  const textarea = textareaRef.value;
-  textarea.style.height = 'auto';
-
-  const lineHeight = 24;
-  const maxHeight = props.maxRows * lineHeight;
-  const newHeight = Math.min(textarea.scrollHeight, maxHeight);
-
-  textarea.style.height = `${newHeight}px`;
 }
 
 function handleFocus() {
@@ -390,7 +376,6 @@ function handleSend() {
   inputValue.value = '';
   localAttachments.value = [];
   nextTick(() => {
-    autoResize();
     textareaRef.value?.focus();
   });
 }
@@ -704,7 +689,6 @@ defineExpose({
   clear: () => {
     inputValue.value = '';
     localAttachments.value = [];
-    nextTick(() => autoResize());
   },
   getValue: () => inputValue.value,
   getAttachments: () => [...localAttachments.value],
@@ -722,7 +706,6 @@ defineExpose({
       const newCursorPos = start + text.length;
       textarea.setSelectionRange(newCursorPos, newCursorPos);
       textarea.focus();
-      autoResize();
     });
   },
 });
@@ -736,7 +719,7 @@ defineExpose({
   flex-direction: column;
   gap: var(--space-2, 8px);
   padding: var(--space-3, 12px);
-  background: hsl(var(--surface-elevated));
+  background: light-dark(hsl(var(--surface-elevated)), hsl(var(--surface)));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-lg, 12px);
   transition: border-color var(--duration-normal, 200ms) var(--ease-standard, ease),
@@ -781,26 +764,13 @@ defineExpose({
   scrollbar-color: hsl(var(--border)) transparent;
 }
 
-.attachments-scroll::-webkit-scrollbar {
-  height: 4px;
-}
-
-.attachments-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.attachments-scroll::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: var(--radius-full, 9999px);
-}
-
 .attachment-chip {
   display: flex;
   align-items: center;
   gap: var(--space-2, 8px);
   padding: var(--space-1, 4px) var(--space-2, 8px);
   padding-left: var(--space-2, 8px);
-  background: hsl(var(--surface));
+  background: light-dark(hsl(var(--surface)), hsl(var(--surface-elevated)));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md, 8px);
   flex-shrink: 0;
@@ -899,21 +869,9 @@ defineExpose({
   outline: none;
   font-family: inherit;
   overflow-y: auto;
+  field-sizing: content;
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--border)) transparent;
-}
-
-.sender-textarea::-webkit-scrollbar {
-  width: 4px;
-}
-
-.sender-textarea::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.sender-textarea::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: var(--radius-full, 9999px);
 }
 
 .sender-textarea::placeholder {
@@ -989,7 +947,7 @@ defineExpose({
 }
 
 .toolbar-btn:hover {
-  background: hsl(var(--surface));
+  background: light-dark(hsl(var(--surface)), hsl(var(--surface-elevated)));
   color: hsl(var(--text));
   border-color: hsl(var(--border));
 }
@@ -1113,7 +1071,7 @@ defineExpose({
   width: 40px;
   height: 40px;
   padding: 0;
-  background: hsl(var(--surface));
+  background: light-dark(hsl(var(--surface)), hsl(var(--surface-elevated)));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius-md, 8px);
   color: hsl(var(--text-muted));
@@ -1368,25 +1326,6 @@ defineExpose({
 
   .attachment-name {
     max-width: 80px;
-  }
-}
-
-/* ========== 暗色模式适配 ========== */
-@media (prefers-color-scheme: dark) {
-  .chat-sender {
-    background: hsl(var(--surface));
-  }
-
-  .attachment-chip {
-    background: hsl(var(--surface-elevated));
-  }
-
-  .toolbar-btn:hover {
-    background: hsl(var(--surface-elevated));
-  }
-
-  .send-btn {
-    background: hsl(var(--surface-elevated));
   }
 }
 

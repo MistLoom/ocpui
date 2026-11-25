@@ -231,6 +231,8 @@ const generateStaticStyles = (): string => {
   html {
     font-size: var(--font-size-base);
     line-height: 1.6;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 
   body {
@@ -246,25 +248,16 @@ const generateStaticStyles = (): string => {
     text-wrap: pretty;
   }
 
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  *:focus {
+    outline: none;
   }
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border));
-    border-radius: var(--radius-md-full);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--border-hover));
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring) / 0.7);
+    outline-offset: 2px;
   }
 `;
-  
+
   return cachedStaticStyles;
 };
 

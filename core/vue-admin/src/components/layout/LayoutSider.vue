@@ -335,24 +335,8 @@ defineExpose({
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-/* 自定义滚动条 */
-.layout-sider-menu::-webkit-scrollbar {
-  width: 4px;
-}
-
-.layout-sider-menu::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.layout-sider-menu::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 2px;
-}
-
-.layout-sider-menu::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--text-muted));
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
 }
 
 /* 底部区域 */

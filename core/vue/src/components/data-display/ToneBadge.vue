@@ -11,7 +11,6 @@
 import { computed } from 'vue';
 
 import type { ToneBadgeTone } from './tone-badge.types';
-export type { ToneBadgeTone } from './tone-badge.types';
 
 interface Props {
   tone?: ToneBadgeTone;

@@ -657,18 +657,6 @@ function formatSize(bytes: number): string {
   }
 }
 
-/* ========== 暗色模式适配 ========== */
-@media (prefers-color-scheme: dark) {
-  .bubble-assistant {
-    background: hsl(var(--surface-elevated));
-    border-color: hsl(var(--border));
-  }
-
-  .attachment-item {
-    background: hsl(var(--surface));
-  }
-}
-
 /* ========== 无障碍支持 ========== */
 @media (prefers-reduced-motion: reduce) {
   .chat-message,

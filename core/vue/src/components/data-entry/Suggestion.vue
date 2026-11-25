@@ -804,8 +804,8 @@ const HighlightText = defineComponent({
 
 .suggestion-dropdown {
   overflow-y: auto;
-  background: hsl(var(--surface));
-  border: 1px solid hsl(var(--border));
+  background: light-dark(hsl(var(--surface)), hsl(var(--surface-dark, var(--surface))));
+  border: 1px solid light-dark(hsl(var(--border)), hsl(var(--border-dark, var(--border))));
   border-radius: 12px;
   box-shadow: var(--shadow-md);
   font-family: inherit;
@@ -854,7 +854,7 @@ const HighlightText = defineComponent({
 
 .suggestion-option:hover:not(.suggestion-option--disabled),
 .suggestion-option--selected {
-  background: hsl(var(--surface-hover));
+  background: light-dark(hsl(var(--surface-hover)), hsl(var(--surface-hover) / 0.5));
 }
 
 .suggestion-option--active {
@@ -959,19 +959,6 @@ const HighlightText = defineComponent({
 @media (min-width: 640px) and (max-width: 1023px) {
   .suggestion-dropdown {
     min-width: 200px;
-  }
-}
-
-/* 暗色模式适配 */
-@media (prefers-color-scheme: dark) {
-  .suggestion-dropdown {
-    background: hsl(var(--surface-dark, var(--surface)));
-    border-color: hsl(var(--border-dark, var(--border)));
-  }
-
-  .suggestion-option:hover:not(.suggestion-option--disabled),
-  .suggestion-option--selected {
-    background: hsl(var(--surface-hover) / 0.5);
   }
 }
 </style>

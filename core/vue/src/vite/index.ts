@@ -191,7 +191,8 @@ export function ocpuiComponents(options: OcpuiComponentsOptions): Plugin {
       /[\\/]__demos__[\\/]/,
       /[\\/]\.refer[\\/]/,
     ],
-  }) as Plugin
+  // unplugin 的 Plugin 来自其自带 vite 类型副本，与外部 vite 版本可能不同构；此处只做插件契约断言
+  }) as unknown as Plugin
 }
 
 export interface OcpuiVitePluginsOptions extends OcpuiComponentsOptions {

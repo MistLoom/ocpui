@@ -289,16 +289,8 @@ onUnmounted(() => {
   border-width: 4px;
 }
 
-.spin-ring-item:nth-child(1) {
-  animation-delay: -0.45s;
-}
-
-.spin-ring-item:nth-child(2) {
-  animation-delay: -0.3s;
-}
-
-.spin-ring-item:nth-child(3) {
-  animation-delay: -0.15s;
+.spin-ring-item {
+  animation-delay: calc((sibling-index() - 4) * 0.15s);
 }
 
 @keyframes spin-ring {

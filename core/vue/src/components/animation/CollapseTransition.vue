@@ -29,38 +29,32 @@ CollapseTransition 组件
 <script setup lang="ts">
 const handleBeforeEnter = (el: Element) => {
   const element = el as HTMLElement;
-  element.style.maxHeight = '0';
   element.style.overflow = 'hidden';
   element.style.opacity = '0';
 };
 
 const handleEnter = (el: Element) => {
   const element = el as HTMLElement;
-  element.style.maxHeight = `${element.scrollHeight}px`;
   element.style.opacity = '1';
 };
 
 const handleAfterEnter = (el: Element) => {
   const element = el as HTMLElement;
-  element.style.maxHeight = '';
   element.style.overflow = '';
 };
 
 const handleBeforeLeave = (el: Element) => {
   const element = el as HTMLElement;
-  element.style.maxHeight = `${element.scrollHeight}px`;
   element.style.overflow = 'hidden';
 };
 
 const handleLeave = (el: Element) => {
   const element = el as HTMLElement;
-  element.style.maxHeight = '0';
   element.style.opacity = '0';
 };
 
 const handleAfterLeave = (el: Element) => {
   const element = el as HTMLElement;
-  element.style.maxHeight = '';
   element.style.overflow = '';
   element.style.opacity = '';
 };
@@ -69,8 +63,10 @@ const handleAfterLeave = (el: Element) => {
 <style scoped>
 .collapse-enter-active,
 .collapse-leave-active {
+  interpolate-size: allow-keywords;
   transition: max-height 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
               opacity 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow: hidden;
 }
 
 .collapse-enter-from,
@@ -78,5 +74,11 @@ const handleAfterLeave = (el: Element) => {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
+}
+
+.collapse-enter-to,
+.collapse-leave-from {
+  max-height: auto;
+  opacity: 1;
 }
 </style>

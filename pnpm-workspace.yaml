@@ -2,3 +2,16 @@ packages:
   - 'core/*'
   - 'tool/*'
   - 'casus/*'
+
+# 独立开发/发布时 Vue 运行时单实例；接入主仓时由主仓根 overrides 统一约束。
+overrides:
+  vue: '3.5.40'
+  '@vue/runtime-core': '3.5.40'
+  '@vue/runtime-dom': '3.5.40'
+  '@vue/reactivity': '3.5.40'
+  '@vue/shared': '3.5.40'
+  '@vue/compiler-core': '3.5.40'
+  '@vue/compiler-dom': '3.5.40'
+  '@vue/compiler-sfc': '3.5.40'
+  '@vue/compiler-ssr': '3.5.40'
+  '@vue/server-renderer': '3.5.40'

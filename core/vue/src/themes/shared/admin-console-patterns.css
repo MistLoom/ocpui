@@ -145,12 +145,6 @@
   min-height: 0;
 }
 
-.ocp-admin-nav::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
 .ocp-admin-nav-group {
   display: flex;
   flex-direction: column;

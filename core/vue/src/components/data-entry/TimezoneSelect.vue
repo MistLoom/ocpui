@@ -795,21 +795,9 @@ defineExpose({
 }
 
 /* Scrollbar */
-.timezone-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.timezone-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.timezone-list::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 3px;
-}
-
-.timezone-list::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--border-hover));
+.timezone-list {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
 }
 
 /* Responsive */

@@ -221,7 +221,7 @@ const handleStepKeydown = (index: number, event: KeyboardEvent) => {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: hsl(var(--surface-container-high));
+  background: light-dark(hsl(var(--surface-container-high)), hsl(var(--surface)));
   border: 2px solid hsl(var(--border));
   color: hsl(var(--text-muted));
   font-size: 14px;
@@ -467,14 +467,6 @@ const handleStepKeydown = (index: number, event: KeyboardEvent) => {
   
   outline-offset: 4px;
   border-radius: 4px;
-}
-
-/* ===== 深色模式适配 ===== */
-@media (prefers-color-scheme: dark) {
-  .step-icon {
-    background: hsl(var(--surface));
-    border-color: hsl(var(--border));
-  }
 }
 
 /* ===== 减少动画（可访问性） ===== */

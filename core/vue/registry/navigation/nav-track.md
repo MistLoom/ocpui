@@ -1,8 +1,60 @@
+---
+
+type: Component
+
+id: C:NAV-TRACK
+
+name: NavTrack
+
+tier: T0
+
+package: "@ocpui/vue"
+
+status: stable
+
+surfaces: 
+  - "list"
+  - "overlay"
+
+scenes: 
+  - "workbench"
+  - "settings"
+
+requires: [UiRoot]
+
+composes: []
+
+antiPatterns:[绕开 PageHeader/Menu/Breadcrumb/Pagination 手写等价导航结构]
+
+since: "0.1.0"
+
+---
 # NavTrack
 
-滑动指示导航轨道。子项使用 `data-ocp-nav-item`（兼容 `data-flow-nav-item`），激活态 `.is-active` 或 `data-active="true"`。
+源码：`src/components/navigation/NavTrack.vue`
 
-| 属性 | 说明 |
-| --- | --- |
-| `watchKey` | 列表/路由变化后重测指示条 |
-| `indicator` | `pill`（默认，顶栏胶囊） / `underline`（底线） |
+## 选用
+
+- **Tier**：T0
+- **Surface**：list、overlay
+- **Scene**：workbench、settings
+
+## 反模式
+
+- 绕开 PageHeader/Menu/Breadcrumb/Pagination 手写等价导航结构
+
+## 安装
+
+```bash
+ocp add NavTrack
+```
+
+## Props
+
+- 见组件源码 `defineProps` 与类型导出
+
+## 示例
+
+```vue
+<!-- 见 VitePress docs 或源码 __demos__ -->
+```

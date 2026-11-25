@@ -1,7 +1,7 @@
 &lt;!--
 Textarea 组件
 
-功能：提供一个多行文本输入框，支持自动调整大小、字数统计等功能
+功能：提供一个多行文本输入框，支持自动高度、字数统计等功能
 
 Props:
 - modelValue: string - 绑定的值，默认 ''
@@ -9,7 +9,7 @@ Props:
 - disabled: boolean - 是否禁用，默认 false
 - readonly: boolean - 是否只读，默认 false
 - rows: number - 行数，默认 4
-- autosize: boolean | { minRows?: number; maxRows?: number } - 是否自动调整大小，默认 false
+- autosize: boolean | { minRows?: number; maxRows?: number } - 开启后由 `field-sizing: content` 自动撑高；minRows 作为初始行数，maxRows 未实现（CSS 方案下需由外层容器限高），默认 false
 - maxlength: number - 最大字符数
 - showCount: boolean - 是否显示字数统计，默认 false
 - resize: 'none' | 'both' | 'horizontal' | 'vertical' - 调整大小方向，默认 'vertical'
@@ -24,7 +24,6 @@ Events:
 - focus: (FocusEvent) - 聚焦时触发
 - blur: (FocusEvent) - 失焦时触发
 - keydown: (KeyboardEvent) - 按键按下时触发
-- resize: ({ width: number; height: number }) - 调整大小时触发
 
 Methods:
 - focus() - 聚焦到文本框
@@ -112,12 +111,10 @@ const emit = defineEmits<{
   'focus': [FocusEvent];
   'blur': [FocusEvent];
   'keydown': [KeyboardEvent];
-  'resize': [{ width: number; height: number }];
 }>();
 
 const textareaRef = ref<HTMLTextAreaElement>();
 const focused = ref(false);
-const textareaHeight = ref<number>();
 const resolvedSize = useComponentSize(toRef(props, 'size'));
 
 const wrapperClass = computed(() => {
@@ -153,9 +150,6 @@ const textareaClass = computed(() => {
 const textareaStyle = computed(() => {
   const style: Record<string, string> = {};
   style.resize = props.resize;
-  if (textareaHeight.value) {
-    style.height = `${textareaHeight.value}px`;
-  }
   return style;
 });
 
@@ -185,10 +179,6 @@ const handleInput = (event: Event) => {
   
   emit('update:modelValue', value);
   emit('change', value);
-  
-  if (props.autosize) {
-    autoResize();
-  }
 };
 
 const handleFocus = (event: FocusEvent) => {
@@ -206,37 +196,6 @@ const handleKeydown = (event: KeyboardEvent) => {
   emit('keydown', event);
 };
 
-const autoResize = () => {
-  if (!textareaRef.value) return;
-  
-  const textarea = textareaRef.value;
-  const computedStyle = getComputedStyle(textarea);
-  const lineHeight = parseFloat(computedStyle.lineHeight) || 20;
-  const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
-  const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
-
-  
-  textarea.style.height = 'auto';
-  
-  let height = textarea.scrollHeight;
-  
-  if (typeof props.autosize === 'object') {
-    const minHeight = (props.autosize.minRows || 1) * lineHeight + paddingTop + paddingBottom;
-    const maxHeight = props.autosize.maxRows 
-      ? props.autosize.maxRows * lineHeight + paddingTop + paddingBottom 
-      : Infinity;
-    height = Math.max(minHeight, Math.min(maxHeight, height));
-  }
-  
-  textareaHeight.value = height;
-  textarea.style.height = `${height}px`;
-  
-  emit('resize', { 
-    width: textarea.offsetWidth, 
-    height: textarea.offsetHeight 
-  });
-};
-
 const focus = () => {
   textareaRef.value?.focus();
 };
@@ -248,19 +207,6 @@ const blur = () => {
 const select = () => {
   textareaRef.value?.select();
 };
-
-watch(() => props.modelValue, () => {
-  if (props.autosize) {
-    nextTick(() => autoResize());
-  }
-});
-
-// 组件挂载后初始化自动调整大小
-nextTick(() => {
-  if (props.autosize) {
-    autoResize();
-  }
-});
 
 defineExpose({
   focus,
@@ -289,6 +235,7 @@ defineExpose({
   border: 1px solid hsl(var(--border));
   border-radius: 12px;
   outline: none;
+  field-sizing: content;
   transition: background-color var(--duration-normal) var(--ease-standard), color var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard), transform var(--duration-normal) var(--ease-standard), opacity var(--duration-normal) var(--ease-standard);
 }
 

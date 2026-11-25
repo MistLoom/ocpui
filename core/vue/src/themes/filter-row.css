@@ -1,7 +1,7 @@
 /**
  * 筛选行内部布局原语（FilterTagGroup / ActiveFilterTags 等共用）
- * 仅负责组件内�?label �?controls 对齐，不含对�?margin / padding�?
- * 容器间距�?@ocpui/docs/spec/foundation/visual-language.md §2.1
+ * 仅负责组件内部 label 与 controls 对齐，不含外层 margin / padding。
+ * 容器间距见 @ocpui/docs/spec/foundation/visual-language.md §2.1
  */
 @layer shared-components {
   .ocp-filter-row {
@@ -112,10 +112,6 @@
       overflow-x: auto;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
-    }
-
-    .ocp-filter-row--labeled .ocp-filter-row__controls::-webkit-scrollbar {
-      display: none;
     }
   }
 }

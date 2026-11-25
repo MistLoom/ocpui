@@ -119,18 +119,8 @@ html.theme-switching .theme-tech *::after {
 }
 
 /* 深色模式 - 滚动条（Tech 加宽样式） */
-.theme-tech.dark ::-webkit-scrollbar-thumb,
-.dark.theme-tech ::-webkit-scrollbar-thumb {
-  border: 3px solid hsl(var(--surface-canvas));
-}
-
-.theme-tech.dark ::-webkit-scrollbar,
-.dark.theme-tech ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-.theme-tech.dark ::-webkit-scrollbar-track,
-.dark.theme-tech ::-webkit-scrollbar-track {
-  background: hsl(var(--surface-canvas));
+.theme-tech.dark,
+.dark.theme-tech {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
 }
