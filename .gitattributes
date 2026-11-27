@@ -1,0 +1,24 @@
+# 行尾策略：仓库内一律存 LF，与 Linux 和 CI 行为一致。
+# 缺少此文件时，Windows 上的 core.autocrlf=true 会让检出后的文件
+# 与索引中的行尾不一致，codegen / 编辑器重写文件后产生纯行尾的假 dirty。
+* text=auto eol=lf
+
+# 图片与二进制：不做行尾转换。
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.woff2 binary
+
+# 锁文件体量大且由工具生成，无需参与行尾归一。
+pnpm-lock.yaml -text
+Cargo.lock -text
